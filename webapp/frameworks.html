@@ -143,7 +143,6 @@
 					</ul>
 
 					<form class="navbar-form navbar-right inline-form">
-
 						<div class="form-group">
 						<h4 class="inline">
 						  <span style="margin-left: 20px" class="label label-default">Theme</span>
@@ -242,73 +241,65 @@
 				<!-- /col-lg-3 -->
 				<div class="col-lg-9">
 					<ol class="breadcrumb" style="margin-top:20px">
-						<li class="active">
+						<li>
+							<a href="index.html">
 								Home
-						</li>
-						<li >							
-							<a href="frameworks.html">
-								Frameworks
 							</a>
+						</li>
+						<li class="active">
+							Frameworks
 						</li>
 					</ol>
 					<!-- Main jumbotron for a primary marketing message or call to action -->
-					<div class="jumbotron">
-						<div class="container">
-							<h1>
-								Hello, world!
-							</h1>
-							<p>
-								This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
-							</p>
-							<p>
-								<a class="btn btn-primary btn-lg">
-									Learn more &raquo;
-								</a>
-							</p>
+
+
+						<!-- Example row of columns -->
+						<div class="row">
+							<div class="col-lg-12">
+								<h2 class="page-header">
+									<a href="http://arborjs.org/" target="_blank">arbor.js</a>
+								</h2>
+								<canvas id="viewport" width="600" height="600"></canvas>
+							</div>
+					
 						</div>
-					</div>
-					<!-- Example row of columns -->
-					<div class="row">
-						<div class="col-lg-4">
-							<h2>
-								Heading
-							</h2>
-							<p>
-								Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-							</p>
-							<p>
-								<a class="btn btn-default" href="#">
-									View details &raquo;
-								</a>
-							</p>
+						<div class="row">
+							<div class="col-lg-12">
+								<h2 class="page-header">
+									<a href="http://jsplumbtoolkit.com/home/jquery.html" target="_blank">jsPlumb</a>
+								</h2>
+								<svg id="container0" width="80px" height="80px" style="border: 1px black">
+							    </svg>
+							    <svg id="container1" width="80px" height="80px" style="border: 1px black">
+							    </svg>
+							</div>
+					
 						</div>
-						<div class="col-lg-4">
-							<h2>
-								Heading
-							</h2>
-							<p>
-								Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-							</p>
-							<p>
-								<a class="btn btn-default" href="#">
-									View details &raquo;
-								</a>
-							</p>
+						<div class="row">
+							<div class="col-lg-12">
+								<h2 class="page-header">
+									<a href="http://sigmajs.org/" target="_blank">sigma.js</a>
+								</h2>
+								<div id="sigmajs" width="600" height="600"></div>
+							</div>
+					
 						</div>
-						<div class="col-lg-4">
-							<h2>
-								Heading
-							</h2>
-							<p>
-								Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-							</p>
-							<p>
-								<a class="btn btn-default" href="#">
-									View details &raquo;
-								</a>
-							</p>
+						<div class="row">
+							<div class="col-lg-12">
+								<h2 class="page-header">
+									<a href="http://d3js.org/" target="_blank">d3js</a>
+								</h2>
+								<p>
+									Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+								</p>
+								<p>
+									<a class="btn btn-default" href="#">
+										View details &raquo;
+									</a>
+								</p>
+							</div>
+					
 						</div>
-					</div>
 
 				</div>
 				<!-- /col-lg-9 -->
@@ -347,14 +338,47 @@
                 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
                 -->
 		<script src="js/vendor/jquery-1.10.1.min.js"></script>
-
+		<script src="js/vendor/jquery-ui-1.10.3.min.js"></script>
+		
 		<script>
 			window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 
 		<script src="js/vendor/bootstrap.min.js"></script>
+	
+		<script src="js/vendor/sigma.min.js"></script>
+		<script src="js/sigma-main.js"></script>
+		
+		
 		<script src="js/plugins.js"></script>
+		
 		<script src="js/main.js"></script>
 		<script src="js/theme.js"></script>
+<!-- 	-->		
+		<script src="js/vendor/arbor.js"></script>
+		<script src="js/vendor/arbor-tween.js"></script>
+
+		<script src="js/arbor-graph-main.js"></script>
+		
+		<!-- -->
+		
+		<script src="js/vendor/jquery.jsPlumb-1.5.3.js"></script>
+		<script type="text/javascript">
+			jsPlumb.ready(function() {
+				var firstInstance = jsPlumb.getInstance();
+				firstInstance.importDefaults({
+				  Connector : [ "Bezier", { curviness: 150 } ],
+				  Anchors : [ "TopCenter", "BottomCenter" ]
+				});
+
+				firstInstance.connect({
+				  source:"container1", 
+				  target:"container0", 
+				  scope:"someScope" 
+				});
+			});
+		  
+		</script>
+		
 		<!-- 
 		<script>
 			var _gaq=[['_setAccount','UA-43966487-2'],['_trackPageview']];
