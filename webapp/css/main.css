@@ -19,7 +19,8 @@
 @import url("bootstrap.min.css");
 */
  
- @import url("colors.css");
+@import url("colors.css");
+@import url("joint.css");
 
 /* Sparkline stats
 =================================================================== */

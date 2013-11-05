@@ -63,7 +63,7 @@
           // pt:   {x:#, y:#}  node position in screen coords
 
           // draw a rectangle centered at pt
-          var w = 10
+          var w = 60;
           ctx.fillStyle = (node.data.alone) ? "orange" : "black"
           ctx.fillRect(pt.x-w/2, pt.y-w/2, w,w)
         })    			
@@ -125,16 +125,59 @@
   }    
 
   $(document).ready(function(){
+       var nodes = {
+            
+        "platform":[],
+        "mobile":["ios", "winphone", "android"],
+        "web":[],
+        
+        "device":["mobile", "desktop"],
+        
+        "html5":["phonegapSDK",  "titaniumSDK", "tideSDK"],
+        
+        "tideSDK":["desktop"],
+        
+        "rapSDK":[ "html5"],
+        
+        "titaniumSDK":["mobile"],
+        
+        "phonegapSDK":["mobile"],
+        
+        "openFLSDK":[ "html5"],
+        
+        "haxeSDK":["openFLSDK"],
+        
+        "nodejsSDK":[],
+        
+        "gwtSDK":["html5"],
+        
+        "ios":[],
+        
+        "winphone":[],
+        
+        "android":[],
+        
+        "desktop":[]
+    };
+      
     var sys = arbor.ParticleSystem(1000, 600, 0.5) // create the system with sensible repulsion/stiffness/friction
     sys.parameters({gravity:true}) // use center-gravity to make the graph settle nicely (ymmv)
     sys.renderer = Renderer("#viewport") // our newly created renderer will have its .init() method called shortly by sys...
 
     // add some nodes to the graph and watch it go...
+     $.each(nodes,function(key,value){
+        var parent = key;
+        sys.addNode(parent);//,{render : render});
+        $.each(value,function(key,value){
+            sys.addEdge(parent, value );
+        });
+    });
+     /* 
     sys.addEdge('a','b')
     sys.addEdge('a','c')
     sys.addEdge('a','d')
     sys.addEdge('a','e')
-    sys.addNode('f', {alone:true, mass:.25})
+    sys.addNode('f', {alone:true, mass:.25})//*/
 
     // or, equivalently:
     //
