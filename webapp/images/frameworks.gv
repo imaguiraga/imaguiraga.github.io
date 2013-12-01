@@ -1,0 +1,43 @@
+##Command to produce the output: "neato -Tsvg frameworks.gv  > neato-frameworks.svg  &&  dot -Tsvg frameworks.gv > dot-frameworks.svg  &&  circo -Tsvg frameworks.gv > circo-frameworks.svg &&  twopi -Tsvg frameworks.gv > twopi-frameworks.svg &&  fdp -Tsvg frameworks.gv > fdp-frameworks.svg && sfdp -Tsvg frameworks.gv > sfdp-frameworks.svg && patchwork -Tsvg frameworks.gv > patch-frameworks.svg"
+digraph Frameworks {
+node [shape=box, color=lightblue,style=filled];  mobile;desktop;platform;web;device;ios; winphone; android;linux;windows;mac;
+node [shape=box, color=green,style=filled]; 
+  platform->{};
+        mobile->{ios; winphone; android};
+        web->{};
+        
+        device->{mobile; desktop};
+        
+        html5->{cordovaSDK;nodeWebkitSDK;phonegapSDK;  titaniumSDK; tideSDK;deskshellSDK;web};
+        
+        tideSDK->{desktop};
+    
+        rapSDK->{ html5};
+        
+        titaniumSDK->{mobile};
+        
+        phonegapSDK->{mobile};
+        
+        openFLSDK->{ html5};
+        
+        haxeSDK->{openFLSDK};
+        
+        nodejsSDK->{};
+        
+        gwtSDK->{html5};
+        
+        ios->{};
+        
+        winphone->{};
+        
+        android->{};
+        
+        desktop->{linux;windows;mac};
+  cordovaSDK->{mobile;desktop};
+deskshellSDK->{desktop};
+nodeWebkitSDK->{desktop};
+overlap=false;
+label="Frameworks";
+fontsize=12;
+}
+
