@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Bitmap</title>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--
+    <link href="styles/css/bootstrap.min.css" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="styles/css/main.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <style type="text/css">
+      body { padding-top: 40px; }
+    </style>
+    <style type="text/css">
+      canvas { border: 1px solid black; }
+
+      #bitmap-slider-range, #bitmap-palette{
+        margin: 10px 0px;
+        height:10px;
+        background: -webkit-linear-gradient(left, blue, yellow,red); /* For Safari */
+        background: -o-linear-gradient(right, blue, yellow,red); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(right, blue, yellow,red); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to right, blue, yellow,red); /* Standard syntax (must be last) */
+      }
+</style>
+    </style>
+
+  </head>
+
+  <body>
+
+	<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar">
+						</span>
+						<span class="icon-bar">
+						</span>
+						<span class="icon-bar">
+						</span>
+					</button>
+					<a class="navbar-brand" href="#">
+						Bitmap
+					</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="#">
+								<i class="fa fa-fw fa-home">
+								</i>
+								Home
+							</a>
+						</li>
+						<li>
+							<a href="#about">
+								About
+							</a>
+						</li>
+
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+		</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+        	<h3>
+	            <ul class="nav nav-tabs" id="myTab">
+				  <li class="active"><a href="#bitmap-pane" data-toggle="tab">Bitmap</a></li>
+				  <li><a href="#console-pane" data-toggle="tab">Console</a></li>
+				</ul>
+			</h3>
+			<div class="tab-content">
+				<div class="tab-pane fade in active" id="bitmap-pane">
+          <div id="bitmap" style="text-align:center">
+            <h4 class="page-header">Bitmap</h4>
+            <div id="bitmap-palette"></div>
+            <canvas id="tutorial" width="512" height="256"></canvas>
+          </div>
+          <h5 class="page-header">Range</h5>
+				  <div id="bitmap-slider-range"></div>
+          <div>
+          <canvas id="palette" width="512" height="10"></canvas>
+          </div>
+
+
+				  <p>
+					  <label for="bitmap-range">range:</label>
+					  <input type="text" id="bitmap-range" style="border:0; color:#f6931f; font-weight:bold;">
+					</p>
+				</div>
+				<div class="tab-pane fade col-lg-12" id="console-pane" style="height:500px;overflow:auto;"></div>
+          	</div>
+        </div>
+
+        <div class="col-lg-6">
+            <h3 class="page-header">Debug Log</h3>
+        	<pre id="debug" style="height:500px;overflow:auto;"></pre>
+        </div>
+      </div>
+    </div>
+	<!-- back to top link-->
+	<a id="goto-top" href="#" class="btn btn-default" title="Back To Top">
+		<i class="fa fa-chevron-up fa-2x">
+		</i>
+	</a>
+	<hr />
+    <!-- Scripts placed at the end of the document so the pages load faster -->
+    <script src="scripts/js/vendor/jquery-1.10.1.min.js"></script>
+	<script src="scripts/js/vendor/jquery-ui-1.10.3.min.js"></script>
+
+	<script>
+		window.jQuery || document.write('<script src="scripts/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+
+	<script src="scripts/js/vendor/bootstrap.min.js"></script>
+<!--
+	<script src="scripts/js/vendor/jquery.mousewheel-min.js"></script>
+  	<script src="scripts/js/vendor/jquery.terminal-min.js"></script>
+-->
+	<script src="scripts/js/plugins.js"></script>
+<!--
+    <script src="scripts/js/stomp.js"></script>
+    <script src="scripts/js/main.js"></script>
+-->
+<script>
+  $(function() {
+    var palette = [];
+    var canvas = document.getElementById('tutorial');
+    var SIZE = canvas.width*canvas.height;
+    var imgData;
+   var buffer = (function initialiseBuffer(size){
+      var buffer = new ArrayBuffer(size*Uint16Array.BYTES_PER_ELEMENT);
+      var view = new Uint16Array(buffer);
+
+      for(var i = 0;i < size;i++){
+        var value = Math.floor(Math.random()*511);
+        view[i] = value;
+      }
+      return buffer;
+    })(SIZE);
+
+     palette = (function palette(){
+      var canvas = document.getElementById('palette');
+      var palette = [] ;
+      if (canvas.getContext){
+        var ctx = canvas.getContext('2d');
+        // Create gradient
+        var grd=ctx.createLinearGradient(0,0,canvas.width,0);
+        grd.addColorStop(0,"blue");
+        grd.addColorStop(0.5,"yellow");
+        grd.addColorStop(1,"red");
+
+        // Fill with gradient
+        ctx.fillStyle=grd;
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+        var imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
+        //create palette
+        
+        var data = imgData.data;
+        //use the first line to extract the color palette
+        for(var i=0; i< canvas.width;i++){
+            var offset = 4*i;
+            palette.push(
+              { value:[
+                  data[offset+0],data[offset+1],data[offset+2],data[offset+3]
+                ]
+              }
+
+            );
+        }
+        console.log("palette="+palette.length);
+      }
+      return palette;
+    })();
+
+
+   imgData = (function draw(buffer,palette){
+        var canvas = document.getElementById('tutorial');
+        var view = new Uint16Array(buffer);
+
+        if (canvas.getContext){
+          var ctx = canvas.getContext('2d');
+          var imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
+          //create palette
+          
+          var data = imgData.data;
+          var length = view.length;
+          console.log(" length="+length);
+          for(var i=0; i< length; i++){
+              var offset = 4*i;
+              //lookup palette value
+              var value = view[i];
+              var color = palette[value];
+              if( typeof color === "undefined"){
+                console.log(i+" color="+value);
+              }
+              data[offset+0] = color.value[0];
+              data[offset+1] = color.value[1];
+              data[offset+2] = color.value[2];
+              data[offset+3] = color.value[3];
+
+          }
+          ctx.putImageData(imgData,0,0);
+          return imgData;
+        }
+      })(buffer,palette);
+
+      function updateRange(min,max,buffer){
+          var canvas = document.getElementById('tutorial');
+          var view = new Uint16Array(buffer);
+
+          if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+            var imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
+            var data = imgData.data;
+
+            for(var i=0; i< view.length; i++){
+                var offset = 4*i;
+                //lookup palette value
+                var value = view[i];
+                var color = palette[value];
+                data[offset+0] = color.value[0];
+                data[offset+1] = color.value[1];
+                data[offset+2] = color.value[2];
+                data[offset+3] = color.value[3];
+
+                if(value < min || value > max){
+                  data[offset+3] = 0;
+                }
+
+            }
+            ctx.putImageData(imgData,0,0);
+          }
+        }
+
+      $( "#bitmap-slider-range" ).slider({
+        range: true,
+        min: 0,
+        max: 511,
+        values: [ 0, 511 ],
+        slide: function( event, ui ) {
+          $( "#bitmap-range" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+          updateRange(ui.values[ 0 ],ui.values[ 1 ],buffer);
+        }
+      });
+      $( "#bitmap-range" ).val( $( "#bitmap-slider-range" ).slider( "values", 0 ) +
+        " - " + $( "#bitmap-slider-range" ).slider( "values", 1 ) );
+    }); 
+    </script>
+  </body>
+</html>
