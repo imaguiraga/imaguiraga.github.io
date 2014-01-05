@@ -164,10 +164,12 @@
     buffer = (function createRandomSquares(buffer,width,height){
       var view = new Uint16Array(buffer);
 
-      for(var i = 0;i < 20;i++){
+      for(var i = 0;i < 30;i++){
       	var x0 = Math.floor(Math.random()*(width-20));
       	var y0 = Math.floor(Math.random()*(height-20));
-        var value = Math.floor(Math.random()*511);
+        var value = Math.floor(Math.random()*10);
+		value = Math.floor(511/value);
+		value = Math.floor(Math.random()*512);
 
         x0 = x0+y0*width;
 
