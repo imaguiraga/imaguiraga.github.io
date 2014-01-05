@@ -81,16 +81,12 @@
 				<div class="tab-pane fade in active" id="bitmap-pane">
           <div id="bitmap" style="text-align:center">
             <h4 class="page-header">Bitmap</h4>
-            <div id="bitmap-palette"></div>
+           
             <canvas id="tutorial" width="512" height="256"></canvas>
           </div>
           <h5 class="page-header">Range</h5>
-				  <div id="bitmap-slider-range"></div>
-          <div>
-          <canvas id="palette" width="512" height="10"></canvas>
-          </div>
-
-
+		   <div id="bitmap-palette"></div>
+			<div id="bitmap-slider-range"></div>
 				  <p>
 					  <label for="bitmap-range">range:</label>
 					  <input type="text" id="bitmap-range" style="border:0; color:#f6931f; font-weight:bold;">
@@ -166,7 +162,11 @@
     })(SIZE);
 
      palette = (function palette(){
-      var canvas = document.getElementById('palette');
+      var canvas = document.createElement("canvas");
+	   //canvas.clientWidth=512;
+	  //canvas.clientHeight = 10;
+	  canvas.width=512;
+	  canvas.height = 1;
       var palette = [] ;
       if (canvas.getContext){
         var ctx = canvas.getContext('2d');
