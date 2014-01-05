@@ -150,7 +150,7 @@
     var canvas = document.getElementById('tutorial');
     var SIZE = canvas.width*canvas.height;
     var imgData;
-   var buffer = (function initialiseBuffer(size){
+    var buffer = (function initialiseBuffer(size){
       var buffer = new ArrayBuffer(size*Uint16Array.BYTES_PER_ELEMENT);
       var view = new Uint16Array(buffer);
 
@@ -160,6 +160,29 @@
       }
       return buffer;
     })(SIZE);
+
+    buffer = (function createRandomSquares(buffer,width,height){
+      var view = new Uint16Array(buffer);
+
+      for(var i = 0;i < 20;i++){
+      	var x0 = Math.floor(Math.random()*(width-20));
+      	var y0 = Math.floor(Math.random()*(height-20));
+        var value = Math.floor(Math.random()*511);
+
+        x0 = x0+y0*width;
+
+        for (var r = 0; r < 20; r++) {
+        	for (var c = 0; c < 30; c++) {
+        		var index = r*width+x0+c;
+        		view[index] = value;
+        	}
+        }
+
+        
+      }
+      return buffer;
+
+    })(buffer,canvas.width,canvas.height);
 
      palette = (function palette(){
       var canvas = document.createElement("canvas");
@@ -269,6 +292,7 @@
           updateRange(ui.values[ 0 ],ui.values[ 1 ],buffer);
         }
       });
+
       $( "#bitmap-range" ).val( $( "#bitmap-slider-range" ).slider( "values", 0 ) +
         " - " + $( "#bitmap-slider-range" ).slider( "values", 1 ) );
     }); 
