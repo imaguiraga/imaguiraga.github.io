@@ -14,13 +14,21 @@ var Main = (function () {
             values: [0, 511],
             slide: function (event, ui) {
                 $("#bitmap-range").val(ui.values[0] + " - " + ui.values[1]);
-                cScanView.updateRange(ui.values[0], ui.values[1], cScanView.buffer);
+                cScanView.updateRange(ui.values[0], ui.values[1]);
             }
         });
 
         $("#bitmap-range").val($("#bitmap-slider-range").slider("values", 0) + " - " + $("#bitmap-slider-range").slider("values", 1));
     };
     return Main;
+})();
+
+var BScanView = (function () {
+    function BScanView(id, cScan) {
+        this.cScan = cScan;
+        this.canvas = document.getElementById(id);
+    }
+    return BScanView;
 })();
 
 var CScanView = (function () {
@@ -61,6 +69,7 @@ var CScanView = (function () {
 
         this.palette = CScanView.palette();
         this.draw();
+        this.bscan = new BScanView("b-scan", this);
     }
     CScanView.palette = function () {
         var canvas = document.createElement("canvas");
@@ -121,6 +130,27 @@ var CScanView = (function () {
         }
         return buffer;
     };
+    CScanView.createRandomData = function (buffer, width, height) {
+        var view = new Uint16Array(buffer);
+
+        for (var i = 0; i < 30; i++) {
+            var x0 = Math.floor(Math.random() * (width - 20));
+            var y0 = Math.floor(Math.random() * (height - 20));
+            var value = Math.floor(Math.random() * 10);
+            value = Math.floor(511 / value);
+            value = Math.floor(Math.random() * 512);
+
+            x0 = x0 + y0 * width;
+
+            for (var r = 0; r < 20; r++) {
+                for (var c = 0; c < 30; c++) {
+                    var index = r * width + x0 + c;
+                    view[index] = value;
+                }
+            }
+        }
+        return buffer;
+    };
 
     CScanView.initialiseBuffer = function (size) {
         var buffer = new ArrayBuffer(size * Uint16Array.BYTES_PER_ELEMENT);
@@ -133,7 +163,7 @@ var CScanView = (function () {
         return buffer;
     };
 
-    CScanView.prototype.updateRange = function (min, max, buffer) {
+    CScanView.prototype.updateRange = function (min, max) {
         var canvas = this.canvas;
         var view = new Uint16Array(this.buffer);
 
@@ -152,12 +182,15 @@ var CScanView = (function () {
                 data[offset + 1] = color.value[1];
                 data[offset + 2] = color.value[2];
                 data[offset + 3] = color.value[3];
-
-                if (value < min || value > max) {
-                    data[offset + 3] = 0;
-                }
+                this.filter(data, offset, min, max, value);
             }
             ctx.putImageData(imgData, 0, 0);
+        }
+    };
+
+    CScanView.prototype.filter = function (data, offset, min, max, value) {
+        if (value < min || value > max) {
+            data[offset + 3] = 0;
         }
     };
 
