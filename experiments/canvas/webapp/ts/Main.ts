@@ -24,21 +24,94 @@ class Main {
 	
 }
 
+class DScanView{
+	//cScan:CScanView;
+	canvas:any;
+	layover:any;
+	yres:number;
+	buffer:any;
+		
+	constructor(id:string,public cScan:CScanView){
+		this.canvas = document.getElementById(id);
+		this.xres = this.canvas.width/512;
+		this.buffer = this.cScan.buffer; 
+	}
+	
+	draw(x,y,buffer){
+		//extract buffer
+		var view = new Uint16Array(buffer);
+		var canvas = this.canvas;
+		if (canvas.getContext){
+			var ctx  = canvas.getContext("2d");
+			var w = canvas.width;
+			ctx.clearRect(0,0,canvas.width,canvas.height);
+			ctx.save();
+			ctx.beginPath();
+			ctx.strokeStyle="black";
+			ctx.lineWidth=1;
+			var offset = x;
+			var x0 = Math.floor(this.xres * view[x+this.cScan.canvas.width]);
+			ctx.moveTo(canvas.width-x0,0);
+			for(var j=1; j< canvas.height;j++){
+				var y = Math.floor(this.xres * view[x+this.cScan.canvas.width*j]);
+				ctx.lineTo(canvas.width-y,j);
+			}
+			ctx.stroke();
+			ctx.restore();
+		}
+		
+	}
+}
+
 class BScanView{
 	//cScan:CScanView;
 	canvas:any;
 	layover:any;
+	yres:number;
+	buffer:any;
 		
 	constructor(id:string,public cScan:CScanView){
 		this.canvas = document.getElementById(id);
+		//this.layover = this.canvas.cloneNode();
+		//this.canvas.parentNode.appendChild(this.layover);
+		this.yres = this.canvas.height/512;
+		this.buffer = this.cScan.buffer; 
+	}
+	
+	draw(x,y,buffer){
+		//extract buffer
+		var view = new Uint16Array(buffer);
+		var canvas = this.canvas;
+		if (canvas.getContext){
+			var ctx  = canvas.getContext("2d");
+			var h = canvas.height;
+			ctx.clearRect(0,0,canvas.width,canvas.height);
+			ctx.save();
+			ctx.beginPath();
+			ctx.strokeStyle="black";
+			ctx.lineWidth=1;
+			var offset = y*canvas.width;
+			var y0 = Math.floor(this.yres * view[offset]);
+			ctx.moveTo(0,h-y0);
+			for(var i=1; i< canvas.width;i++){
+				var y = Math.floor(this.yres * view[offset+i]);
+				ctx.lineTo(i,h-y);
+			}
+			ctx.stroke();
+			ctx.restore();
+		}
+		
 	}
 }
+
 
 class CScanView{
 	palette:any;
 	canvas:any;
 	layover:any;
 	bscan:BScanView;
+	dscan:DScanView;
+	buffer:any;
 	
 	constructor(id:string){
 		console.log("this = "+this);
@@ -48,6 +121,10 @@ class CScanView{
 
 		this.layover = this.canvas.cloneNode();
 		this.canvas.parentNode.appendChild(this.layover);
+		
+		this.bscan = new BScanView("b-scan",this);
+		this.dscan = new DScanView("d-scan",this);
+		_this = this;
 		this.layover.onmousemove = function(evt){
 			var rect = this.getBoundingClientRect();
 			var  x0 = evt.x - rect.left;
@@ -66,6 +143,8 @@ class CScanView{
 				ctx.lineTo(x0,this.height);
 				ctx.stroke();
 				ctx.restore();
+				_this.bscan.draw(x0,y0,_this.buffer);
+				_this.dscan.draw(x0,y0,_this.buffer);
 			}
 		};
 		   
@@ -76,7 +155,7 @@ class CScanView{
 		
 		this.palette = CScanView.palette();
 		this.draw();
-		this.bscan = new BScanView("b-scan",this);
+		
 	}
 			
 	static palette(){
@@ -189,13 +268,13 @@ class CScanView{
 				data[offset+1] = color.value[1];
 				data[offset+2] = color.value[2];
 				data[offset+3] = color.value[3];
-				this.filter(data,offset,min,max,value);
+				this.filter(data,offset,value,min,max);
 			}
 			ctx.putImageData(imgData,0,0);
 		}
 	}
 	
-	filter(data,offset,min,max,value){
+	filter(data,offset,value,min,max){
 		if(value < min || value > max){
 			data[offset+3] = 0;
 		}

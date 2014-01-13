@@ -23,11 +23,72 @@ var Main = (function () {
     return Main;
 })();
 
+var DScanView = (function () {
+    function DScanView(id, cScan) {
+        this.cScan = cScan;
+        this.canvas = document.getElementById(id);
+        this.xres = this.canvas.width / 512;
+        this.buffer = this.cScan.buffer;
+    }
+    DScanView.prototype.draw = function (x, y, buffer) {
+        //extract buffer
+        var view = new Uint16Array(buffer);
+        var canvas = this.canvas;
+        if (canvas.getContext) {
+            var ctx = canvas.getContext("2d");
+            var w = canvas.width;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.save();
+            ctx.beginPath();
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 1;
+            var offset = x;
+            var x0 = Math.floor(this.xres * view[x + this.cScan.canvas.width]);
+            ctx.moveTo(canvas.width - x0, 0);
+            for (var j = 1; j < canvas.height; j++) {
+                var y = Math.floor(this.xres * view[x + this.cScan.canvas.width * j]);
+                ctx.lineTo(canvas.width - y, j);
+            }
+            ctx.stroke();
+            ctx.restore();
+        }
+    };
+    return DScanView;
+})();
+
 var BScanView = (function () {
     function BScanView(id, cScan) {
         this.cScan = cScan;
         this.canvas = document.getElementById(id);
+
+        //this.layover = this.canvas.cloneNode();
+        //this.canvas.parentNode.appendChild(this.layover);
+        this.yres = this.canvas.height / 512;
+        this.buffer = this.cScan.buffer;
     }
+    BScanView.prototype.draw = function (x, y, buffer) {
+        //extract buffer
+        var view = new Uint16Array(buffer);
+        var canvas = this.canvas;
+        if (canvas.getContext) {
+            var ctx = canvas.getContext("2d");
+            var h = canvas.height;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.save();
+            ctx.beginPath();
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 1;
+            var offset = y * canvas.width;
+            var y0 = Math.floor(this.yres * view[offset]);
+            ctx.moveTo(0, h - y0);
+            for (var i = 1; i < canvas.width; i++) {
+                var y = Math.floor(this.yres * view[offset + i]);
+                ctx.lineTo(i, h - y);
+            }
+            ctx.stroke();
+            ctx.restore();
+        }
+    };
     return BScanView;
 })();
 
@@ -40,6 +101,10 @@ var CScanView = (function () {
 
         this.layover = this.canvas.cloneNode();
         this.canvas.parentNode.appendChild(this.layover);
+
+        this.bscan = new BScanView("b-scan", this);
+        this.dscan = new DScanView("d-scan", this);
+        _this = this;
         this.layover.onmousemove = function (evt) {
             var rect = this.getBoundingClientRect();
             var x0 = evt.x - rect.left;
@@ -59,6 +124,8 @@ var CScanView = (function () {
                 ctx.lineTo(x0, this.height);
                 ctx.stroke();
                 ctx.restore();
+                _this.bscan.draw(x0, y0, _this.buffer);
+                _this.dscan.draw(x0, y0, _this.buffer);
             }
         };
 
@@ -69,7 +136,6 @@ var CScanView = (function () {
 
         this.palette = CScanView.palette();
         this.draw();
-        this.bscan = new BScanView("b-scan", this);
     }
     CScanView.palette = function () {
         var canvas = document.createElement("canvas");
@@ -182,13 +248,13 @@ var CScanView = (function () {
                 data[offset + 1] = color.value[1];
                 data[offset + 2] = color.value[2];
                 data[offset + 3] = color.value[3];
-                this.filter(data, offset, min, max, value);
+                this.filter(data, offset, value, min, max);
             }
             ctx.putImageData(imgData, 0, 0);
         }
     };
 
-    CScanView.prototype.filter = function (data, offset, min, max, value) {
+    CScanView.prototype.filter = function (data, offset, value, min, max) {
         if (value < min || value > max) {
             data[offset + 3] = 0;
         }

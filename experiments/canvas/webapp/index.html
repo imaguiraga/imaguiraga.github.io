@@ -70,7 +70,7 @@
 		</div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-md-7">
         	<h3>
 	            <ul class="nav nav-tabs" id="myTab">
 				  <li class="active"><a href="#bitmap-pane" data-toggle="tab">Bitmap</a></li>
@@ -81,10 +81,14 @@
 				<div class="tab-pane fade in active" id="bitmap-pane">
 				  <div id="bitmap" style="text-align:center">
 					<h4 class="page-header">Bitmap</h4>
-					<div style="position:relative;width:64px;height:256px;display:inline;margin-right:8px">
-						<canvas id="b-scan" width="64" height="256" style="position:absolute;direction:ltr;top:0px;left:0px;width:64px;height:256px"></canvas>
+					<!-- -->
+					<div class="col-md-1">
+						<div style="width:64px;height:256px;display:inline;margin-right:8px">
+							<canvas id="d-scan" width="64" height="256" style="position:absolute;direction:ltr;top:0px;left:0px;width:64px;height:256px"></canvas>
+						</div>
 					</div>
-					<div style="display:inline-box">
+					
+					<div class="col-md-11">
 						<div style="position:relative;width:512px;height:256px;">
 							<canvas id="tutorial" width="512" height="256" style="position:absolute;direction:ltr;top:0px;left:0px;width:512px;height:256px"></canvas>
 						</div>
@@ -104,11 +108,12 @@
 						<div class="tab-pane fade col-lg-12" id="console-pane" style="height:500px;overflow:auto;"></div>
           	</div>
         </div>
-
-        <div class="col-lg-4">
+<!--
+        <div class="col-lg-5">
             <h3 class="page-header">Debug Log</h3>
         	<pre id="debug" style="height:500px;overflow:auto;"></pre>
         </div>
+		-->
       </div>
     </div>
 	<!-- back to top link-->
