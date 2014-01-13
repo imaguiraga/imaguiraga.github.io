@@ -44,10 +44,11 @@ var DScanView = (function () {
             ctx.lineWidth = 1;
             var offset = x;
             var x0 = Math.floor(this.xres * view[x + this.cScan.canvas.width]);
-            ctx.moveTo(canvas.width - x0, 0);
+            ctx.moveTo(x0, 0);
+
             for (var j = 1; j < canvas.height; j++) {
                 var y = Math.floor(this.xres * view[x + this.cScan.canvas.width * j]);
-                ctx.lineTo(canvas.width - y, j);
+                ctx.lineTo(y, j);
             }
             ctx.stroke();
             ctx.restore();
@@ -124,7 +125,7 @@ var CScanView = (function () {
                 ctx.lineTo(x0, this.height);
                 ctx.stroke();
                 ctx.restore();
-                _this.bscan.draw(x0, y0, _this.buffer);
+                //_this.bscan.draw(x0, y0, _this.buffer);
                 _this.dscan.draw(x0, y0, _this.buffer);
             }
         };

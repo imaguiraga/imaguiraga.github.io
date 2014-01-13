@@ -51,10 +51,11 @@ class DScanView{
 			ctx.lineWidth=1;
 			var offset = x;
 			var x0 = Math.floor(this.xres * view[x+this.cScan.canvas.width]);
-			ctx.moveTo(canvas.width-x0,0);
+			ctx.moveTo(x0,0);
+			//ctx.moveTo(canvas.width-x0,0);
 			for(var j=1; j< canvas.height;j++){
 				var y = Math.floor(this.xres * view[x+this.cScan.canvas.width*j]);
-				ctx.lineTo(canvas.width-y,j);
+				ctx.lineTo(y,j);
 			}
 			ctx.stroke();
 			ctx.restore();
