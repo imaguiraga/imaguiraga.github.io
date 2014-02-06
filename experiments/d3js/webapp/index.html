@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Canvas</title>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--
+    <link href="styles/css/bootstrap.min.css" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="styles/css/main.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <style type="text/css">
+      body { padding-top: 40px; }
+    </style>
+    <style type="text/css">
+      canvas { border: 1px solid black; }
+
+      #bitmap-slider-range, #bitmap-palette{
+        margin: 10px 0px;
+        height:10px;
+        background: -webkit-linear-gradient(left, blue, yellow,red); /* For Safari */
+        background: -o-linear-gradient(right, blue, yellow,red); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(right, blue, yellow,red); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to right, blue, yellow,red); /* Standard syntax (must be last) */
+      }
+	</style>
+
+
+  </head>
+
+  <body>
+
+	<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar">
+						</span>
+						<span class="icon-bar">
+						</span>
+						<span class="icon-bar">
+						</span>
+					</button>
+					<a class="navbar-brand" href="#">
+						Canvas
+					</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="#">
+								<i class="fa fa-fw fa-home">
+								</i>
+								Home
+							</a>
+						</li>
+						<li>
+							<a href="#about">
+								About
+							</a>
+						</li>
+
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+		</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+        	<h3>
+	            <ul class="nav nav-tabs" id="myTab">
+				  <li class="active"><a href="#bitmap-pane" data-toggle="tab">Bitmap</a></li>
+				  <li><a href="#console-pane" data-toggle="tab">Console</a></li>
+				</ul>
+			</h3>
+			<div class="tab-content">
+				<div class="tab-pane fade in active" id="bitmap-pane">
+				  <div id="bitmap" style="text-align:center">
+					<h4 class="page-header">Bitmap (Currently best viewed on Chrome)</h4>
+					<!-- -->
+					<div class="col-md-1">
+						<div style="width:64px;height:256px;display:inline;margin-right:8px">
+							<canvas id="d-scan" width="64" height="256" style="position:absolute;direction:ltr;top:0px;left:0px;width:64px;height:256px"></canvas>
+						</div>
+					</div>
+					
+					<div class="col-md-11">
+						<div style="position:relative;width:512px;height:256px;">
+							<canvas id="tutorial" width="512" height="256" style="position:absolute;direction:ltr;top:0px;left:0px;width:512px;height:256px"></canvas>
+						</div>
+						<div style="position:relative;width:512px;height:64px;display:box;margin-top:8px">
+							<canvas id="b-scan" width="512" height="64" style="position:absolute;direction:ltr;top:0px;left:0px;width:512px;height:64px"></canvas>
+						</div>
+					</div>
+				  </div>
+				  <h5 class="page-header">Range</h5>
+					<div id="bitmap-palette"></div>
+					<div id="bitmap-slider-range"></div>
+						  <p>
+							  <label for="bitmap-range">range:</label>
+							  <input type="text" id="bitmap-range" style="border:0; color:#f6931f; font-weight:bold;"/>
+							</p>
+						</div>
+						<div class="tab-pane fade col-lg-12" id="console-pane" style="height:500px;overflow:auto;"></div>
+          	</div>
+        </div>
+<!--
+        <div class="col-lg-5">
+            <h3 class="page-header">Debug Log</h3>
+        	<pre id="debug" style="height:500px;overflow:auto;"></pre>
+        </div>
+		-->
+      </div>
+    </div>
+	<!-- back to top link-->
+	<a id="goto-top" href="#" class="btn btn-default" title="Back To Top">
+		<i class="fa fa-chevron-up fa-2x">
+		</i>
+	</a>
+	<hr />
+		<footer>
+			<div style="text-align:center">
+				<span>
+					Created and Maintained by
+					<a id="forkme_banner" href="https://github.com/imaguiraga">@imaguiraga</a> - Code licensed under <a href="http://opensource.org/licenses/mit-license.html">MIT License</a>
+				</span>
+				<br/>
+				 <span>
+				<a href="http://www.w3.org/html/logo/">
+				<img src="images/html5-badge-h-connectivity-css3-device-graphics-multimedia-performance-semantics-storage.png" width="357" height="64" alt="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Performance &amp; Integration, Semantics, and Offline &amp; Storage" title="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Performance &amp; Integration, Semantics, and Offline &amp; Storage">
+				</a>
+				</span><br />
+				<!--
+				<span>
+					Using <a target="_blank" href="http://getbootstrap.com/">Bootstrap</a> licensed under <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a>
+				</span><br />
+				-->
+			</div>
+		</footer>
+    <!-- Scripts placed at the end of the document so the pages load faster -->
+    <script src="scripts/js/vendor/jquery-1.10.1.min.js"></script>
+	<script src="scripts/js/vendor/jquery-ui-1.10.3.min.js"></script>
+
+	<script>
+		window.jQuery || document.write('<script src="scripts/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+
+	<script src="scripts/js/vendor/bootstrap.min.js"></script>
+<!--
+	<script src="scripts/js/vendor/jquery.mousewheel-min.js"></script>
+  	<script src="scripts/js/vendor/jquery.terminal-min.js"></script>
+-->
+	<script src="scripts/js/plugins.js"></script>
+<!--
+    <script src="scripts/js/stomp.js"></script>
+    <script src="scripts/js/main.js"></script>
+--><script src="scripts/js/Main.js"></script>
+
+  </body>
+</html>
