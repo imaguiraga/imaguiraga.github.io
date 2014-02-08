@@ -92,15 +92,19 @@ var root = {
       .attr("class", "link")
       .attr("d", diagonal);
 
-  var node = svg.selectAll(".node")
-      .data(nodes)
+  var selection = svg.selectAll(".node");
+  var data = selection.data(nodes);
 
+  var node = //svg.selectAll(".node").data(nodes)
+    data
     .enter().append("g")
       .attr("class", "node")
       .attr("transform", function(d) { return "translate(" + (d.y-20) + "," + (d.x-16) + ")"; });
 
    //x0,y=0 before translation      
-       node.append("rect")
+  node.append("rect")
+        .attr("rx","4")
+        .attr("ry","4")
           .attr("height", 32)
           .attr("width", 20);
 
@@ -139,12 +143,12 @@ var root = {
 
    //x0,y=0 before translation      
        container.append("rect")
-
-          .attr("height", function(d) { 
+      
+      .attr("height", function(d) { 
             var off = height/(Math.pow(2,d.depth-1));
         return d.maxx-d.minx; 
       })
-          .attr("width", function(d) { 
+      .attr("width", function(d) { 
         var off = width/(Math.pow(2,d.depth-1));
             //return off-40; 
             return 60;

@@ -54,7 +54,7 @@ var tree = d3.layout.tree()
     .size([h, w]);
 
 var diagonal = d3.svg.diagonal()
-    .projection(function(d) { return [d.y, d.x]; });
+    .projection(function(d) { return [d.y-9, d.x]; });
 
 var vis = d3.select("#body").append("svg:svg")
     .attr("width", w + m[1] + m[3])
@@ -62,8 +62,30 @@ var vis = d3.select("#body").append("svg:svg")
   .append("svg:g")
     .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
-
-
+vis.append('svg:defs').append('svg:marker')
+    .attr('id', 'end-arrow')
+    .attr('viewBox', '0 -5 10 10')
+    .attr('refX', 6)
+    .attr('refy', 0)
+    .attr('markerWidth', 4)
+    .attr('markerHeight', 4)
+    .attr('orient', 'auto')
+  .append('svg:path')
+    .attr('d', 'M0,-5L10,0L0,5')
+    .attr('fill', '#000');
+/*
+vis.append('svg:defs').append('svg:marker')
+    .attr('id', 'start-arrow')
+    .attr('viewBox', '0 -5 10 10')
+    .attr('refX', 1)
+    .attr('refy', 0)
+    .attr('markerWidth', 4)
+    .attr('markerHeight', 4)
+    .attr('orient', 'auto')
+  .append('svg:path')
+    .attr('d', 'M10,-5L0,0L10,5')
+    .attr('fill', '#000');
+//*/
 function init(json) {
   root = json;
   root.x0 = h / 2;
@@ -93,7 +115,7 @@ function update(source) {
   var nodes = tree.nodes(root).reverse();
 
   // Normalize for fixed-depth.
-  nodes.forEach(function(d) { d.y = d.depth * 180; });
+  nodes.forEach(function(d) { d.y = d.depth * 100; });
 
   // Update the nodes…
   var node = vis.selectAll("g.node")
@@ -147,6 +169,8 @@ function update(source) {
   // Enter any new links at the parent's previous position.
   link.enter().insert("svg:path", "g")
       .attr("class", "link")
+      .style('marker-start', 'url(#start-arrow)')
+      .style('marker-end', 'url(#end-arrow)')
       .attr("d", function(d) {
         var o = {x: source.x0, y: source.y0};
         return diagonal({source: o, target: o});
@@ -175,7 +199,7 @@ function update(source) {
     d.y0 = d.y;
   });
 
- // updateRegion(vis,nodes);
+  updateRegion(vis,nodes);
 }
 
 function updateRegion(vis,nodes){
@@ -184,11 +208,15 @@ var filtered = nodes;/*.filter(function(d, i) {
         return (typeof d.children != "undefined" && d.children != null && d.children.length>1)?d:null; 
    }).reverse();//*/
     
-    var container = vis.selectAll(".container")
-      .data(filtered);
+    var container = vis.selectAll(".container").data(nodes);
+
+
     container.exit().remove();//*/
     
-    container.enter().append("g")
+    filtered = container.filter(function(d, i) { 
+        return (typeof d.children != "undefined" && d.children != null && d.children.length>1); 
+   });
+    filtered.append("g")
       .attr("class", "container")
      
       .attr("transform", function(d) { 
@@ -205,10 +233,9 @@ var filtered = nodes;/*.filter(function(d, i) {
         d.maxx = maxx;
 
         return "translate(" + (d.children[0].y-20) + "," + (minx) + ")"; 
-      });
-
+      })
    //x0,y=0 before translation      
-       container.append("rect")
+      .append("rect")
 
           .attr("height", function(d) { 
 
@@ -218,6 +245,7 @@ var filtered = nodes;/*.filter(function(d, i) {
             //return off-40; 
             return 60;
      });
+    
      
 }
 // Toggle children.

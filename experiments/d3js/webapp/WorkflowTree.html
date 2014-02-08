@@ -6,7 +6,7 @@
     <!--
     <link type="text/css" rel="stylesheet" href="style.css"/>
     -->
-    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/d3.v3.js"></script>
     <script src="data2.js"></script>
     <style type="text/css">
 
@@ -45,15 +45,15 @@ path.link {
     <script type="text/javascript">
 
 var m = [20, 120, 20, 120],
-    w = 1280 - m[1] - m[3],
-    h = 800 - m[0] - m[2],
+    w = 960 - m[1] - m[3],
+    h = 720 - m[0] - m[2],
     i = 0,
     root;
 
 var tree = d3.layout.tree().size([h, w]);
-tree
+var sep = tree.separation;
 var diagonal = d3.svg.diagonal()
-    .projection(function(d) { return [d.y, d.x]; });
+    .projection(function(d) { return [d.y-10, d.x]; });
 
 var vis = d3.select("#body").append("svg:svg")
     .attr("width", w + m[1] + m[3])
@@ -61,7 +61,20 @@ var vis = d3.select("#body").append("svg:svg")
   .append("svg:g")
     .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
+vis.append("g").attr("id", "links");
+vis.append("g").attr("id", "nodes");
 
+vis.append('svg:defs').append('svg:marker')
+    .attr('id', 'end-arrow')
+    .attr('viewBox', '0 -5 10 10')
+    .attr('refX', 6)
+    .attr('refy', 0)
+    .attr('markerWidth', 4)
+    .attr('markerHeight', 4)
+    .attr('orient', 'auto')
+  .append('svg:path')
+    .attr('d', 'M0,-5L10,0L0,5')
+    .attr('fill', '#000');
 
 function init(json) {
   root = json;
@@ -92,14 +105,18 @@ function update(source) {
   tree.children(
       function(d){ return d.entries;}
     );
-  var nodes = tree.nodes(root).reverse();
+  var nodes = tree.nodes(root).filter(function(d, i) { 
+        return (d.name != "root")?d:null; 
+   }).reverse();
 
   // Normalize for fixed-depth.
-  nodes.forEach(function(d) { d.y = d.depth * 180; });
+  nodes.forEach(function(d) { d.y = d.depth * 120; });
 
   // Update the nodes…
-  var node = vis.selectAll("g.node")
-      .data(nodes, function(d) { return d.id || (d.id = ++i); });
+  var node = vis.select("#nodes").selectAll("g.node")
+      .data(nodes, function(d) { 
+        return d.id || (d.id = ++i); 
+      });
 
   // Enter any new nodes at the parent's previous position.
   var nodeEnter = node.enter().append("svg:g")
@@ -113,9 +130,9 @@ function update(source) {
 
   nodeEnter.append("svg:text")
       .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
-      .attr("dy", ".35em")
+      .attr("dy", function(d) { return d.name === "root" ? ".35em" : "-1.35em"; })
       .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-      .text(function(d) { return d.name; })
+      .text(function(d) { return d.name+" - "+d.ts; })
       .style("fill-opacity", 1e-6);
 
   // Transition nodes to their new position.
@@ -124,7 +141,7 @@ function update(source) {
       .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
   nodeUpdate.select("circle")
-      .attr("r", 4.5)
+      .attr("r", 6)
       .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
   nodeUpdate.select("text")
@@ -143,12 +160,17 @@ function update(source) {
       .style("fill-opacity", 1e-6);
 
   // Update the links…
-  var link = vis.selectAll("path.link")
-      .data(tree.links(nodes), function(d) { return d.target.id; });
+  var link = vis.select("#links").selectAll(".link")
+      .data(tree.links(nodes),function(d) { 
+    return d.source.x+"-"+d.source.name+d.source.y+"-"+d.target.x+"-"+d.target.y+d.target.name; 
+  });
+
 
   // Enter any new links at the parent's previous position.
   link.enter().insert("svg:path", "g")
       .attr("class", "link")
+      .style('marker-start', 'url(#start-arrow)')
+      .style('marker-end', 'url(#end-arrow)')
       .attr("d", function(d) {
         var o = {x: source.x0, y: source.y0};
         return diagonal({source: o, target: o});
@@ -223,6 +245,8 @@ var filtered = nodes;/*.filter(function(d, i) {
      
 }
 // Toggle children.
+// 
+/*
 function toggle(d) {
   if (d.children) {
     d._children = d.children;
@@ -231,8 +255,16 @@ function toggle(d) {
     d.children = d._children;
     d._children = null;
   }
+}//*/
+function toggle(d) {
+  if (d.entries) {
+    d._children = d.entries;
+    d.entries = null;
+  } else {
+    d.entries = d._children;
+    d._children = null;
+  }
 }
-
 init(data2());
     </script>
   </body>
