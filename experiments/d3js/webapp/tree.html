@@ -118,7 +118,6 @@ function update(source) {
   nodes.forEach(function(d) { d.y = d.depth * 100; });
   var links = tree.links(nodes);
 
-
   updateNodes(vis,nodes,source);
   updateLinks(vis,links,source);
 

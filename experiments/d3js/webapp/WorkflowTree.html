@@ -132,32 +132,34 @@ function updateNodes(svg,nodes,source,duration){
         return d.id || (d.id = ++i); 
       });
 //Enter
-  // Enter any new nodes at the parent's previous position.
+  // Enter any new nodes at the parent's current position.
   var nodeEnter = node.enter().append("svg:g")
       .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+      //.attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
       .on("click", function(d) { toggle(d); update(d); });
-
+//invisible circle
   nodeEnter.append("svg:circle")
       .attr("r", 1e-6)
       .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
-
+//invisible text
   nodeEnter.append("svg:text")
       .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
       .attr("dy", function(d) { return d.name === "root" ? ".35em" : "-1.35em"; })
       .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
       .text(function(d) { return d.name+" - "+d.ts; })
       .style("fill-opacity", 1e-6);
+
 //Update
   // Transition nodes to their new position.
   var nodeUpdate = node.transition()
       .duration(duration)
       .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
-
+//make cirlce visible
   nodeUpdate.select("circle")
       .attr("r", 6)
       .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
-
+//make text visible
   nodeUpdate.select("text")
       .style("fill-opacity", 1);
 //Exit
@@ -199,7 +201,7 @@ function updateLinks(svg,links,source,duration){
   link.transition()
       .duration(duration)
       .attr("d", diagonal);
-
+//*/
   // Transition exiting nodes to the parent's new position.
   link.exit().transition()
       .duration(duration)

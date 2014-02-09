@@ -103,8 +103,14 @@ function update(source) {
   updateLinks(svg,links,source);
   updateNodes(svg,nodes,source);  
    
-  updateRegion(svg,nodes);
-   
+  // Stash the old positions for transition.
+  
+  updateRegion(svg,nodes,source);
+
+  nodes.forEach(function(d) {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
 }
 
 function updateLinks(svg,links,source){
@@ -112,8 +118,15 @@ function updateLinks(svg,links,source){
   var link = svg.select("#links").selectAll(".link")
       .data(links);
 
-  link.enter().append("path")
+  link.enter()//.insert("svg:path", "g")
+    .append("path")
       .attr("class", "link")
+      .attr("d", function(d) {
+        var o = {x: source.x0, y: source.y0};
+        return diagonal({source: o, target: o});
+      })
+    .transition()
+      .duration(duration)
       .attr("d", diagonal);
 
   // Transition links to their new position.
@@ -139,21 +152,22 @@ function updateNodes(svg,nodes,source){
   var nodeEnter = 
     node.enter().append("g")
       .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + (d.y-20) + "," + (d.x-16) + ")"; })
+      .attr("transform", function(d) { return "translate(" + (source.y-20) + "," + (source.x-16) + ")"; })
       .on("click", function(d) { toggle(d); update(d); });
 //Enter
    //x0,y=0 before translation      
   nodeEnter.append("rect")
         .attr("rx","4")
         .attr("ry","4")
-          .attr("height", 32)
-          .attr("width", 20);
+          .attr("height", 1e-6)
+          .attr("width", 1e-6);
 
   nodeEnter.append("text")
       .attr("dx", function(d) { return d.children ? -20 : 20; })
       .attr("dy", -20)
       .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
-      .text(function(d) { return d.name; });
+      .text(function(d) { return d.name; })
+      .style("fill-opacity", 1e-6);
 //Update
   // Transition nodes to their new position.
   var nodeUpdate = node.transition()
@@ -173,23 +187,23 @@ function updateNodes(svg,nodes,source){
 
 //Exit
   // Transition exiting nodes to the parent's new position.
-  var nodeExit = node.exit().transition()
-      .duration(duration)
+  var nodeExit = node.exit()
+  .transition().duration(duration)
       .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
       .style("fill-opacity", 1e-6)
       .remove();
 
 //change opacity
   nodeExit.select("rect")
-      .attr("width", 1e-6).attr("height", 1e-6);
-
+      .attr("width", 1e-6)
+      .attr("height", 1e-6);
 
   nodeExit.select("text")
       .style("fill-opacity", 1e-6);
       //*/
 }
 
-function updateRegion(svg,nodes){
+function updateRegion(svg,nodes,source){
    var duration = 500;
    nodes.forEach(function(d) { //find min max d.x
         var minx = Number.MAX_VALUE;
@@ -214,20 +228,16 @@ function updateRegion(svg,nodes){
     
       .attr("class", "region")    
       .attr("transform", function(d) {         
-        return "translate(" + (d.children[0].y-40) + "," + (d.minx) + ")"; 
+        return "translate(" + (source.children[0].y-40) + "," + (source.minx) + ")"; 
       })  ;
 
    //x0,y=0 before translation      
     regionEnter.append("rect")   
-      .attr("height", function(d) { 
-        return d.maxx-d.minx; 
-      })
-      .attr("width", function(d) { 
-        return 60;
-     });//*/
+      .attr("height", 1e-6)
+      .attr("width",  1e-6);//*/
 //Update
     var regionUpdate = region
-      //.transition().duration(duration)
+      .transition().duration(duration)
       .attr("transform", function(d) {         
         return "translate(" + (d.children[0].y-40) + "," + (d.minx) + ")"; 
       });
