@@ -111,13 +111,27 @@ function update(source) {
 
   // Normalize for fixed-depth.
   nodes.forEach(function(d) { d.y = d.depth * 120; });
+  var links = tree.links(nodes);
 
-  // Update the nodes…
-  var node = vis.select("#nodes").selectAll("g.node")
+  updateLinks(vis,links,source,duration);
+  updateNodes(vis,nodes,source,duration);
+
+  // Stash the old positions for transition.
+  nodes.forEach(function(d) {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+
+ // updateRegion(vis,nodes);
+}
+
+function updateNodes(svg,nodes,source,duration){
+// Update the nodes…
+  var node = svg.select("#nodes").selectAll("g.node")
       .data(nodes, function(d) { 
         return d.id || (d.id = ++i); 
       });
-
+//Enter
   // Enter any new nodes at the parent's previous position.
   var nodeEnter = node.enter().append("svg:g")
       .attr("class", "node")
@@ -134,7 +148,7 @@ function update(source) {
       .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
       .text(function(d) { return d.name+" - "+d.ts; })
       .style("fill-opacity", 1e-6);
-
+//Update
   // Transition nodes to their new position.
   var nodeUpdate = node.transition()
       .duration(duration)
@@ -146,7 +160,7 @@ function update(source) {
 
   nodeUpdate.select("text")
       .style("fill-opacity", 1);
-
+//Exit
   // Transition exiting nodes to the parent's new position.
   var nodeExit = node.exit().transition()
       .duration(duration)
@@ -159,12 +173,14 @@ function update(source) {
   nodeExit.select("text")
       .style("fill-opacity", 1e-6);
 
+}
+
+function updateLinks(svg,links,source,duration){
   // Update the links…
   var link = vis.select("#links").selectAll(".link")
-      .data(tree.links(nodes),function(d) { 
+      .data(links,function(d) { 
     return d.source.x+"-"+d.source.name+d.source.y+"-"+d.target.x+"-"+d.target.y+d.target.name; 
   });
-
 
   // Enter any new links at the parent's previous position.
   link.enter().insert("svg:path", "g")
@@ -192,14 +208,6 @@ function update(source) {
         return diagonal({source: o, target: o});
       })
       .remove();
-
-  // Stash the old positions for transition.
-  nodes.forEach(function(d) {
-    d.x0 = d.x;
-    d.y0 = d.y;
-  });
-
- // updateRegion(vis,nodes);
 }
 
 function updateRegion(vis,nodes){

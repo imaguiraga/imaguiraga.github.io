@@ -108,56 +108,63 @@ function update(root) {
    var nodes = tree.nodes(root).reverse(),
       links = tree.links(nodes);
 
+  updateLinks(svg,links);
+  updateNodes(svg,nodes);
+
+ }
+
+function updateLinks(svg,links){
 
   var linkSelection = svg.select("#links").selectAll(".link");
-  var linkData = linkSelection.data(links,function(d) { 
+  var link = linkSelection.data(links,function(d) { 
     return d.source.x+"-"+d.source.name+d.source.y+"-"+d.target.x+"-"+d.target.y+d.target.name; 
   });
 
   //remove missing links
-    var linkExit = linkData.exit();
+    var linkExit = link.exit();
   linkExit.remove();
 
     //append new links
-    var link = linkData.enter()
+    var linkEnter = link.enter()
         .append("path")
         .attr("class", "link")
         .attr("d", diagonal).transition()
         .duration(100);
 
+}
+
+function updateNodes(svg,nodes){
   //nodes
   var nodeSelection = svg.select("#nodes").selectAll(".node");
-  var nodeData = nodeSelection.data(nodes,function(d) { return d.name; });
+  var node = nodeSelection.data(nodes,function(d) { return d.name; });
 
   //remove missing nodes      
-  var nodeExit = nodeData.exit();
+  var nodeExit = node.exit();
   nodeExit.remove();
   
 
   //update old nodes
-    nodeData
+    node
           .transition()
           .duration(100)
           .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
   //insert new nodes
-    var node = 
-      nodeData.enter()
+    var nodeEnter = 
+      node.enter()
       .append("g")
         .attr("class", "node")
         .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
-    node.append("circle")
+    nodeEnter.append("circle")
         .attr("r", 10).style("stroke", "#000")
             .call(force.drag);
 
-    node.append("text")
+    nodeEnter.append("text")
         .attr("dx", function(d) { return d.children ? -20 : 20; })
         .attr("dy", -20)
         .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
         .text(function(d) { return d.name; });
-
- }
-
+}
 
 update(root);
   
