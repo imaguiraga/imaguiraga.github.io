@@ -209,25 +209,25 @@ function updateRegion(svg,nodes){
         return (typeof d.children != "undefined" && d.children.length>1)?d:null; 
    }),function(d,i){ return d.name;});
 //Enter
-    var regionEnter = region.enter().append("g")
+    var regionEnter = region.enter()
+    .append("g")
+    
       .attr("class", "region")    
       .attr("transform", function(d) {         
         return "translate(" + (d.children[0].y-40) + "," + (d.minx) + ")"; 
-      });
+      })  ;
 
    //x0,y=0 before translation      
-    regionEnter.append("rect")  
+    regionEnter.append("rect")   
       .attr("height", function(d) { 
-        var off = height/(Math.pow(2,d.depth-1));
         return d.maxx-d.minx; 
       })
       .attr("width", function(d) { 
-        var off = width/(Math.pow(2,d.depth-1)); 
         return 60;
      });//*/
 //Update
-    var regionUpdate = region.transition()
-      .duration(duration)  
+    var regionUpdate = region
+      //.transition().duration(duration)
       .attr("transform", function(d) {         
         return "translate(" + (d.children[0].y-40) + "," + (d.minx) + ")"; 
       });
@@ -242,13 +242,14 @@ function updateRegion(svg,nodes){
      });//*/
 
   //Exit
-    var regionExit = region.exit().transition()
-      .duration(duration)  
+    var regionExit = region.exit()
+    //.transition().duration(duration)  
       .style("fill-opacity", 1e-6)
       .remove();
     //change opacity
   regionExit.select("rect")
-      .attr("width", 1e-6).attr("height", 1e-6);
+      //.attr("width", 1e-6).attr("height", 1e-6)
+      .style("fill-opacity", 1e-6);
 
   regionExit.select("text")
       .style("fill-opacity", 1e-6);
