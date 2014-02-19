@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>User&#x27;s Guide</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Default-Style" content="default">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png">
+
+    <!-- alternate assets/stylesheets -->
+    <style>
+      body {
+        padding-top: 50px;
+        padding-bottom: 20px;
+      }
+    </style>
+    <link rel="stylesheet" href="assets/styles/css/main.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+      <script src="assets/scripts/js/html5shiv.js"></script>
+          <script src="assets/scripts/js/respond.min.js"></script>
+        <![endif]-->
+    <script src="assets/scripts/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js">
+    </script>
+
+    <!--
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-43966487-2', 'mysite-imaguiraga.rhcloud.com');
+		ga('send', 'pageview');
+		</script>
+		-->
+  </head>
+  <body>
+
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an <strong>outdated</strong>  browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>  or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a>  to improve your experience.</p>
+                        <![endif]-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar">
+            </span> 
+            <span class="icon-bar">
+            </span> 
+            <span class="icon-bar">
+            </span> 
+          </button>
+          <a class="navbar-brand" href="#">
+            User&#x27;s Guide
+          </a> 
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="#">
+                <i class="fa fa-fw fa-home">
+                </i>
+                Home
+              </a> 
+            </li>
+            <li>
+              <a href="#about">
+                About
+              </a> 
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <h1 class="docs-heading">User&#39;s guide
+          <a href="#user-s-guide" name="user-s-guide" class="anchor">
+            <span class="anchor-target" id="user-s-guide"></span> 
+            <span class="glyphicon glyphicon-link"></span> 
+          </a> 
+        </h1>
+        <p>
+          <a href="http://gruntjs.com/">
+            <img src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt">
+          </a> 
+        </p>
+        <h2 class="docs-heading">Dependencies
+          <a href="#dependencies" name="dependencies" class="anchor">
+            <span class="anchor-target" id="dependencies"></span> 
+            <span class="glyphicon glyphicon-link"></span> 
+          </a> 
+        </h2>
+        <ul>
+          <li> <a href="http://rubygems.org/">rubygems</a>  <code>gem -v</code> </li>
+          <li> <a href="http://graphviz.org/">graphviz</a>  <code>dot -V</code> </li>
+          <li> <a href="http://python.org/">python2.7</a>  <code>python -V</code> </li>
+          <li> <a href="http://pygments.org/">pygments</a>  <code>pygmentize -V</code> </li>
+          <li> <a href="http://jekyllrb.com/">jekyll</a>  <code>jekyll -v</code> </li>
+          <li> <a href="http://www.rdoc.info/github/mojombo/jekyll/frames/Jekyll">Jekyll Doc</a>  </li>
+          <li> <a href="http://www.rdoc.info/github/">Ruby Doc</a>  </li>
+        </ul>
+        <h2 class="docs-heading">Node JS
+          <a href="#node-js" name="node-js" class="anchor">
+            <span class="anchor-target" id="node-js"></span> 
+            <span class="glyphicon glyphicon-link"></span> 
+          </a> 
+        </h2>
+        <ul>
+          <li> <a href="http://gruntjs.com/">gruntjs</a>  <code>npm install -g grunt-cli</code> </li>
+          <li>
+            <a href="http://bower.io/">bowerio</a>  <code>npm install -g bower</code> grunt:<code>npm install grunt-bower --save-dev</code> 
+            <a href="https://www.npmjs.org/package/grunt-bower">https://www.npmjs.org/package/grunt-bower</a> 
+          </li>
+          <li>
+            <a href="http://jade-lang.com/">jade</a> grunt:<code>npm install grunt-contrib-jade --save-dev</code> 
+            <a href="https://www.npmjs.org/package/grunt-contrib-jade">https://www.npmjs.org/package/grunt-contrib-jade</a> 
+          </li>
+          <li>
+            <a href="http://handlebarsjs.com/">handlebars</a> grunt:<code>npm install grunt-contrib-handlebars --save-dev</code> 
+            <a href="https://www.npmjs.org/package/grunt-contrib-handlebars">https://www.npmjs.org/package/grunt-contrib-handlebars</a> 
+          </li>
+          <li>
+            <a href="http://lesscss.org/">lesscss</a>  <code>npm install -g less</code> grunt:<code>npm install grunt-contrib-less --save-dev</code> 
+            <a href="https://www.npmjs.org/package/grunt-contrib-less">https://www.npmjs.org/package/grunt-contrib-less</a> 
+          </li>
+          <li>
+            <a href="http://www.typescriptlang.org/">typescript</a>  <code>npm install -g typescript</code> grunt:<code>npm install grunt-typescript --save-dev</code> 
+            <a href="https://www.npmjs.org/package/grunt-typescript">https://www.npmjs.org/package/grunt-typescript</a> 
+          </li>
+          <li>
+            <a href="http://pygments.org/">pygments</a>  <code>npm install pygments --save-dev</code> grunt:<code>npm install pygmentize-bundled --save-dev</code> 
+            <a href="https://www.npmjs.org/package/pygmentize-bundled">https://www.npmjs.org/package/pygmentize-bundled</a> 
+          </li>
+          <li>
+            <a href="http://www.typescriptlang.org/">uglify</a>  <code>npm install -g uglify-js</code> grunt:<code>npm install grunt-contrib-uglify --save-dev</code> 
+            <a href="https://www.npmjs.org/package/grunt-contrib-uglify">https://www.npmjs.org/package/grunt-contrib-uglify</a> 
+          </li>
+          <li> <a href="http://yeoman.io/">yeoman</a>  <code>npm install -g yeoman</code>  </li>
+          <li>
+            <a href="http://jekyllrb.com/">jekyll</a> grunt:<code>npm install grunt-jekyll</code> 
+            <a href="https://www.npmjs.org/package/grunt-jekyll">https://www.npmjs.org/package/grunt-jekyll</a> 
+          </li>
+          <li>
+            <a href="http://assemble.io/">assemble</a>  <code>npm install -g assemble</code> grunt:<code>npm install assemble --save-dev</code> 
+            <a href="https://www.npmjs.org/package/assemble">https://www.npmjs.org/package/assemble</a> 
+          </li>
+          <li>
+            <a href="http://highlightjs.org/">highlightjs</a>  <code>npm install -g highlight</code> grunt:<code>npm install grunt-highlight --save-dev</code> 
+            <a href="https://www.npmjs.org/package/grunt-highlight">https://www.npmjs.org/package/grunt-highlight</a> 
+          </li>
+          <li>[node-syntaxhighlighter] (
+            <a href="http://highlightjs.org/">http://highlightjs.org/</a> ) <code>npm install -g node-syntaxhighlighter</code> 
+            <a href="https://www.npmjs.org/package/node-syntaxhighlighter">https://www.npmjs.org/package/node-syntaxhighlighter</a> 
+          </li>
+          <li> <a href="https://www.npmjs.org/package/grunt-toc">grunt-toc</a>  <code>npm install grunt-toc --save-dev</code>  </li>
+          <li> <a href="https://www.npmjs.org/package/pretty">pretty</a>  <code>npm install pretty --save-dev</code>  </li>
+          <li> <a href="http://git-scm.com/">git</a>  </li>
+        </ul>
+        <h2 class="docs-heading">Installation
+          <a href="#installation" name="installation" class="anchor">
+            <span class="anchor-target" id="installation"></span> 
+            <span class="glyphicon glyphicon-link"></span> 
+          </a> 
+        </h2>
+        <pre><code class="language-javascript">{
+  assemble: {
+    options: {
+      assets: <span class="hljs-string">'docs/assets'</span>,
+      data: <span class="hljs-string">'src/data/*.{json,yml}'</span>,
+      helpers: <span class="hljs-string">'src/custom-helpers.js'</span>,
+      partials: [<span class="hljs-string">'src/partials/**/*.{hbs,md}'</span> ]
+    },
+    pages: {
+      options: {
+        layout: <span class="hljs-string">'default.hbs'</span> 
+      },
+      files: {
+        <span class="hljs-string">'./'</span> : [<span class="hljs-string">'src/templates/pages/index.hbs'</span> ]
+      }
+    }
+  }
+}</code></pre>
+        <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">html</span> &gt;</span> 
+  <span class="hljs-tag">&lt;<span class="hljs-title">head</span> &gt;</span> 
+    <span class="hljs-tag">&lt;<span class="hljs-title">link</span>  <span class="hljs-attribute">href</span> =<span class="hljs-value">"prism.css"</span>  <span class="hljs-attribute">rel</span> =<span class="hljs-value">"stylesheet"</span>  <span class="hljs-attribute">type</span> =<span class="hljs-value">"text/css"</span> &gt;</span> 
+  <span class="hljs-tag">&lt;/<span class="hljs-title">head</span> &gt;</span> 
+  <span class="hljs-tag">&lt;<span class="hljs-title">body</span> &gt;</span> 
+    <span class="hljs-comment">&lt;!-- after all your content --&gt;</span> 
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span>  <span class="hljs-attribute">src</span> =<span class="hljs-value">"prism.js"</span> &gt;</span> <span class="javascript"></span> <span class="hljs-tag">&lt;/<span class="hljs-title">script</span> &gt;</span> 
+  <span class="hljs-tag">&lt;/<span class="hljs-title">body</span> &gt;</span> 
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span> &gt;</span> </code></pre>
+        <pre><code class="language-cpp"><span class="hljs-comment">// my first program in C++</span> 
+<span class="hljs-preprocessor">#include &lt;iostream&gt;</span> 
+<span class="hljs-keyword">int</span>  main()
+{
+  <span class="hljs-built_in">std</span> ::<span class="hljs-built_in">cout</span>  &lt;&lt; <span class="hljs-string">"Hello World!"</span> ;
+}</code></pre>
+      </div>
+    </div>
+
+    <!-- back to top link-->
+    <a id="goto-top" href="#" class="btn btn-default" title="Back To Top">
+      <i class="fa fa-chevron-up fa-2x">
+      </i>
+    </a> 
+    <hr>
+    <footer>
+      <div style="text-align:center">
+        <span>
+					Created and Maintained by
+					<a id="forkme_banner" href="">@imaguiraga</a>  - Code licensed under <a href="http://opensource.org/licenses/mit-license.html">MIT License</a> 
+				</span> 
+        <br>
+        <span>
+				<a href="http://www.w3.org/html/logo/">
+				<img src="assets/images/html5-badge-h-connectivity-css3-device-graphics-multimedia-performance-semantics-storage.png" width="357" height="64" alt="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Performance &amp; Integration, Semantics, and Offline &amp; Storage" title="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Performance &amp; Integration, Semantics, and Offline &amp; Storage">
+				</a> 
+				</span> 
+        <br>
+
+        <!--
+				<span>
+					Using <a target="_blank" href="http://getbootstrap.com/">Bootstrap v3.0.0</a>  licensed under <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a> 
+				</span> <br />
+				-->
+      </div>
+    </footer>
+
+    <!--
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+                -->
+    <script src="assets/scripts/js/vendor/jquery-1.10.1.min.js"></script>
+    <script src="assets/scripts/js/vendor/jquery-ui-1.10.3.min.js"></script>
+    <script>
+      window.jQuery || document.write('<script src="assets/scripts/js/vendor/jquery-1.10.1.min.js"><\/script>')
+    </script>
+    <script src="assets/scripts/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/scripts/js/vendor/jquery.mousewheel-min.js"></script>
+    <script src="assets/scripts/js/vendor/jquery.terminal-min.js"></script>
+    <script src="assets/scripts/js/plugins.js"></script>
+
+    <!--
+		<script src="assets/scripts/js/stomp.js"></script>
+		<script src="assets/scripts/js/highlight.pack.js"></script>
+		-->
+    <script src="assets/scripts/js/launcher.js"></script>
+
+    <!--
+		<script src="assets/scripts/js/main.js"></script>
+		
+		<script src="assets/scripts/js/Client.js"></script>
+-->
+
+    <!--
+		<script>
+			var _gaq=[['_setAccount','UA-43966487-2'],['_trackPageview']];
+			(function(d,t){
+				var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+				g.src='//www.google-analytics.com/ga.js';
+				s.parentNode.insertBefore(g,s)}
+			 (document,'script'));
+		</script>
+		-->
+  </body>
+</html>
