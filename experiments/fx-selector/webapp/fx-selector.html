@@ -6,8 +6,8 @@
     <!--
     <link type="text/css" rel="stylesheet" href="style.css"/>
     -->
-    <script src="http://d3js.org/d3.v3.js"></script>
-    <script src="data2.js"></script>
+    <script src="assets/scripts/js/vendor/d3.min.js"></script>
+    <script src="fxData.js"></script>
     <style type="text/css">
 
 
@@ -19,7 +19,7 @@
 }
 
 .node text {
-  font-size: 11px;
+  /*font-size: 11px;*/
 }
 .container rect {
   fill: none;
@@ -33,19 +33,22 @@ path.link {
   stroke-width: 1.5px;
 }
 
+svg{
+  overflow:auto;
+}
     </style>
   </head>
   <body>
-    <div id="body">
+    <div id="body" style="overflow:auto">
       <div id="footer">
         d3.layout.tree
         <span class="hint">click on nodes to expand or collapse</span>
       </div>
     </div>
-	<script src="assets/scripts/js/WorkflowTree.js"></script>
+	<script src="assets/scripts/js/FxSelectorTree.js"></script>
     <script type="text/javascript">
-    var workflowTree = new WorkflowTree("#body",720,960);
-		workflowTree.show(data2());
+    var fxSelectorTree = new FxSelectorTree("#body",720,1096);
+		fxSelectorTree.show(fxData());
 	</script>
   </body>
 </html>
