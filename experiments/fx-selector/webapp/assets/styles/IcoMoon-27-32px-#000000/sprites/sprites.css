@@ -1,0 +1,104 @@
+[class*="icon-"] {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background-image: url(sprites.svg);
+	background-repeat: no-repeat;
+}
+.icon-screen {
+	background-position: 0 0;
+	width: 32px;
+}
+.icon-laptop {
+	background-position: -48px 0;
+	width: 32px;
+}
+.icon-mobile {
+	background-position: -96px 0;
+	width: 32px;
+}
+.icon-mobile2 {
+	background-position: -144px 0;
+	width: 32px;
+}
+.icon-tablet {
+	background-position: -192px 0;
+	width: 32px;
+}
+.icon-tv {
+	background-position: -240px 0;
+	width: 32px;
+}
+.icon-tree {
+	background-position: -288px 0;
+	width: 32px;
+}
+.icon-user {
+	background-position: -336px 0;
+	width: 32px;
+}
+.icon-users {
+	background-position: -384px 0;
+	width: 32px;
+}
+.icon-storage {
+	background-position: -432px 0;
+	width: 32px;
+}
+.icon-uniF51D {
+	background-position: -480px 0;
+	width: 32px;
+}
+.icon-uniF51C {
+	background-position: -528px 0;
+	width: 32px;
+}
+.icon-server {
+	background-position: -576px 0;
+	width: 32px;
+}
+.icon-servers {
+	background-position: -624px 0;
+	width: 32px;
+}
+.icon-network {
+	background-position: -672px 0;
+	width: 32px;
+}
+.icon-hdtv {
+	background-position: -720px 0;
+	width: 32px;
+}
+.icon-user2 {
+	background-position: 0 -48px;
+}
+.icon-friends {
+	background-position: -48px -48px;
+}
+.icon-monitor {
+	background-position: -96px -48px;
+}
+.icon-treediagram {
+	background-position: -144px -48px;
+}
+.icon-iphone {
+	background-position: -192px -48px;
+}
+.icon-nexus {
+	background-position: -240px -48px;
+}
+.icon-imac {
+	background-position: -288px -48px;
+}
+.icon-tablet2 {
+	background-position: -336px -48px;
+}
+.icon-touchpad {
+	background-position: -384px -48px;
+}
+.icon-sidebar {
+	background-position: -432px -48px;
+}
+.icon-browser {
+	background-position: -480px -48px;
+}

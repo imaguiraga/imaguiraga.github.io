@@ -5,6 +5,9 @@
 
 /* Font Awesome Styles */
 @import url("../fontawesome/css/font-awesome.min.css");
+
+/*icomoon-font*/
+@import url("../icomoon-font/style.css");
 /*@import url("../fontawesome/css/font-awesome-ie7.min.css");*/
 
 /*Glyphicons Font */

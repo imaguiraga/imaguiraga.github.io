@@ -12,7 +12,7 @@ class WorkflowTree{
 	i:number;
 	
 	//"#body",720, 500
-	constructor(placeholder:string,height:number,width:number){
+	constructor(placeholder:string,height:number,width:number,vh,vw){
 		this.m = [10, 60, 10, 60],
 		this.w = width - this.m[1] - this.m[3];
 		this.h = height - this.m[0] - this.m[2];
@@ -24,14 +24,26 @@ class WorkflowTree{
 		this.diagonal = d3.svg.diagonal()
 			.projection(function(d) { return [d.y-10, d.x]; });
 
-		this.vis = d3.select(placeholder).append("svg:svg")
-			..attr("width", "100%")
+ 		if(vh && vw){
+            this.vis = d3.select(placeholder)
+                .append("svg:svg")
+                .attr("width", String(vw))
+                .attr("height", String(vh))
+                //.attr("width", this.w + this.m[1] + this.m[3])
+                //.attr("height", this.h + this.m[0] + this.m[2])
+                .attr("viewBox", "0 0 "+String(this.w + this.m[1] + this.m[3]) +" "+String(this.h + this.m[0] + this.m[2]))
+                .append("svg:g")
+                	.attr("transform", "translate(" + this.m[3] + "," + this.m[0] + ")");
+        }else{
+            .append("svg:svg")
+            .attr("width", "100%")
             .attr("height",  "100%")
             //.attr("width", this.w + this.m[1] + this.m[3])
             //.attr("height", this.h + this.m[0] + this.m[2])
             .attr("viewBox", "0 0 "+String(this.w + this.m[1] + this.m[3]) +" "+String(this.h + this.m[0] + this.m[2]))
-		  .append("svg:g")
-			.attr("transform", "translate(" +this.m[3] + "," + this.m[0] + ")");
+            .append("svg:g")
+            	.attr("transform", "translate(" + this.m[3] + "," + this.m[0] + ")");
+        }
 
 		this.vis.append("g").attr("id", "links");
 		this.vis.append("g").attr("id", "nodes");

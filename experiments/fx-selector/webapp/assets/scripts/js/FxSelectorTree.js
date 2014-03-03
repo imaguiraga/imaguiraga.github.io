@@ -13,14 +13,7 @@ var FxSelectorTree = (function () {
             return [d.y - 10, d.x];
         });
 
-        this.vis = d3.select(placeholder)
-        .append("svg:svg")
-            .attr("width", "100%")
-            .attr("height",  "100%")
-            //.attr("width", this.w + this.m[1] + this.m[3])
-            //.attr("height", this.h + this.m[0] + this.m[2])
-            .attr("viewBox", "0 0 "+String(this.w + this.m[1] + this.m[3]) +" "+String(this.h + this.m[0] + this.m[2]))
-            .append("svg:g").attr("transform", "translate(" + this.m[3] + "," + this.m[0] + ")");
+        this.vis = d3.select(placeholder).append("svg:svg").attr("width", "100%").attr("height", "100%").attr("viewBox", "0 0 " + String(this.w + this.m[1] + this.m[3]) + " " + String(this.h + this.m[0] + this.m[2])).append("svg:g").attr("transform", "translate(" + this.m[3] + "," + this.m[0] + ")");
 
         this.vis.append("g").attr("id", "links");
         this.vis.append("g").attr("id", "nodes");
@@ -62,7 +55,7 @@ var FxSelectorTree = (function () {
 
         // Normalize for fixed-depth.
         nodes.forEach(function (d) {
-            d.y = d.depth * 120;
+            d.y = d.depth * 80;
         });
         var links = this.tree.links(nodes);
 
@@ -88,7 +81,7 @@ var FxSelectorTree = (function () {
         // Enter any new nodes at the parent's current position.
         var _this = this;
         var nodeEnter = node.enter().append("svg:g").attr("class", "node").attr("transform", function (d) {
-            return "translate(" + source.y + "," + source.x + ")";
+			return "translate(" + source.y + "," + source.x + ")";		
         }).on("click", function (d) {
             _this.toggle(d);
             _this.update(d);
@@ -103,26 +96,41 @@ var FxSelectorTree = (function () {
         nodeEnter.append("svg:text").attr("x", function (d) {
             return d.children || d._children ? -10 : 10;
         }).attr("dy", function (d) {
-            return d.children || d._children ? "-1.35em":".35em";
+            return d.children || d._children ? "-1.35em" : ".35em";
         }).attr("text-anchor", function (d) {
             return d.children || d._children ? "end" : "start";
         }).text(function (d) {
             return d.name;
         }).style("fill-opacity", 1e-6);
 
+        nodeEnter.append("svg:text").attr("x", function (d) {
+            return -8;
+        }).attr("y", function (d) {
+            return 6;
+        }).attr("text-anchor", function (d) {
+            return "start";
+        }).html(function (d) {
+            return IconMoonFont.getTspan(d.icon);
+        }).style("fill-opacity", 1e-6).style("cursor","pointer");
+
         //Update
         // Transition nodes to their new position.
         var nodeUpdate = node.transition().duration(duration).attr("transform", function (d) {
-            return "translate(" + d.y + "," + d.x + ")";
+			if(d.type === "root"){
+				return "translate(" + (d.y-4) + "," + d.x + ")";
+			}else{
+				return "translate(" + (d.y+4) + "," + d.x + ")";
+			}
+            
         });
 
         //make cirlce visible
-        nodeUpdate.select("circle").attr("r", 6).style("fill", function (d) {
+        nodeUpdate.select("circle").attr("r", 12).style("fill", function (d) {
             return d._children ? "lightsteelblue" : "#fff";
         });
 
         //make text visible
-        nodeUpdate.select("text").style("fill-opacity", 1);
+        nodeUpdate.selectAll("text").style("fill-opacity", 1);
 
         //Exit
         // Transition exiting nodes to the parent's new position.
@@ -214,4 +222,86 @@ var FxSelectorTree = (function () {
         }
     };
     return FxSelectorTree;
+})();
+
+var IconMoonFont = (function () {
+    function IconMoonFont() {
+    }
+    IconMoonFont.getTspan = function (icon) {
+        var code = IconMoonFont[icon];
+        if (code) {
+            return "<tspan style=\"font-family: " + IconMoonFont.fontFamily + ";cursor: pointer;\">" + code + "</tspan>";
+        } else {
+            return "";
+        }
+    };
+
+    IconMoonFont.getCode = function (icon) {
+        var code = IconMoonFont[icon];
+        if (code) {
+            return IconMoonFont[icon];
+        } else {
+            return "";
+        }
+    };
+    IconMoonFont.fontFamily = "'icomoon'";
+
+    IconMoonFont["fa-screen"] = "&#xe600;";
+
+    IconMoonFont["fa-laptop"] = "&#xe601;";
+
+    IconMoonFont["fa-mobile"] = "&#xe602;";
+
+    IconMoonFont["fa-mobile2"] = "&#xe603;";
+
+    IconMoonFont["fa-tablet"] = "&#xe604;";
+
+    IconMoonFont["fa-tv"] = "&#xe605;";
+
+    IconMoonFont["fa-tree"] = "&#xe606;";
+	
+	IconMoonFont["fa-sitemap"] = IconMoonFont["fa-tree"];
+
+    IconMoonFont["fa-user"] = "&#xe607;";
+
+    IconMoonFont["fa-users"] = "&#xe608;";
+
+    IconMoonFont["fa-storage"] = "&#xe609;";
+
+    IconMoonFont["fa-uniF51D"] = "&#xe60a;";
+
+    IconMoonFont["fa-uniF51C"] = "&#xe60b;";
+
+    IconMoonFont["fa-server"] = "&#xe60c;";
+
+    IconMoonFont["fa-servers"] = "&#xe60d;";
+	IconMoonFont["fa-serverbox"] = "&#xe60d;";
+
+    IconMoonFont["fa-network"] = "&#xe60e;";
+
+    IconMoonFont["fa-hdtv"] = "&#xe60f;";
+
+    IconMoonFont["fa-user2"] = "&#xe610;";
+
+    IconMoonFont["fa-friends"] = "&#xe611;";
+
+    IconMoonFont["fa-monitor"] = "&#xe612;";
+	IconMoonFont["fa-desktop"] = "&#xe612;";
+	
+    IconMoonFont["fa-treediagram"] = "&#xe613;";
+
+    IconMoonFont["fa-iphone"] = "&#xe614;";
+
+    IconMoonFont["fa-nexus"] = "&#xe615;";
+
+    IconMoonFont["fa-imac"] = "&#xe616;";
+
+    IconMoonFont["fa-tablet2"] = "&#xe617;";
+
+    IconMoonFont["fa-touchpad"] = "&#xe618;";
+
+    IconMoonFont["fa-sidebar"] = "&#xe619;";
+
+    IconMoonFont["fa-browser"] = "&#xe61a;";
+    return IconMoonFont;
 })();
