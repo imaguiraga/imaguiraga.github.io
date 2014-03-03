@@ -40,6 +40,11 @@
 		'icon-touchpad': '&#xe618;',
 		'icon-sidebar': '&#xe619;',
 		'icon-browser': '&#xe61a;',
+		'icon-android': '&#xe61b;',
+		'icon-windows': '&#xe61c;',
+		'icon-apple': '&#xe61d;',
+		'icon-linux': '&#xe61e;',
+		'icon-cogs': '&#xe61f;',
 		'0': 0
 		},
 		els = document.getElementsByTagName('*'),

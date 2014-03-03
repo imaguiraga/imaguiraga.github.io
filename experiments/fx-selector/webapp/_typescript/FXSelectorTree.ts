@@ -343,4 +343,17 @@ class IconMoonFont{
 	static "fa-sidebar" = "&#xe619;";
 
 	static "fa-browser" = "&#xe61a;";
+	IconMoonFont["fa-client"] = "&#xe61a;";
+
+	static "fa-android" = "&#xe61b";
+	static "fa-windows" = "&#xe61c";
+	static "fa-apple" = "&#xe61d";
+	static "fa-linux" = "&#xe61e";
+	static "fa-cogs" = "&#xe61f";
+	IconMoonFont["fa-osx"] = "&#xe61d";
+    IconMoonFont["fa-mac"] = "&#xe61d";
+	IconMoonFont["fa-ios"] = "&#xe61d";
+	IconMoonFont["fa-device"] = "&#xe61f";
+	IconMoonFont["fa-winphone"] = "&#xe61c";
+
 }

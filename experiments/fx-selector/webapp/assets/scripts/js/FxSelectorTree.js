@@ -303,5 +303,17 @@ var IconMoonFont = (function () {
     IconMoonFont["fa-sidebar"] = "&#xe619;";
 
     IconMoonFont["fa-browser"] = "&#xe61a;";
+	IconMoonFont["fa-client"] = "&#xe61a;";
+    IconMoonFont["fa-android"] = "&#xe61b";
+    IconMoonFont["fa-windows"] = "&#xe61c";
+    IconMoonFont["fa-apple"] = "&#xe61d";
+    IconMoonFont["fa-osx"] = "&#xe61d";
+    IconMoonFont["fa-mac"] = "&#xe61d";
+    IconMoonFont["fa-linux"] = "&#xe61e";
+    IconMoonFont["fa-cogs"] = "&#xe61f";
+    IconMoonFont["fa-device"] = "&#xe61f";
+	IconMoonFont["fa-ios"] = "&#xe61d";
+	IconMoonFont["fa-winphone"] = "&#xe61c";
+
     return IconMoonFont;
 })();
