@@ -51,7 +51,7 @@ function fxSmartTV(){
 }
 
 function fxMobile(){
-	var root= 
+	var root = 
 	{
 	  "type": "mobile",
 	  "name": "mobile",
@@ -164,6 +164,30 @@ function fxTablet(){
 	};return root;
 }
 
+function fxClient(){
+	var root = 
+	{
+	  "type": "client",
+	  "name": "client",
+	  "descr": "client",
+	  "icon": "fa-client",
+	  "entries": [
+		{
+		  "type": "device",
+		  "name": "device",
+		  "descr": "device",
+		  "icon": "fa-device",
+		  "entries": [
+			fxMobile(),
+			fxDesktop(),
+			fxTablet(),
+			fxSmartTV()
+		  ]
+		}
+	  ]
+	};
+	return root;
+}
 function fxData2(){
 var root =
 {
@@ -184,27 +208,7 @@ var root =
           "descr": "application",
           "icon": "fa-application",
           "entries": [
-            {
-              "type": "client",
-              "name": "client",
-              "descr": "client",
-              "icon": "fa-client",
-              "entries": [
-                {
-                  "type": "device",
-                  "name": "device",
-                  "descr": "device",
-                  "icon": "fa-device",
-                  "entries": [
-                    fxMobile(),
-                    fxDesktop(),
-                    fxTablet(),
-					fxSmartTV()
-                   
-                  ]
-                }
-              ]
-            }
+            fxClient()
           ]
         }
       ]
@@ -221,26 +225,7 @@ var root =
           "descr": "application",
           "icon": "fa-application",
           "entries": [
-            {
-              "type": "client",
-              "name": "client",
-              "descr": "client",
-              "icon": "fa-client",
-              "entries": [
-                {
-                  "type": "device",
-                  "name": "device",
-                  "descr": "device",
-                  "icon": "fa-device",
-                  "entries": [
-                    fxMobile(),
-                    fxDesktop(),
-                    fxTablet(),
-                    fxSmartTV()
-                  ]
-                }
-              ]
-            },
+            fxClient(),
             {
               "type": "server",
               "name": "server",
