@@ -13,12 +13,15 @@ var FxSelectorTree = (function () {
             return [d.y - 10, d.x];
         });
 
-        this.vis = d3.select(placeholder).append("svg:svg").attr("width", "100%").attr("height", "100%").attr("viewBox", "0 0 " + String(this.w + this.m[1] + this.m[3]) + " " + String(this.h + this.m[0] + this.m[2])).append("svg:g").attr("transform", "translate(" + this.m[3] + "," + this.m[0] + ")");
+        this.vis = d3.select(placeholder)
+		.style("width",String(width)+"px").style("height",String(height)+"px")
+		.append("svg:svg").attr("width", "100%").attr("height", "100%").attr("viewBox", "0 0 " + String(this.w + this.m[1] + this.m[3]) + " " + String(this.h + this.m[0] + this.m[2])).append("svg:g").attr("transform", "translate(" + this.m[3] + "," + this.m[0] + ")");
+        
+		this.vis.append('svg:defs').append('svg:marker').attr('id', 'end-arrow').attr('viewBox', '0 -5 10 10').attr('refX', 6).attr('refy', 0).attr('markerWidth', 4).attr('markerHeight', 4).attr('orient', 'auto').append('svg:path').attr('d', 'M0,-5L10,0L0,5').attr('fill', '#000');
 
         this.vis.append("g").attr("id", "links");
         this.vis.append("g").attr("id", "nodes");
 
-        this.vis.append('svg:defs').append('svg:marker').attr('id', 'end-arrow').attr('viewBox', '0 -5 10 10').attr('refX', 6).attr('refy', 0).attr('markerWidth', 4).attr('markerHeight', 4).attr('orient', 'auto').append('svg:path').attr('d', 'M0,-5L10,0L0,5').attr('fill', '#000');
     }
     FxSelectorTree.prototype.show = function (json) {
         this.root = json;
@@ -59,6 +62,17 @@ var FxSelectorTree = (function () {
         });
         var links = this.tree.links(nodes);
 
+		var _this = this;
+		setTimeout(
+			function(){
+			//_this.updateLinks(_this.vis, links, source, duration);
+			},
+		0);
+		setTimeout(
+			function(){
+			//_this.updateNodes(_this.vis, links, source, duration);
+			},
+		0);
         this.updateLinks(this.vis, links, source, duration);
         this.updateNodes(this.vis, nodes, source, duration);
 
@@ -109,9 +123,18 @@ var FxSelectorTree = (function () {
             return 6;
         }).attr("text-anchor", function (d) {
             return "start";
-        }).html(function (d) {
-            return IconMoonFont.getTspan(d.icon);
-        }).style("fill-opacity", 1e-6).style("cursor","pointer");
+		})
+        //}).html(function (d) {
+        //    return IconMoonFont.getTspan(d.icon);
+        //})
+		.style("fill-opacity", 1e-6).style("cursor","pointer")
+		 .append("tspan")
+			.style("font-family",IconMoonFont.fontFamily)
+			//.style("cursor","pointer")
+			.text(function (d) {
+				return IconMoonFont.getCode(d.icon);
+			});//*/
+			
 
         //Update
         // Transition nodes to their new position.
@@ -140,7 +163,7 @@ var FxSelectorTree = (function () {
 
         nodeExit.select("circle").attr("r", 1e-6);
 
-        nodeExit.select("text").style("fill-opacity", 1e-6);
+        nodeExit.selectAll("text").style("fill-opacity", 1e-6);
     };
 
     FxSelectorTree.prototype.updateLinks = function (svg, links, source, duration) {
@@ -152,7 +175,9 @@ var FxSelectorTree = (function () {
         var _this = this;
 
         // Enter any new links at the parent's previous position.
-        link.enter().insert("svg:path", "g").attr("class", "link").style('marker-start', 'url(#start-arrow)').style('marker-end', 'url(#end-arrow)').attr("d", function (d) {
+		var insert = link.enter().insert("svg:path", "g");
+		//IE has a bug for markers		
+        insert.attr("class", "link").style('marker-start', 'url(#start-arrow)').style('marker-end', 'url(#end-arrow)').attr("d", function (d) {
             var o = { x: source.x0, y: source.y0 };
             return _this.diagonal({ source: o, target: o });
         }).transition().duration(duration).attr("d", _this.diagonal);
@@ -246,74 +271,74 @@ var IconMoonFont = (function () {
     };
     IconMoonFont.fontFamily = "'icomoon'";
 
-    IconMoonFont["fa-screen"] = "&#xe600;";
+    IconMoonFont["fa-screen"] = "\ue600";
 
-    IconMoonFont["fa-laptop"] = "&#xe601;";
+    IconMoonFont["fa-laptop"] = "\ue601";
 
-    IconMoonFont["fa-mobile"] = "&#xe602;";
+    IconMoonFont["fa-mobile"] = "\ue602";//"\ue602";
 
-    IconMoonFont["fa-mobile2"] = "&#xe603;";
+    IconMoonFont["fa-mobile2"] = "\ue603";
 
-    IconMoonFont["fa-tablet"] = "&#xe604;";
+    IconMoonFont["fa-tablet"] = "\ue604";
 
-    IconMoonFont["fa-tv"] = "&#xe605;";
+    IconMoonFont["fa-tv"] = "\ue605";
 
-    IconMoonFont["fa-tree"] = "&#xe606;";
+    IconMoonFont["fa-tree"] = "\ue606";
 	
 	IconMoonFont["fa-sitemap"] = IconMoonFont["fa-tree"];
 
-    IconMoonFont["fa-user"] = "&#xe607;";
+    IconMoonFont["fa-user"] = "\ue607";
 
-    IconMoonFont["fa-users"] = "&#xe608;";
+    IconMoonFont["fa-users"] = "\ue608";
 
-    IconMoonFont["fa-storage"] = "&#xe609;";
+    IconMoonFont["fa-storage"] = "\ue609";
 
-    IconMoonFont["fa-uniF51D"] = "&#xe60a;";
+    IconMoonFont["fa-uniF51D"] = "\ue60a";
 
-    IconMoonFont["fa-uniF51C"] = "&#xe60b;";
+    IconMoonFont["fa-uniF51C"] = "\ue60b";
 
-    IconMoonFont["fa-server"] = "&#xe60c;";
+    IconMoonFont["fa-server"] = "\ue60c";
 
-    IconMoonFont["fa-servers"] = "&#xe60d;";
-	IconMoonFont["fa-serverbox"] = "&#xe60d;";
+    IconMoonFont["fa-servers"] = "\ue60d";
+	IconMoonFont["fa-serverbox"] = "\ue60d";
 
-    IconMoonFont["fa-network"] = "&#xe60e;";
+    IconMoonFont["fa-network"] = "\ue60e";
 
-    IconMoonFont["fa-hdtv"] = "&#xe60f;";
+    IconMoonFont["fa-hdtv"] = "\ue60f";
 
-    IconMoonFont["fa-user2"] = "&#xe610;";
+    IconMoonFont["fa-user2"] = "\ue610";
 
-    IconMoonFont["fa-friends"] = "&#xe611;";
+    IconMoonFont["fa-friends"] = "\ue611";
 
-    IconMoonFont["fa-monitor"] = "&#xe612;";
-	IconMoonFont["fa-desktop"] = "&#xe612;";
+    IconMoonFont["fa-monitor"] = "\ue612";
+	IconMoonFont["fa-desktop"] = "\ue612";
 	
-    IconMoonFont["fa-treediagram"] = "&#xe613;";
+    IconMoonFont["fa-treediagram"] = "\ue613";
 
-    IconMoonFont["fa-iphone"] = "&#xe614;";
+    IconMoonFont["fa-iphone"] = "\ue614";
 
-    IconMoonFont["fa-nexus"] = "&#xe615;";
+    IconMoonFont["fa-nexus"] = "\ue615";
 
-    IconMoonFont["fa-imac"] = "&#xe616;";
+    IconMoonFont["fa-imac"] = "\ue616";
 
-    IconMoonFont["fa-tablet2"] = "&#xe617;";
+    IconMoonFont["fa-tablet2"] = "\ue617";
 
-    IconMoonFont["fa-touchpad"] = "&#xe618;";
+    IconMoonFont["fa-touchpad"] = "\ue618";
 
-    IconMoonFont["fa-sidebar"] = "&#xe619;";
+    IconMoonFont["fa-sidebar"] = "\ue619";
 
-    IconMoonFont["fa-browser"] = "&#xe61a;";
-	IconMoonFont["fa-client"] = "&#xe61a;";
-    IconMoonFont["fa-android"] = "&#xe61b";
-    IconMoonFont["fa-windows"] = "&#xe61c";
-    IconMoonFont["fa-apple"] = "&#xe61d";
-    IconMoonFont["fa-osx"] = "&#xe61d";
-    IconMoonFont["fa-mac"] = "&#xe61d";
-    IconMoonFont["fa-linux"] = "&#xe61e";
-    IconMoonFont["fa-cogs"] = "&#xe61f";
-    IconMoonFont["fa-device"] = "&#xe61f";
-	IconMoonFont["fa-ios"] = "&#xe61d";
-	IconMoonFont["fa-winphone"] = "&#xe61c";
+    IconMoonFont["fa-browser"] = "\ue61a";
+	IconMoonFont["fa-client"] = "\ue61a";
+    IconMoonFont["fa-android"] = "\ue61b";
+    IconMoonFont["fa-windows"] = "\ue61c";
+    IconMoonFont["fa-apple"] = "\ue61d";
+    IconMoonFont["fa-osx"] = "\ue61d";
+    IconMoonFont["fa-mac"] = "\ue61d";
+    IconMoonFont["fa-linux"] = "\ue61e";
+    IconMoonFont["fa-cogs"] = "\ue61f";
+    IconMoonFont["fa-device"] = "\ue61f";
+	IconMoonFont["fa-ios"] = "\ue61d";
+	IconMoonFont["fa-winphone"] = "\ue61c";
 
     return IconMoonFont;
 })();

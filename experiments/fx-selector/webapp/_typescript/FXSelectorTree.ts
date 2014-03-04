@@ -33,9 +33,6 @@ class FxSelectorTree{
 		  .append("svg:g")
 			.attr("transform", "translate(" +this.m[3] + "," + this.m[0] + ")");
 
-		this.vis.append("g").attr("id", "links");
-		this.vis.append("g").attr("id", "nodes");
-
 		this.vis.append('svg:defs').append('svg:marker')
 			.attr('id', 'end-arrow')
 			.attr('viewBox', '0 -5 10 10')
@@ -47,6 +44,9 @@ class FxSelectorTree{
 		  .append('svg:path')
 			.attr('d', 'M0,-5L10,0L0,5')
 			.attr('fill', '#000');
+			
+		this.vis.append("g").attr("id", "links");
+		this.vis.append("g").attr("id", "nodes");
 	}
 
 	show(json) {
@@ -130,8 +130,16 @@ class FxSelectorTree{
 		  .attr("x", function(d) { return -8; })
 		  .attr("y", function(d) { return 6; })
 		  .attr("text-anchor", function(d) { return "start"; })
-		  .html(function(d) { return IconMoonFont.getTspan(d.icon); })
-		  .style("fill-opacity", 1e-6).style("cursor","pointer");
+		  //}).html(function (d) {
+          //    return IconMoonFont.getTspan(d.icon);
+          //})
+		.style("fill-opacity", 1e-6).style("cursor","pointer")
+		 .append("tspan")
+			.style("font-family",IconMoonFont.fontFamily)
+			//.style("cursor","pointer")
+			.text(function (d) {
+				return IconMoonFont.getCode(d.icon);
+			});//*/
 
 	//Update
 	  // Transition nodes to their new position.
@@ -148,7 +156,7 @@ class FxSelectorTree{
 		  .attr("r", 12)
 		  .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 	//make text visible
-	  nodeUpdate.select("text")
+	  nodeUpdate.selectAll("text")
 		  .style("fill-opacity", 1);
 	//Exit
 	  // Transition exiting nodes to the parent's new position.
@@ -160,7 +168,7 @@ class FxSelectorTree{
 	  nodeExit.select("circle")
 		  .attr("r", 1e-6);
 
-	  nodeExit.select("text")
+	  nodeExit.selectAll("text")
 		  .style("fill-opacity", 1e-6);
 
 	}
@@ -176,8 +184,9 @@ class FxSelectorTree{
 	  // Enter any new links at the parent's previous position.
 	  link.enter().insert("svg:path", "g")
 		  .attr("class", "link")
-		  .style('marker-start', 'url(#start-arrow)')
-		  .style('marker-end', 'url(#end-arrow)')
+		  //IE issues
+		  //.style('marker-start', 'url(#start-arrow)')
+		  //.style('marker-end', 'url(#end-arrow)')
 		  .attr("d", function(d) {
 			var o = {x: source.x0, y: source.y0};
 			return _this.diagonal({source: o, target: o});
@@ -286,74 +295,74 @@ class IconMoonFont{
 		}
 	}
 
-	static "fa-screen" = "&#xe600;";
+	static "fa-screen" = "\ue600";
 
-	static "fa-laptop" = "&#xe601;";
+	static "fa-laptop" = "\ue601";//&#xe601;
 
-	static "fa-mobile" = "&#xe602;";
+	static "fa-mobile" = "\ue602";
 
-	static "fa-mobile2" = "&#xe603;";
+	static "fa-mobile2" = "\ue603";
 
-	static "fa-tablet" = "&#xe604;";
+	static "fa-tablet" = "\ue604";
 
-	static "fa-tv" = "&#xe605;";
+	static "fa-tv" = "\ue605";
 
-	static "fa-tree" = "&#xe606;";
+	static "fa-tree" = "\ue606";
 	
 	static "fa-sitemap" = IconMoonFont["fa-tree"];
 
-	static "fa-user" = "&#xe607;";
+	static "fa-user" = "\ue607";
 
-	static "fa-users" = "&#xe608;";
+	static "fa-users" = "\ue608";
 
-	static "fa-storage" = "&#xe609;";
+	static "fa-storage" = "\ue609";
 
-	static "fa-uniF51D" = "&#xe60a;";
+	static "fa-uniF51D" = "\ue60a";
 
-	static "fa-uniF51C" = "&#xe60b;";
+	static "fa-uniF51C" = "\ue60b";
 
-	static "fa-server" = "&#xe60c;";
+	static "fa-server" = "\ue60c";
 
-	static "fa-servers" = "&#xe60d;";
-	IconMoonFont["fa-serverbox"] = "&#xe60d;";
+	static "fa-servers" = "\ue60d";
+	IconMoonFont["fa-serverbox"] = "\ue60d";
 
-	static "fa-network" = "&#xe60e;";
+	static "fa-network" = "\ue60e";
 
-	static "fa-hdtv" = "&#xe60f;";
+	static "fa-hdtv" = "\ue60f";
 
-	static "fa-user2" = "&#xe610;";
+	static "fa-user2" = "\ue610";
 
-	static "fa-friends" = "&#xe611;";
+	static "fa-friends" = "\ue611";
 
-	static "fa-monitor" = "&#xe612;";
-	IconMoonFont["fa-desktop"] = "&#xe612;";
+	static "fa-monitor" = "\ue612";
+	IconMoonFont["fa-desktop"] = "\ue612";
 
-	static "fa-treediagram" = "&#xe613;";
+	static "fa-treediagram" = "\ue613";
 
-	static "fa-iphone" = "&#xe614;";
+	static "fa-iphone" = "\ue614";
 
-	static "fa-nexus" = "&#xe615;";
+	static "fa-nexus" = "\ue615";
 
-	static "fa-imac" = "&#xe616;";
+	static "fa-imac" = "\ue616";
 
-	static "fa-tablet2" = "&#xe617;";
+	static "fa-tablet2" = "\ue617";
 
-	static "fa-touchpad" = "&#xe618;";
+	static "fa-touchpad" = "\ue618";
 
-	static "fa-sidebar" = "&#xe619;";
+	static "fa-sidebar" = "\ue619";
 
-	static "fa-browser" = "&#xe61a;";
-	IconMoonFont["fa-client"] = "&#xe61a;";
+	static "fa-browser" = "\ue61a";
+	IconMoonFont["fa-client"] = "\ue61a";
 
-	static "fa-android" = "&#xe61b";
-	static "fa-windows" = "&#xe61c";
-	static "fa-apple" = "&#xe61d";
-	static "fa-linux" = "&#xe61e";
-	static "fa-cogs" = "&#xe61f";
-	IconMoonFont["fa-osx"] = "&#xe61d";
-    IconMoonFont["fa-mac"] = "&#xe61d";
-	IconMoonFont["fa-ios"] = "&#xe61d";
-	IconMoonFont["fa-device"] = "&#xe61f";
-	IconMoonFont["fa-winphone"] = "&#xe61c";
+	static "fa-android" = "\ue61b";
+	static "fa-windows" = "\ue61c";
+	static "fa-apple" = "\ue61d";
+	static "fa-linux" = "\ue61e";
+	static "fa-cogs" = "\ue61f";
+	IconMoonFont["fa-osx"] = "\ue61d";
+    IconMoonFont["fa-mac"] = "\ue61d";
+	IconMoonFont["fa-ios"] = "\ue61d";
+	IconMoonFont["fa-device"] = "\ue61f";
+	IconMoonFont["fa-winphone"] = "\ue61c";
 
 }

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+	<link rel="stylesheet" href="assets/styles/fontawesome/css/font-awesome.css" />
+	<link rel="stylesheet" href="assets/styles/icomoon-font/style.css" />
+    <script src="assets/scripts/js/vendor/d3.min.js"></script>
+<style>
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+.node rect {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+.region rect {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+.node {
+  font: 10px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+</style>
+<body>
+<div id="body">
+      <div id="footer">
+        d3.layout.tree
+        <div class="hint">click on nodes to expand or collapse</div>
+      </div>
+    </div>
+	<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <g>
+	<text x="160" y="140" dx="-40"><tspan style="font-family: 'FontAwesome'; font-weight:normal;">&#xf011;</tspan></text>
+	<text x="160" y="160" dx="-40"><tspan style="font-family: 'icomoon'; font-weight:normal;">&#xe601;</tspan></text>
+  </g>
+   Sorry, your browser does not support inline SVG.
+</svg>
+<svg width="1096" height="720" viewBox="0 0 1096 720"><g transform="translate(60,10)"><defs><marker id="end-arrow" viewBox="0 -5 10 10" refX="6" refy="0" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,-5L10,0L0,5" fill="#000"></path></marker></defs><g id="links"><path class="link" d="M-10,350C30,350 30,87.5 70,87.5" style="marker-start: url(#start-arrow); marker-end: url(#end-arrow);"></path><path class="link" d="M-10,350C30,350 30,262.5 70,262.5" style="marker-start: url(#start-arrow); marker-end: url(#end-arrow);"></path><path class="link" d="M-10,350C30,350 30,437.5 70,437.5" style="marker-start: url(#start-arrow); marker-end: url(#end-arrow);"></path><path class="link" d="M-10,350C30,350 30,612.5 70,612.5" style="marker-start: url(#start-arrow); marker-end: url(#end-arrow);"></path></g><g id="nodes"><g class="node" transform="translate(84,612.5)"><circle r="12" style="fill: #ffffff;"></circle><text x="10" dy=".35em" text-anchor="start" style="fill-opacity: 1;">blackberry</text><text x="-8" y="6" text-anchor="start" style="fill-opacity: 1; cursor: pointer;"><tspan style="font-family: icomoon;"></tspan></text></g><g class="node" transform="translate(84,437.5)"><circle r="12" style="fill: #ffffff;"></circle><text x="10" dy=".35em" text-anchor="start" style="fill-opacity: 1;">winphone</text><text x="-8" y="6" text-anchor="start" style="fill-opacity: 1; cursor: pointer;"><tspan style="font-family: icomoon;"></tspan></text></g><g class="node" transform="translate(84,262.5)"><circle r="12" style="fill: #ffffff;"></circle><text x="10" dy=".35em" text-anchor="start" style="fill-opacity: 1;">ios</text><text x="-8" y="6" text-anchor="start" style="fill-opacity: 1; cursor: pointer;"><tspan style="font-family: icomoon;"></tspan></text></g><g class="node" transform="translate(84,87.5)"><circle r="12" style="fill: #ffffff;"></circle><text x="10" dy=".35em" text-anchor="start" style="fill-opacity: 1;">android</text><text x="-8" y="6" text-anchor="start" style="fill-opacity: 1; cursor: pointer;"><tspan style="font-family: icomoon;"></tspan></text></g><g class="node" transform="translate(4,350)"><circle r="12" style="fill: #ffffff;"></circle><text x="-10" dy="-1.35em" text-anchor="end" style="fill-opacity: 1;">mobile</text><text x="-8" y="6" text-anchor="start" style="fill-opacity: 1; cursor: pointer;"><tspan style="font-family: icomoon;"></tspan></text></g></g></g></svg>
+<!--
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+-->
+
+<script src="assets/scripts/js/FxSelectorTree.js"></script>
+<script>
+
+var width = 480,
+    height = 600;
+ var force = d3.layout.force()
+        .size([width, height]);
+    /*
+    d3.layout.force()
+            .gravity(0.1)
+            .charge(-30)
+            .friction(0.95)
+            .linkDistance(20)
+            .linkStrength(1);//*/
+var tree = d3.layout.tree()
+    .size([height, width - 160]);
+
+var diagonal = d3.svg.diagonal()
+    .projection(function(d) { return [d.y-20, d.x]; });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(40,0)");
+
+svg.append("g").attr("id", "links");
+svg.append("g").attr("id", "nodes");
+svg.append("g").attr("id", "regions");
+  
+var root = {
+ "name": "flare",
+ "children": [
+  {
+   "name": "analytics",
+   "children": [
+    {
+     "name": "cluster",
+     "children": [
+      {"name": "AgglomerativeCluster", "size": 3938},
+      {"name": "CommunityStructure", "size": 3812},
+      {"name": "MergeEdge", "size": 743}
+     ]
+    },
+    {
+     "name": "graph",
+     "children": [
+      {"name": "BetweennessCentrality", "size": 3534},
+      {"name": "LinkDistance", "size": 5731}
+     ]
+    }
+   ]
+  }
+ ]
+};
+// Toggle children.
+function toggle(d) {
+  if (d.children) {
+    d._children = d.children;
+    d.children = null;
+  } else {
+    d.children = d._children;
+    d._children = null;
+  }
+}
+
+function update(source) {
+   //creates nodes and links from input
+  var nodes = tree.nodes(root),
+      links = tree.links(nodes);
+
+  updateLinks(svg,links,source);
+  updateNodes(svg,nodes,source);  
+   
+  // Stash the old positions for transition.
+  
+  updateRegion(svg,nodes,source);
+
+  nodes.forEach(function(d) {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+}
+
+function updateLinks(svg,links,source){
+  var duration = 500;
+  var link = svg.select("#links").selectAll(".link")
+      .data(links);
+
+  link.enter()//.insert("svg:path", "g")
+    .append("path")
+      .attr("class", "link")
+      .attr("d", function(d) {
+        var o = {x: source.x0, y: source.y0};
+        return diagonal({source: o, target: o});
+      })
+    .transition()
+      .duration(duration)
+      .attr("d", diagonal);
+
+  // Transition links to their new position.
+  link.transition()
+      .duration(duration)
+      .attr("d", diagonal);
+
+  // Transition exiting nodes to the parent's new position.
+  link.exit().transition()
+      .duration(duration)
+      .attr("d", function(d) {
+        var o = {x: source.x, y: source.y};
+        return diagonal({source: o, target: o});
+      })
+      .remove();
+}
+
+function updateNodes(svg,nodes,source){
+  var duration = 500;
+  var nodesSelection = svg.select("#nodes").selectAll(".node");
+  var node = nodesSelection.data(nodes);
+
+  var nodeEnter = 
+    node.enter().append("g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "translate(" + (source.y-20) + "," + (source.x-16) + ")"; })
+      .on("click", function(d) { toggle(d); update(d); });
+//Enter
+   //x0,y=0 before translation      
+  nodeEnter.append("rect")
+        .attr("rx","4")
+        .attr("ry","4")
+          .attr("height", 1e-6)
+          .attr("width", 1e-6);
+
+  nodeEnter.append("text")
+      .attr("dx", function(d) { return d.children ? -20 : 20; })
+      .attr("dy", -20)
+      .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
+      .text(function(d) { return d.name; })
+      .style("fill-opacity", 1e-6);
+	  
+	nodeEnter.append("svg:text").attr("dx", function (d) {
+            return -8;
+        }).attr("dy", function (d) {
+            return 6;
+        }).attr("text-anchor", function (d) {
+            return "start";
+		})
+        //}).html(function (d) {
+        //    return IconMoonFont.getTspan(d.icon);
+        //})
+		.style("fill-opacity", 1e-6).style("cursor","pointer")
+		 .append("tspan")
+			.style("font-family",IconMoonFont.fontFamily)
+			//.style("cursor","pointer")
+			.text(function (d) {
+				return IconMoonFont.getCode("fa-mobile");
+			});//*/
+//Update
+  // Transition nodes to their new position.
+  var nodeUpdate = node.transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + (d.y-20) + "," + (d.x-16) + ")"; })
+
+//restore opacity
+  nodeUpdate.select("rect")
+      .attr("rx","4")
+        .attr("ry","4")
+          .attr("height", 32)
+          .attr("width", 20)
+      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  nodeUpdate.selectAll("text")
+      .style("fill-opacity", 1);
+
+//Exit
+  // Transition exiting nodes to the parent's new position.
+  var nodeExit = node.exit()
+  .transition().duration(duration)
+      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+      .style("fill-opacity", 1e-6)
+      .remove();
+
+//change opacity
+  nodeExit.select("rect")
+      .attr("width", 1e-6)
+      .attr("height", 1e-6);
+
+  nodeExit.selectAll("text")
+      .style("fill-opacity", 1e-6);
+      //*/
+}
+
+function updateRegion(svg,nodes,source){
+   var duration = 500;
+   nodes.forEach(function(d) { //find min max d.x
+        var minx = Number.MAX_VALUE;
+        var maxx = Number.MIN_VALUE;
+        for(var i in d.children){
+           minx = Math.min(minx,d.children[i].x-30);
+           maxx = Math.max(maxx,d.children[i].x+30);
+        }
+
+        console.log("min="+minx+" max="+maxx);
+        d.minx = minx;
+        d.maxx = maxx;
+   });
+  //bounding boxes
+     var region = svg.select("#regions").selectAll(".region")
+      .data(nodes.filter(function(d, i) { 
+        return (typeof d.children != "undefined" && d.children.length>1)?d:null; 
+   }),function(d,i){ return d.name;});
+//Enter
+    var regionEnter = region.enter()
+    .append("g")
+    
+      .attr("class", "region")    
+      .attr("transform", function(d) {         
+        return "translate(" + (source.children[0].y-40) + "," + (source.minx) + ")"; 
+      })  ;
+
+   //x0,y=0 before translation      
+    regionEnter.append("rect")   
+      .attr("height", 1e-6)
+      .attr("width",  1e-6);//*/
+//Update
+    var regionUpdate = region
+      .transition().duration(duration)
+      .attr("transform", function(d) {         
+        return "translate(" + (d.children[0].y-40) + "," + (d.minx) + ")"; 
+      });
+
+   //x0,y=0 before translation      
+    regionUpdate.select("rect")  
+      .attr("height", function(d) { 
+        return d.maxx-d.minx; 
+      })
+      .attr("width", function(d) { 
+        return 60;
+     });//*/
+
+  //Exit
+    var regionExit = region.exit()
+    //.transition().duration(duration)  
+      .style("fill-opacity", 1e-6)
+      .remove();
+    //change opacity
+  regionExit.select("rect")
+      //.attr("width", 1e-6).attr("height", 1e-6)
+      .style("fill-opacity", 1e-6);
+
+  regionExit.select("text")
+      .style("fill-opacity", 1e-6);
+      //*/
+
+}
+
+update(root);
+  
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>
+</body>
+</html>

@@ -44,8 +44,11 @@
     </div>
 	<script src="assets/scripts/js/FxSelectorTree.js"></script>
     <script type="text/javascript">
-    var fxSelectorTree = new FxSelectorTree("#body",720,1096);
-		fxSelectorTree.show(fxData2());
+		window.onload = function(e){ 
+			var fxSelectorTree = new FxSelectorTree("#body",720,1096);
+			//fxSelectorTree.show(fxData2());
+			fxSelectorTree.show(fxMobile());
+		}		
 	</script>
   </body>
 </html>
