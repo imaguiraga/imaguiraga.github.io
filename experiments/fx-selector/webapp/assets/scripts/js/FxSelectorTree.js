@@ -177,11 +177,30 @@ var FxSelectorTree = (function () {
         // Enter any new links at the parent's previous position.
 		var insert = link.enter().insert("svg:path", "g");
 		//IE has a bug for markers		
-        insert.attr("class", "link")/*.style('marker-start', 'url(#start-arrow)').style('marker-end', 'url(#end-arrow)')*/.attr("d", function (d) {
-            var o = { x: source.x0, y: source.y0 };
-            return _this.diagonal({ source: o, target: o });
-        }).transition().duration(duration).attr("d", _this.diagonal);
-
+		if(FxSelectorTree.getIExplorerVersion() > -1){
+			  //IE issues
+			insert
+			  .attr("class", "link")
+			  .attr("d", function(d) {
+				var o = {x: source.x0, y: source.y0};
+				return _this.diagonal({source: o, target: o});
+			  })
+			.transition()
+			  .duration(duration)
+			  .attr("d", _this.diagonal);
+		}else{
+			insert
+			  .attr("class", "link")
+			  .style('marker-start', 'url(#start-arrow)')
+			  .style('marker-end', 'url(#end-arrow)')
+			  .attr("d", function(d) {
+				var o = {x: source.x0, y: source.y0};
+				return _this.diagonal({source: o, target: o});
+			  })
+			.transition()
+			  .duration(duration)
+			  .attr("d", _this.diagonal);
+		}
         // Transition links to their new position.
         link.transition().duration(duration).attr("d", _this.diagonal);
 
@@ -246,6 +265,26 @@ var FxSelectorTree = (function () {
             d._children = null;
         }
     };
+	
+	FxSelectorTree.getIExplorerVersion = function(){
+	// Returns the version of Internet Explorer or a -1
+	// (indicating the use of another browser).
+	
+	  var rv = -1; // Return value assumes failure.
+	  if (navigator.appName == 'Microsoft Internet Explorer'){
+		var ua = navigator.userAgent;
+		var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+		if (re.exec(ua) != null)
+		  rv = parseFloat( RegExp.$1 );
+		  
+	  }else if (navigator.appName == 'Netscape'){
+		var ua = navigator.userAgent;
+		var re  = new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})");
+		if (re.exec(ua) != null)
+		  rv = parseFloat( RegExp.$1 );
+	  }
+	  return rv;
+	};
     return FxSelectorTree;
 })();
 
