@@ -177,7 +177,7 @@ var FxSelectorTree = (function () {
         // Enter any new links at the parent's previous position.
 		var insert = link.enter().insert("svg:path", "g");
 		//IE has a bug for markers		
-        insert.attr("class", "link").style('marker-start', 'url(#start-arrow)').style('marker-end', 'url(#end-arrow)').attr("d", function (d) {
+        insert.attr("class", "link")/*.style('marker-start', 'url(#start-arrow)').style('marker-end', 'url(#end-arrow)')*/.attr("d", function (d) {
             var o = { x: source.x0, y: source.y0 };
             return _this.diagonal({ source: o, target: o });
         }).transition().duration(duration).attr("d", _this.diagonal);
