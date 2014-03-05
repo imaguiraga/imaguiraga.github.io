@@ -495,7 +495,7 @@ class IconMoonFont {
 	static fa_sidebar = "\ue619";
 
 	static fa_browser = "\ue61a";
-	static fa_client = IconMoonFont.fa_client;
+	static fa_client = IconMoonFont.fa_browser;
 
 	static fa_android = "\ue61b";
 	static fa_windows = "\ue61c";

@@ -17,4 +17,12 @@ Application to select
 
 * [d3.js](http://d3js.org/)
 
+Chose:
+* nb users
+* application type (Client, server) (Collaborative?)
+* device type (desktop, server, tablet, mobile, smart tv)
+* platform type (OSX, android, windows, linux, etc)
+* runtime (java, .net, air, browser, native) (need local i/o)
+* sdk (jdk, .net, air sdk, cordova, etc)
+
 {{/markdown}}

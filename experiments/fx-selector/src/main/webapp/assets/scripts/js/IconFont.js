@@ -495,7 +495,7 @@ var IconMoonFont = (function () {
     IconMoonFont.fa_sidebar = "\ue619";
 
     IconMoonFont.fa_browser = "\ue61a";
-    IconMoonFont.fa_client = IconMoonFont.fa_client;
+    IconMoonFont.fa_client = IconMoonFont.fa_browser;
 
     IconMoonFont.fa_android = "\ue61b";
     IconMoonFont.fa_windows = "\ue61c";

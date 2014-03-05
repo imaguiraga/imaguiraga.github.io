@@ -111,7 +111,7 @@ function fxDesktop(){
 			  "name": "windows",
 			  "descr": "windows",
 			  "icon": "fa-windows",
-			  "entries": []
+			  "entries": [fxRuntime()]
 			},
 			{
 			  "type": "linux",
@@ -159,6 +159,130 @@ function fxTablet(){
 		  "descr": "blackberry",
 		  "icon": "fa-blackberry",
 		  "entries": []
+		}
+	  ]
+	};return root;
+}
+function fxRuntime(){
+	var root =  
+	{
+	  "type": "runtime",
+	  "name": "runtime",
+	  "descr": "runtime",
+	  "icon": "fa-runtime",
+	  "entries": [
+		{
+		  "type": "jvm",
+		  "name": "jvm",
+		  "descr": "jvm",
+		  "icon": "fa-jvm-runtime",
+		  "entries": [{
+		  "type": "jdk",
+		  "name": "jdk",
+		  "descr": "jdk",
+		  "icon": "fa-java-sdk",
+		  "entries": []
+		}]
+		},
+		{
+		  "type": ".net",
+		  "name": ".net",
+		  "descr": ".net",
+		  "icon": "fa-net-runtime",
+		  "entries": [{
+		  "type": "netSDK",
+		  "name": "netSDK",
+		  "descr": "netSDK",
+		  "icon": "fa-net-sdk",
+		  "entries": []
+		}]
+		},
+		{
+		  "type": "air",
+		  "name": "air",
+		  "descr": "air",
+		  "icon": "fa-air-runtime",
+		  "entries": [{
+		  "type": "airSDK",
+		  "name": "airSDK",
+		  "descr": "airSDK",
+		  "icon": "fa-air-sdk",
+		  "entries": []
+		}]
+		},
+		{
+		  "type": "flash",
+		  "name": "flash",
+		  "descr": "flash",
+		  "icon": "fa-flash-runtime",
+		  "entries": [{
+		  "type": "flexSDK",
+		  "name": "flexSDK",
+		  "descr": "flexSDK",
+		  "icon": "fa-flex-sdk",
+		  "entries": []
+		}]
+		},
+		{
+		  "type": "native",
+		  "name": "native",
+		  "descr": "native",
+		  "icon": "fa-native-runtime",
+		  "entries": [{
+		  "type": "cordovaSDK",
+		  "name": "cordovaSDK",
+		  "descr": "cordovaSDK",
+		  "icon": "fa-cordova-sdk",
+		  "entries": []
+		}/*,
+		{
+		  "type": "winSDK",
+		  "name": "winSDK",
+		  "descr": "winSDK",
+		  "icon": "fa-win-sdk",
+		  "entries": []
+		},
+		{
+		  "type": "androidSDK",
+		  "name": "androidSDK",
+		  "descr": "androidSDK",
+		  "icon": "fa-android-sdk",
+		  "entries": []
+		},
+		{
+		  "type": "iosSDK",
+		  "name": "iosSDK",
+		  "descr": "iosSDK",
+		  "icon": "fa-ios-sdk",
+		  "entries": []
+		},
+		{
+		  "type": "smarttvSDK",
+		  "name": "smarttvSDK",
+		  "descr": "smarttvSDK",
+		  "icon": "fa-smarttv-sdk",
+		  "entries": []
+		}//*/
+		]
+		},
+		{
+		  "type": "browser",
+		  "name": "browser",
+		  "descr": "browser",
+		  "icon": "fa-browser-runtime",
+		  "entries": [{
+		  "type": "html5",
+		  "name": "html5",
+		  "descr": "html5",
+		  "icon": "fa-html5-sdk",
+		  "entries": []
+		},{
+		  "type": "flexSDK",
+		  "name": "flexSDK",
+		  "descr": "flexSDK",
+		  "icon": "fa-flex-sdk",
+		  "entries": []
+		}]
 		}
 	  ]
 	};return root;
