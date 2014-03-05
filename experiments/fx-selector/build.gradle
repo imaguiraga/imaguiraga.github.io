@@ -1,0 +1,79 @@
+apply ( plugin: 'base' )
+apply ( plugin: 'java' )
+apply ( plugin: 'eclipse' )
+apply ( plugin: 'application' )
+
+sourceCompatibility = 1.6
+version = '0.1.0'
+project.ext {
+	logbackversion = "1.0.13"
+	atmosphereversion = "2.1.0-RC2"
+  }
+
+jar {
+    manifest {
+        attributes (
+        	'Implementation-Title': 'messaging-client-grizzly',
+        	'Implementation-Version': version
+        )
+    }
+}
+
+eclipse {
+	project {
+		referencedProjects ('messaging-core')
+	}
+}
+
+repositories {
+	flatDir { dirs "../" }
+    mavenCentral()
+    jcenter()
+    maven { url "http://repo.springsource.org/libs-snapshot" }
+	maven { url "http://spring-roo-repository.springsource.org/release" }
+	maven { url "https://oss.sonatype.org/content/repositories/appfuse-releases" }
+	mavenLocal()
+}
+
+dependencies {
+    compile(
+		project('messaging-core'),
+
+		"ch.qos.logback:logback-core:$logbackversion",
+		"ch.qos.logback:logback-classic:$logbackversion",
+
+		//"org.glassfish.jersey.containers:jersey-container-servlet:2.5.1",
+		"org.glassfish.jersey.containers:jersey-container-grizzly2-http:2.5.1",
+		"org.glassfish.grizzly:grizzly-http-all:2.3.11"
+		//"org.glassfish.grizzly:grizzly-http-servlet:2.3.11",
+		//"org.glassfish.grizzly:grizzly-websockets-server:2.3.11"
+
+    )
+
+	testCompile(
+		"junit:junit:4.+",
+		"org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-bundle:2.5.1"
+	)
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.8'
+}
+
+task jekyll(type:Exec) {
+  workingDir './templates/_webapp'
+
+  String osName = System.getProperty("os.name").toLowerCase();
+  if (osName.contains("windows")) {
+	  //on windows:
+	  commandLine = [ System.getenv('RUBY_HOME')+'/jekyll.bat', 'build']
+
+  }else{
+  	commandLine = [ System.getenv('RUBY_HOME')+'/jekyll', 'build']
+  }
+}
+
+mainClassName = "messaging.grizzly.server.wrapper.GrizzlyServerWrapper"
+
+defaultTasks('installApp')

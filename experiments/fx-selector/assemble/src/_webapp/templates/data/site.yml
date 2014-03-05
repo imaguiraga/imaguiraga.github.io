@@ -1,0 +1,28 @@
+# Dependencies
+markdown: redcarpet
+#redcarpet:
+#  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+pygments:         true
+
+# Permalinks
+permalink:        pretty
+
+# Server
+source:           ./
+#destination:      ./_site
+destination:      ../../src/main/webapp
+layouts:      ./_layouts
+#plugins:     ../plugins/tags
+
+exclude:          [".editorconfig", ".gitignore", ".project","workspace","./components","gradle*",
+ ".classpath", "pom.xml", ".ruby-version", "reload.js", "preview*.html",
+ "CONTRIBUTING.md", "CNAME", "LICENSE", "Gruntfile.js", "node_modules", "README.md", "./docs", "./run", "./wiki", "src","fontello", "./webapps" ]
+
+port:             3000
+
+# Custom vars
+version:          "(0.1.0)"
+repo:             "https://github.com/imaguiraga/jekyll-xplugins"
+github_url:       "https://github.com/imaguiraga/jekyll-xplugins"
+github_user_url: "https://github.com/imaguiraga"
+title: "Framework Selector"

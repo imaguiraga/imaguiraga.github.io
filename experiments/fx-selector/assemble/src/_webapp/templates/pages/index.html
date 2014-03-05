@@ -1,0 +1,99 @@
+---
+layout: index.layout.html
+---
+
+      <div class="row">
+        <div class="col-md-5">
+        	<h3>
+	            <ul class="nav nav-tabs" id="myTab">
+				  <li class="active"><a href="#message-pane" data-toggle="tab">Input Message</a></li>
+				  <li><a href="#console-pane" data-toggle="tab">Console</a></li>
+				</ul>
+			</h3>
+			<div class="tab-content">
+				<div class="tab-pane fade in active" id="message-pane">
+		          <div id="connect">
+		            <h4 class="page-header">Server Login</h4>
+		            <form class="form-horizontal" id='connect_form'>
+		              <fieldset>
+		                <div class="form-group">
+		                  <label class="col-sm-4 control-label">WebSocket URL</label>
+		                  <div class="col-sm-6">
+		                    <input class="form-control" name=url id='connect_url' value='ws://localhost:3528' type="text">
+		                  </div>
+		                </div>
+		                <div class="form-group">
+		                  <label class="col-sm-4 control-label">User</label>
+		                  <div class="col-sm-6">
+		                    <input class="form-control" id='connect_login' placeholder="User Login" value="admin" type="text">
+		                  </div>
+		                </div>
+		                <div class="form-group">
+		                  <label class="col-sm-4 control-label">Password</label>
+		                  <div class="col-sm-6">
+		                    <input class="form-control" id='connect_passcode' placeholder="User Password" value="password" type="password">
+		                  </div>
+		                </div>
+
+		                <div class="form-actions">
+		                  <button id='connect_submit' type="submit" class="btn btn-large btn-primary"><i class="fa fa-fw fa-sign-in"></i>Connect</button>
+		                </div>
+		              </fieldset>
+		            </form>
+		          </div>
+	          	  <div id="connected" style="display:none">
+
+		            <form class="well form-search" id='send_form' style="height:324px;padding:8px">
+		              <div class="form-group">
+		                  <label class="control-label" for="destination">Destination</label>
+		                  <!--
+		                  <input class="form-control" id='destination' placeholder="Destination" value="/queue/InvokeWorkflowIn" type="text">
+		                  -->
+		                  <select class="form-control" id="destination" value="vm:/api/invoke/command">
+							  <option>vm:/api/invoke/command</option>
+							  <option>vm:/api/invoke/shell</option>
+						  </select>
+		              </div>
+
+		              <textarea id='send_form_input' class="input-small col-md-12 form-control message-font" rows="10" placeholder="Type your message here"></textarea>
+		              <div style="margin-top:6px">
+			              <button id="btn-send" class="btn btn-large btn-success" type="button"><i class="fa fa-fw fa-envelope"></i>Send</button>
+			              <button id="btn-send-cmd" class="btn btn-large btn-default" type="button" style="float:right">CMD</button>
+			              <button class="btn btn-large btn-danger" type="button" id='disconnect' style="float:right"><i class="fa fa-fw fa-sign-out"></i>Disconnect</button>
+		              </div>
+		            </form>
+		            <pre id="messages" class="message-font" style="height:200px;overflow:auto;"></pre>
+		          </div>
+
+				</div>
+				<div class="tab-pane fade col-md-12" id="console-pane" style="height:500px;overflow:auto;"></div>
+          	</div>
+        </div>
+
+        <div class="col-md-7">
+            <h3>
+	            <ul class="nav nav-tabs" id="myTab2">
+				  <li class="active"><a href="#flow-pane" data-toggle="tab"><i class="fa fa-fw fa-sitemap"></i>Flow</a></li>
+				  <li><a href="#debug-pane" data-toggle="tab">Debug Log</a></li>
+				</ul>
+			</h3>
+			<div class="tab-content">
+	        	<div class="tab-pane fade in active col-md-12" id="flow-pane">
+	        		<div id="footer">
+				        d3.layout.tree <span class="hint">click on nodes to expand or collapse</span>
+				    </div>
+		        	<div id="body" class="row" style="overflow:auto;">
+				    </div>
+			    </div>
+			    <div class="tab-pane fade" id="debug-pane">
+	        		<pre id="debug" class="message-font" style="height:500px;overflow:auto;"></pre>
+	        	</div>
+	        </div>
+        </div>
+      </div>
+
+	    <script src="{{assets}}/scripts/js/vendor/d3.min.js"></script>
+		<script src="{{assets}}/scripts/js/WorkflowTree.js"></script>
+	    <script type="text/javascript">
+			//WorkflowTree(data2());
+		</script>

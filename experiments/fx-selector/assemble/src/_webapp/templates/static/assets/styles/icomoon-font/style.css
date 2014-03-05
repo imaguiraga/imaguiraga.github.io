@@ -1,0 +1,121 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?dr9npv');
+	src:url('fonts/icomoon.eot?#iefix&dr9npv') format('embedded-opentype'),
+		url('fonts/icomoon.woff?dr9npv') format('woff'),
+		url('fonts/icomoon.ttf?dr9npv') format('truetype'),
+		url('fonts/icomoon.svg?dr9npv#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-screen:before {
+	content: "\e600";
+}
+.icon-laptop:before {
+	content: "\e601";
+}
+.icon-mobile:before {
+	content: "\e602";
+}
+.icon-mobile2:before {
+	content: "\e603";
+}
+.icon-tablet:before {
+	content: "\e604";
+}
+.icon-tv:before {
+	content: "\e605";
+}
+.icon-tree:before {
+	content: "\e606";
+}
+.icon-user:before {
+	content: "\e607";
+}
+.icon-users:before {
+	content: "\e608";
+}
+.icon-storage:before {
+	content: "\e609";
+}
+.icon-uniF51D:before {
+	content: "\e60a";
+}
+.icon-uniF51C:before {
+	content: "\e60b";
+}
+.icon-server:before {
+	content: "\e60c";
+}
+.icon-servers:before {
+	content: "\e60d";
+}
+.icon-network:before {
+	content: "\e60e";
+}
+.icon-hdtv:before {
+	content: "\e60f";
+}
+.icon-user2:before {
+	content: "\e610";
+}
+.icon-friends:before {
+	content: "\e611";
+}
+.icon-monitor:before {
+	content: "\e612";
+}
+.icon-treediagram:before {
+	content: "\e613";
+}
+.icon-iphone:before {
+	content: "\e614";
+}
+.icon-nexus:before {
+	content: "\e615";
+}
+.icon-imac:before {
+	content: "\e616";
+}
+.icon-tablet2:before {
+	content: "\e617";
+}
+.icon-touchpad:before {
+	content: "\e618";
+}
+.icon-sidebar:before {
+	content: "\e619";
+}
+.icon-browser:before {
+	content: "\e61a";
+}
+.icon-android:before {
+	content: "\e61b";
+}
+.icon-windows:before {
+	content: "\e61c";
+}
+.icon-apple:before {
+	content: "\e61d";
+}
+.icon-linux:before {
+	content: "\e61e";
+}
+.icon-cogs:before {
+	content: "\e61f";
+}
