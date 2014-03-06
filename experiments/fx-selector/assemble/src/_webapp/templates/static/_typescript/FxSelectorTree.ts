@@ -25,7 +25,7 @@ class FxSelectorTree{
 		this.tree = d3.layout.tree().size([this.h, this.w]);
 		var sep = this.tree.separation;
 		this.diagonal = d3.svg.diagonal()
-			.projection(function(d) { return [d.y-10, d.x]; });
+			.projection(function(d,i) { return [d.y-10, d.x]; });
 
 		if(divWidth && divHeight){
 			this.vis = d3.select(placeholder).append("svg:svg")
@@ -86,10 +86,10 @@ class FxSelectorTree{
 	  this.root.y0 = 0;
 
 	  var _this = this;
-	  function toggleAll(d) {
+	  function toggleAll(d,i) {
 		if (d.children) {
 		  d.children.forEach(_this.toggleAll);
-		  _this.toggle(d);
+		  _this.toggle(d,i);
 		}
 	  }
 
@@ -108,21 +108,21 @@ class FxSelectorTree{
 
 	  // Compute the new tree layout.
 	  this.tree.children(
-		  function(d){ return d.entries;}
+		  function(d,i){ return d.entries;}
 		);
 	  var nodes = this.tree.nodes(this.root).filter(function(d, i) {
 			return (d.name != "root")?d:null;
 	   }).reverse();
 
 	  // Normalize for fixed-depth.
-	  nodes.forEach(function(d) { d.y = d.depth * 80; });
+	  nodes.forEach(function(d,i) { d.y = d.depth * 80; });
 	  var links = this.tree.links(nodes);
 
 	  this.updateLinks(this.vis,links,source,duration);
 	  this.updateNodes(this.vis,nodes,source,duration);
 
 	  // Stash the old positions for transition.
-	  nodes.forEach(function(d) {
+	  nodes.forEach(function(d,i) {
 		d.x0 = d.x;
 		d.y0 = d.y;
 	  });
@@ -134,7 +134,7 @@ class FxSelectorTree{
 	// Update the nodes…
 	var _this = this;
 	  var node = svg.select("#nodes").selectAll("g.node")
-		  .data(nodes, function(d) {
+		  .data(nodes, function(d,i) {
 			return d.id || (d.id = ++_this.i);
 		  });
 	//Enter
@@ -142,24 +142,24 @@ class FxSelectorTree{
 	  var _this = this;
 	  var nodeEnter = node.enter().append("svg:g")
 		  .attr("class", "node")
-		  .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
-		  .on("click", function(d) { _this.toggle(d); _this.update(d); });
+		  .attr("transform", function(d,i) { return "translate(" + source.y + "," + source.x + ")"; })
+		  .on("click", function(d,i) { _this.toggle(d,i); _this.update(d,i); });
 	//invisible circle
 	  nodeEnter.append("svg:circle")
 		  .attr("r", 1e-6)
-		  .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+		  .style("fill", function(d,i) { return d._children ? "lightsteelblue" : "#fff"; });
 	//invisible text
 	  nodeEnter.append("svg:text")
-		  .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
-		  .attr("dy", function(d) { return d.children || d._children ? "-1.35em":".35em"; })
-		  .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-		  .text(function(d) { return d.name; })
+		  .attr("x", function(d,i) { return d.children || d._children ? -10 : 10; })
+		  .attr("dy", function(d,i) { return d.children || d._children ? "-1.35em":".35em"; })
+		  .attr("text-anchor", function(d,i) { return d.children || d._children ? "end" : "start"; })
+		  .text(function(d,i) { return d.name; })
 		  .style("fill-opacity", 1e-6);
 	//IconMoonFont	  
 	nodeEnter.append("svg:text")
-		  .attr("x", function(d) { return -8; })
-		  .attr("y", function(d) { return 6; })
-		  .attr("text-anchor", function(d) { return "start"; })
+		  .attr("x", function(d,i) { return -8; })
+		  .attr("y", function(d,i) { return 6; })
+		  .attr("text-anchor", function(d,i) { return "start"; })
 		.style("fill-opacity", 1e-6).style("cursor","pointer")
 		 .append("tspan")
 			.style("font-family",function(d,i){
@@ -171,7 +171,7 @@ class FxSelectorTree{
 
 	//Update
 	  // Transition nodes to their new position.
-        var nodeUpdate = node.transition().duration(duration).attr("transform", function (d) {
+        var nodeUpdate = node.transition().duration(duration).attr("transform", function (d,i) {
 			if(d.type === "root"){
 				return "translate(" + (d.y-4) + "," + d.x + ")";
 			}else{
@@ -182,7 +182,7 @@ class FxSelectorTree{
 	//make cirlce visible
 	  nodeUpdate.select("circle")
 		  .attr("r", 12)
-		  .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+		  .style("fill", function(d,i) { return d._children ? "lightsteelblue" : "#fff"; });
 	//make text visible
 	  nodeUpdate.selectAll("text")
 		  .style("fill-opacity", 1);
@@ -190,7 +190,7 @@ class FxSelectorTree{
 	  // Transition exiting nodes to the parent's new position.
 	  var nodeExit = node.exit().transition()
 		  .duration(duration)
-		  .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+		  .attr("transform", function(d,i) { return "translate(" + source.y + "," + source.x + ")"; })
 		  .remove();
 
 	  nodeExit.select("circle")
@@ -204,7 +204,7 @@ class FxSelectorTree{
 	updateLinks(svg,links,source,duration){
 	  // Update the links…
 	  var link = this.vis.select("#links").selectAll(".link")
-		  .data(links,function(d) {
+		  .data(links,function(d,i) {
 		return d.source.x+"-"+d.source.name+d.source.y+"-"+d.target.x+"-"+d.target.y+d.target.name;
 	  });
 
@@ -217,7 +217,7 @@ class FxSelectorTree{
 			  //IE issues
 			insert
 			  .attr("class", "link")
-			  .attr("d", function(d) {
+			  .attr("d", function(d,i) {
 				var o = {x: source.x0, y: source.y0};
 				return _this.diagonal({source: o, target: o});
 			  })
@@ -229,7 +229,7 @@ class FxSelectorTree{
 			  .attr("class", "link")
 			  .style('marker-start', 'url(#start-arrow)')
 			  .style('marker-end', 'url(#end-arrow)')
-			  .attr("d", function(d) {
+			  .attr("d", function(d,i) {
 				var o = {x: source.x0, y: source.y0};
 				return _this.diagonal({source: o, target: o});
 			  })
@@ -245,7 +245,7 @@ class FxSelectorTree{
 	  // Transition exiting nodes to the parent's new position.
 	  link.exit().transition()
 		  .duration(duration)
-		  .attr("d", function(d) {
+		  .attr("d", function(d,i) {
 			var o = {x: source.x, y: source.y};
 			return _this.diagonal({source: o, target: o});
 		  })
@@ -265,7 +265,7 @@ class FxSelectorTree{
 		container.enter().append("g")
 		  .attr("class", "container")
 
-		  .attr("transform", function(d) {
+		  .attr("transform", function(d,i) {
 			//find min max d.x
 			var minx = Number.MAX_VALUE;
 			var maxx = Number.MIN_VALUE;
@@ -283,10 +283,10 @@ class FxSelectorTree{
 
 	   //x0,y=0 before translation
 		   container.append("rect")
-			  .attr("height", function(d) {
+			  .attr("height", function(d,i) {
 			return d.maxx-d.minx;
 		  })
-			  .attr("width", function(d) {
+			  .attr("width", function(d,i) {
 				//return off-40;
 				return 60;
 		 });
@@ -295,7 +295,7 @@ class FxSelectorTree{
 	// Toggle children.
 	//
 	/*
-	function toggle(d) {
+	function toggle(d,i) {
 	  if (d.children) {
 		d._children = d.children;
 		d.children = null;
@@ -304,7 +304,7 @@ class FxSelectorTree{
 		d._children = null;
 	  }
 	}//*/
-	toggle(d) {
+	toggle(d,i) {
 	  if (d.entries) {
 		d._children = d.entries;
 		d.entries = null;
