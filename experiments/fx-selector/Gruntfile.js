@@ -143,11 +143,13 @@ module.exports = function(grunt) {
               // The source TypeScript files, http://gruntjs.com/configuring-tasks#files
               src: ["<%= webapp.src %>/static/_typescript/*.ts"],
               // If specified, generate this file that to can use for reference management
-              //reference: "<%= webapp.src %>/static/_typescript/reference.ts",
+              //reference: "<%= webapp.src %>/static/_typescript/d.ts/reference.ts",
+              out: '<%= webapp.src %>/static/assets/scripts/js/application.js'
               // If specified, the generate JavaScript files are placed here. Only works if out is not specified
-              outDir: '<%= webapp.src %>/static/assets/scripts/js'
+              //outDir: '<%= webapp.src %>/static/assets/scripts/js'
               // If specified, watches this directory for changes, and re-runs the current target
               //watch: 'test',
+             
              
           }
       },
@@ -156,13 +158,15 @@ module.exports = function(grunt) {
         base: {
           flatten: true,
           src: ["<%= webapp.src %>/static/_typescript/*.ts"],
-          dest: '<%= webapp.src %>/static/assets/scripts/js',
+          dest: '<%= webapp.src %>/static/assets/scripts/js/application.js',
+
           options: {
             module: 'amd', //or commonjs
             target: 'es5', //or es3
             base_path: '',
             sourcemap: true,
-            declaration: true
+            declaration: true,
+            comments: true
           }
         }
       }
@@ -186,6 +190,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'clean',
+    'typescript',
     'copy',
     'assemble'
   ]);

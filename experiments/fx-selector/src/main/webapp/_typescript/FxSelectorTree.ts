@@ -1,5 +1,6 @@
 ///<reference path="./d.ts/d3.d.ts" />
 ///<reference path="IconFont.ts" />
+///<reference path="FxSelectorLabelProvider.ts" />
 class FxSelectorTree{
 	
 	vis:any;
@@ -10,6 +11,7 @@ class FxSelectorTree{
 	diagonal:any;
 	tree:any;
 	i:number;
+	labelProvider:FxSelectorLabelProvider;
 	
 	//"#body",720, 500
 	constructor(placeholder:string,viewboxWidth:number,viewboxHeight:number,divWidth:string,divHeight:string){
@@ -18,6 +20,7 @@ class FxSelectorTree{
 		this.h = viewboxHeight - this.m[0] - this.m[2];
 		this.i = 0;
 		this.root = null;
+		this.labelProvider = new FxSelectorLabelProvider();
 
 		this.tree = d3.layout.tree().size([this.h, this.w]);
 		var sep = this.tree.separation;
@@ -159,10 +162,12 @@ class FxSelectorTree{
 		  .attr("text-anchor", function(d) { return "start"; })
 		.style("fill-opacity", 1e-6).style("cursor","pointer")
 		 .append("tspan")
-			.style("font-family",IconMoonFont.fontFamily)
-			.text(function (d) {
-				return IconMoonFont.getCode(d.icon);
-			});//*/
+			.style("font-family",function(d,i){
+				return _this.labelProvider.getFont(d,i);
+			})
+			.text(function (d,i) {
+				return _this.labelProvider.getText(d,i);
+			});
 
 	//Update
 	  // Transition nodes to their new position.
