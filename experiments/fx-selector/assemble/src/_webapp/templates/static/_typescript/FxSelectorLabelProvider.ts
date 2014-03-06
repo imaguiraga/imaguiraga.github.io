@@ -7,11 +7,11 @@ class FxSelectorLabelProvider implements ILabelProvider {
 
 	constructor() {}
 
-	addListener(listener : ILabelProviderListener) {
+	addListener(listener : ILabelProviderListener) : void {
 		
 	}
 	//The DecoratingLabelProvider implementation of this IBaseLabelProvider method adds the listener to both the nested label provider and the label decorator.
-	dispose() {
+	dispose() : void {
 		
 	}
 	//The DecoratingLabelProvider implementation of this IBaseLabelProvider method disposes both the nested label provider and the label decorator.
@@ -54,11 +54,11 @@ class FxSelectorLabelProvider implements ILabelProvider {
 		return true;
 	}
 	//The DecoratingLabelProvider implementation of this IBaseLabelProvider method returns true if the corresponding method on the nested label provider returns true or if the corresponding method on the decorator returns true.
-	removeListener(listener : ILabelProviderListener) {
+	removeListener(listener : ILabelProviderListener) : void {
 		
 	}
 	//The DecoratingLabelProvider implementation of this IBaseLabelProvider method removes the listener from both the nested label provider and the label decorator.
-	setLabelDecorator(decorator : ILabelDecorator) {
+	setLabelDecorator(decorator : ILabelDecorator) : void {
 		
 	}
 	//Sets the label decorator.
