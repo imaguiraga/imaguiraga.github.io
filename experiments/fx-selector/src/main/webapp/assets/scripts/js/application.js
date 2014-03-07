@@ -599,6 +599,7 @@ var FxSelectorLabelProvider = (function () {
 })();
 ///<reference path="./d.ts/d3.d.ts" />
 ///<reference path="IconFont.ts" />
+///<reference path="ILabelProvider.ts" />
 ///<reference path="FxSelectorLabelProvider.ts" />
 var FxSelectorTree = (function () {
     //"#body",720, 500
@@ -626,6 +627,14 @@ var FxSelectorTree = (function () {
         this.vis.append("g").attr("id", "links");
         this.vis.append("g").attr("id", "nodes");
     }
+    FxSelectorTree.prototype.getlabelProvider = function () {
+        return this.labelProvider;
+    };
+
+    FxSelectorTree.prototype.setlabelProvider = function (labelProvider) {
+        this.labelProvider = labelProvider;
+    };
+
     FxSelectorTree.getIExplorerVersion = function () {
         // Returns the version of Internet Explorer or a -1
         // (indicating the use of another browser).
@@ -718,7 +727,7 @@ var FxSelectorTree = (function () {
 
         //invisible text
         nodeEnter.append("svg:text").attr("x", function (d, i) {
-            return d.children || d._children ? -10 : 10;
+            return d.children || d._children ? -10 : 20;
         }).attr("dy", function (d, i) {
             return d.children || d._children ? "-1.35em" : ".35em";
         }).attr("text-anchor", function (d, i) {

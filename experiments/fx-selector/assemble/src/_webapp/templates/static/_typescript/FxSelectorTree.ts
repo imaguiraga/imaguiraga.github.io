@@ -1,5 +1,6 @@
 ///<reference path="./d.ts/d3.d.ts" />
 ///<reference path="IconFont.ts" />
+///<reference path="ILabelProvider.ts" />
 ///<reference path="FxSelectorLabelProvider.ts" />
 class FxSelectorTree{
 	
@@ -11,7 +12,7 @@ class FxSelectorTree{
 	diagonal:any;
 	tree:any;
 	i:number;
-	labelProvider:FxSelectorLabelProvider;
+	labelProvider:ILabelProvider;
 	
 	//"#body",720, 500
 	constructor(placeholder:string,viewboxWidth:number,viewboxHeight:number,divWidth:string,divHeight:string){
@@ -58,6 +59,14 @@ class FxSelectorTree{
 			
 		this.vis.append("g").attr("id", "links");
 		this.vis.append("g").attr("id", "nodes");
+	}
+
+	getlabelProvider():ILabelProvider{
+		return this.labelProvider;
+	}
+	
+	setlabelProvider(labelProvider:ILabelProvider){
+		this.labelProvider = labelProvider;
 	}
 
 	static getIExplorerVersion(){
@@ -150,7 +159,7 @@ class FxSelectorTree{
 		  .style("fill", function(d,i) { return d._children ? "lightsteelblue" : "#fff"; });
 	//invisible text
 	  nodeEnter.append("svg:text")
-		  .attr("x", function(d,i) { return d.children || d._children ? -10 : 10; })
+		  .attr("x", function(d,i) { return d.children || d._children ? -10 : 20; })
 		  .attr("dy", function(d,i) { return d.children || d._children ? "-1.35em":".35em"; })
 		  .attr("text-anchor", function(d,i) { return d.children || d._children ? "end" : "start"; })
 		  .text(function(d,i) { return d.name; })
