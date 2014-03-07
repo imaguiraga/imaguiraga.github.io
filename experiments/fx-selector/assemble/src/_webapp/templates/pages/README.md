@@ -1,7 +1,7 @@
 {{#markdown}}
-# Framework Selector
+# {{site.title}}
 
-Application to select
+Application to select Runtime Framework
 
 ## Dependencies
 
@@ -17,7 +17,7 @@ Application to select
 
 * [d3.js](http://d3js.org/)
 
-Chose:
+Options:
 * nb users
 * application type (Client, server) (Collaborative?)
 * device type (desktop, server, tablet, mobile, smart tv)
