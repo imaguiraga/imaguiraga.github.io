@@ -144,7 +144,7 @@ var WorkflowTree = (function () {
         var _this = this;
 
         // Enter any new links at the parent's previous position.
-        link.enter().insert("svg:path", "g").attr("class", "link").style('marker-start', 'url(#start-arrow)').style('marker-end', 'url(#end-arrow)').attr("d", function (d) {
+        link.enter().insert("svg:path", "g").attr("class", "link")/*.style('marker-start', 'url(#start-arrow)').style('marker-end', 'url(#end-arrow)')*/.attr("d", function (d) {
             var o = { x: source.x0, y: source.y0 };
             return _this.diagonal({ source: o, target: o });
         }).transition().duration(duration).attr("d", _this.diagonal);
