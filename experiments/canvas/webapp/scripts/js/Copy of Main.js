@@ -2,12 +2,6 @@
 * ...
 * @author
 */
-window.requestAnimFrame = (function () {
-    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
-        window.setTimeout(callback, 1000 / 60);
-    };
-})();
-
 var Main = (function () {
     function Main() {
     }
@@ -105,20 +99,35 @@ var CScanView = (function () {
         var scan = this;
         this.palette = [];
         this.canvas = document.getElementById(id);
-        this.x0 = 0;
-        this.y0 = 0;
-        this.min = 0;
-        this.max = 511;
 
-        //this.layover = this.canvas.cloneNode();
-        //this.canvas.parentNode.appendChild(this.layover);
+        this.layover = this.canvas.cloneNode();
+        this.canvas.parentNode.appendChild(this.layover);
+
         this.bscan = new BScanView("b-scan", this);
         this.dscan = new DScanView("d-scan", this);
         var _this = this;
-        this.canvas.onmousemove = function (evt) {
+        this.layover.onmousemove = function (evt) {
             var rect = this.getBoundingClientRect();
-            _this.x0 = evt.clientX - rect.left;
-            _this.y0 = evt.clientY - rect.top;
+            var x0 = evt.x - rect.left;
+            var y0 = evt.y - rect.top;
+            if (this.getContext) {
+                var ctx = this.getContext("2d");
+
+                //clear drawing area
+                ctx.save();
+                ctx.clearRect(0, 0, this.width, this.height);
+                ctx.beginPath();
+                ctx.strokeStyle = "black";
+                ctx.lineWidth = 1;
+                ctx.moveTo(0, y0);
+                ctx.lineTo(this.width, y0);
+                ctx.moveTo(x0, 0);
+                ctx.lineTo(x0, this.height);
+                ctx.stroke();
+                ctx.restore();
+                //_this.bscan.draw(x0, y0, _this.buffer);
+                _this.dscan.draw(x0, y0, _this.buffer);
+            }
         };
 
         var SIZE = this.canvas.width * this.canvas.height;
@@ -127,45 +136,8 @@ var CScanView = (function () {
         this.buffer = CScanView.createRandomSquares(this.buffer, this.canvas.width, this.canvas.height);
 
         this.palette = CScanView.palette();
-
-        //compute then refesh
-        /*
-        this.drawInterval = window.setInterval(function(){
-        _this.refresh();
-        },100);//*/
-        this.refresh();
+        this.draw();
     }
-    CScanView.prototype.refresh = function () {
-        this.drawUpdatedRange();
-        this.drawRulers(this.x0, this.y0);
-        this.bscan.draw(this.x0, this.y0, this.buffer);
-        this.dscan.draw(this.x0, this.y0, this.buffer);
-        var _this = this;
-        window.requestAnimFrame(function () {
-            _this.refresh();
-        });
-    };
-
-    CScanView.prototype.drawRulers = function (x0, y0) {
-        var canvas = this.canvas;
-        var ctx = canvas.getContext("2d");
-
-        //clear drawing area
-        ctx.save();
-
-        //ctx.clearRect(0,0,canvas.width,canvas.height);
-        ctx.beginPath();
-        ctx.strokeStyle = "black";
-        ctx.lineWidth = 1;
-        ctx.moveTo(0, y0);
-        ctx.lineTo(canvas.width, y0);
-        ctx.moveTo(x0, 0);
-        ctx.lineTo(x0, canvas.height);
-        ctx.stroke();
-        ctx.restore();
-        //this.bscan.draw(x0, y0, this.buffer);
-        //this.dscan.draw(x0, y0, this.buffer);
-    };
     CScanView.palette = function () {
         var canvas = document.createElement("canvas");
         canvas.width = 512;
@@ -259,14 +231,6 @@ var CScanView = (function () {
     };
 
     CScanView.prototype.updateRange = function (min, max) {
-        this.min = min;
-        this.max = max;
-    };
-
-    CScanView.prototype.drawUpdatedRange = function () {
-        //if(this.min != this.newMin && this.max != newMax){
-        //this.min = this.newMin;
-        //this.max = this.newMax;
         var canvas = this.canvas;
         var view = new Uint16Array(this.buffer);
 
@@ -285,11 +249,10 @@ var CScanView = (function () {
                 data[offset + 1] = color.value[1];
                 data[offset + 2] = color.value[2];
                 data[offset + 3] = color.value[3];
-                this.filter(data, offset, value, this.min, this.max);
+                this.filter(data, offset, value, min, max);
             }
             ctx.putImageData(imgData, 0, 0);
         }
-        //}
     };
 
     CScanView.prototype.filter = function (data, offset, value, min, max) {
