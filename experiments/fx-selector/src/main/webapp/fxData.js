@@ -198,94 +198,94 @@ function fxRuntime() {
 								"entries" : []
 							}
 						]
-					}, {
-						"type" : "flash",
-						"name" : "flash",
-						"descr" : "flash",
-						"icon" : "fa-flash-runtime",
+					}
+				]
+			}, {
+				"type" : "flash",
+				"name" : "flash",
+				"descr" : "flash",
+				"icon" : "fa-flash-runtime",
+				"entries" : [{
+						"type" : "flexSDK",
+						"name" : "flexSDK",
+						"descr" : "flexSDK",
+						"icon" : "fa-flex-sdk",
+						"entries" : []
+					}
+				]
+			}, {
+				"type" : "native",
+				"name" : "native",
+				"descr" : "native",
+				"icon" : "fa-native-runtime",
+				"entries" : [{
+						"type" : "cordovaSDK",
+						"name" : "cordovaSDK",
+						"descr" : "cordovaSDK",
+						"icon" : "fa-cordova-sdk",
+						"entries" : []
+					}
+					/*,{
+					"type": "winSDK",
+					"name": "winSDK",
+					"descr": "winSDK",
+					"icon": "fa-win-sdk",
+					"entries": []
+					},{
+					"type": "androidSDK",
+					"name": "androidSDK",
+					"descr": "androidSDK",
+					"icon": "fa-android-sdk",
+					"entries": []
+					},{
+					"type": "iosSDK",
+					"name": "iosSDK",
+					"descr": "iosSDK",
+					"icon": "fa-ios-sdk",
+					"entries": []
+					},{
+					"type": "smarttvSDK",
+					"name": "smarttvSDK",
+					"descr": "smarttvSDK",
+					"icon": "fa-smarttv-sdk",
+					"entries": []
+					}//*/
+				]
+			}, {
+				"type" : "browser",
+				"name" : "browser",
+				"descr" : "browser",
+				"icon" : "fa-browser-runtime",
+				"entries" : [{
+						"type" : "html5",
+						"name" : "html5",
+						"descr" : "html5",
+						"icon" : "fa-html5-sdk",
 						"entries" : [{
-								"type" : "flexSDK",
-								"name" : "flexSDK",
-								"descr" : "flexSDK",
-								"icon" : "fa-flex-sdk",
+								"type" : "typescriptSDK",
+								"name" : "typescriptSDK",
+								"descr" : "typescriptSDK",
+								"icon" : "fa-typescript-sdk",
 								"entries" : []
 							}
 						]
 					}, {
-						"type" : "native",
-						"name" : "native",
-						"descr" : "native",
-						"icon" : "fa-native-runtime",
-						"entries" : [{
-								"type" : "cordovaSDK",
-								"name" : "cordovaSDK",
-								"descr" : "cordovaSDK",
-								"icon" : "fa-cordova-sdk",
-								"entries" : []
-							}
-							/*,{
-							"type": "winSDK",
-							"name": "winSDK",
-							"descr": "winSDK",
-							"icon": "fa-win-sdk",
-							"entries": []
-							},{
-							"type": "androidSDK",
-							"name": "androidSDK",
-							"descr": "androidSDK",
-							"icon": "fa-android-sdk",
-							"entries": []
-							},{
-							"type": "iosSDK",
-							"name": "iosSDK",
-							"descr": "iosSDK",
-							"icon": "fa-ios-sdk",
-							"entries": []
-							},{
-							"type": "smarttvSDK",
-							"name": "smarttvSDK",
-							"descr": "smarttvSDK",
-							"icon": "fa-smarttv-sdk",
-							"entries": []
-							}//*/
-						]
+						"type" : "flexSDK",
+						"name" : "flexSDK",
+						"descr" : "flexSDK",
+						"icon" : "fa-flex-sdk",
+						"entries" : []
 					}, {
-						"type" : "browser",
-						"name" : "browser",
-						"descr" : "browser",
-						"icon" : "fa-browser-runtime",
+						"type" : "haxeSDK",
+						"name" : "haxeSDK",
+						"descr" : "haxeSDK",
+						"icon" : "fa-haxe-sdk",
 						"entries" : [{
-								"type" : "html5",
-								"name" : "html5",
-								"descr" : "html5",
-								"icon" : "fa-html5-sdk",
-								"entries" : [{
-										"type" : "typescriptSDK",
-										"name" : "typescriptSDK",
-										"descr" : "typescriptSDK",
-										"icon" : "fa-typescript-sdk",
-										"entries" : []
-									}
-								]
-							}, {
-								"type" : "flexSDK",
-								"name" : "flexSDK",
-								"descr" : "flexSDK",
-								"icon" : "fa-flex-sdk",
+								"type" : "openflSDK",
+								"name" : "openflSDK",
+								"descr" : "openflSDK",
+								"icon" : "fa-openfl-sdk",
 								"entries" : []
-							}, {
-								"type" : "haxeSDK",
-								"name" : "haxeSDK",
-								"descr" : "haxeSDK",
-								"icon" : "fa-haxe-sdk",
-								"entries" : [{
-										"type" : "openflSDK",
-										"name" : "openflSDK",
-										"descr" : "openflSDK",
-										"icon" : "fa-openfl-sdk",
-										"entries" : []
-									}
-								]
 							}
 						]
 					}
