@@ -1,6 +1,6 @@
 = Excel Spreadsheet to (Javafx, Html5, Xaml) UI Layout Generator
 
-My main interest is in generating code artifacts(java,javascript,csharp) based on a model, and full stack code generation, Jva a being my main programming language.
+My main interest is in generating code artifacts(java,javascript,csharp) based on a model, and full stack code generation, Java being my main programming language.
 So for this, I'm using excel as an UI prototyping tool and a custom version of link:https://www.unece.org/cefact/[UNCEFACT] CCTS to define the datamodel.
 
 I've written a command line utility that generates UI layouts and controls, based on excel spreadsheets.
@@ -28,7 +28,7 @@ image::TableSheet1.PNG[test-table.xlsx - TableSheet1]
 
 image::Schedule1.PNG[schedule1.xlsx - 'Calorie Amortization']
 
-== Useful Links
+== Some Useful Links
 
 https://material.io/
 
