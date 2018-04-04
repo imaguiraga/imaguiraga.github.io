@@ -1,0 +1,161 @@
+* {
+	border-radius:0 0 0 0;
+	box-sizing: border-box;
+}
+/* B1 */
+.style_C06 {
+    display:table;
+    word-wrap: break-word;
+    font-family: Franklin Gothic Medium;
+    font-size: 25pt;
+
+    background-color: #fadb65;
+    color: #3f3f3f;
+}
+
+.style_C06 > span {
+    display:table-cell;
+    text-align: left;
+    vertical-align: middle;
+    padding: 0 5px 0 5px;
+}
+/* C1 */
+.style_C03 {
+    display:table;
+    word-wrap: break-word;
+    font-family: Euphemia;
+    font-size: 8pt;
+
+    background-color: #fadb65;
+    color: #3f3f3f;
+}
+
+.style_C03 > span {
+    display:table-cell;
+    text-align: center;
+    vertical-align: bottom;
+    padding: 0 5px 0 5px;
+}
+/* B2 */
+.style_C04 {
+    display:table;
+    word-wrap: break-word;
+    font-family: Euphemia;
+    font-size: 8pt;
+
+    background-color: #ffffff;
+    color: #3f3f3f;
+}
+
+.style_C04 > span {
+    display:table-cell;
+    text-align: left;
+    vertical-align: middle;
+    padding: 0 5px 0 5px;
+}
+/* C2 */
+.style_C05 {
+    display:table;
+    word-wrap: break-word;
+    font-family: Euphemia;
+    font-size: 8pt;
+
+    background-color: #ffffff;
+    color: #3f3f3f;
+}
+
+.style_C05 > span {
+    display:table-cell;
+    text-align: center;
+    vertical-align: bottom;
+    padding: 0 5px 0 5px;
+}
+/* B3 */
+.style_C07 {
+    display:table;
+    word-wrap: break-word;
+    font-family: Euphemia;
+    font-size: 11pt;
+
+    color: #595959;
+}
+
+.style_C07 > span {
+    display:table-cell;
+    text-align: left;
+    vertical-align: middle;
+    padding: 0 5px 0 5px;
+}
+/* D3 */
+.style_C08 {
+    display:table;
+    word-wrap: break-word;
+    font-family: Euphemia;
+    font-size: 11pt;
+
+    color: #595959;
+}
+
+.style_C08 > span {
+    display:table-cell;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0 5px 0 5px;
+}
+
+/* _ExerciseTypes_TableView_B3 [B3:D8] - Exercise Type Lookup */
+/*Exercise Type Lookup.colors {
+	LT1: #ffffff;
+	DK1: #000000;
+	LT2: #f2f2f2;
+	DK2: #404040;
+	ACCENT1: #f8c400;
+	ACCENT2: #3e9fe6;
+	ACCENT3: #fa9029;
+	ACCENT4: #7cbc42;
+	ACCENT5: #eb4e47;
+	ACCENT6: #9560b4;
+	HLINK: #3f9fe6;
+	FOLHLINK: #9560b4;
+}
+*/Exercise Type Lookup.wholeTable {
+}
+Exercise Type Lookup.headerRow {
+	color: #f8c400;
+}
+/* ------------ Exercise Type Lookup_T00__table_view -------------------*/
+.Exercise Type Lookup_T00__table_view {
+    background-color: #ffffff;/*headerRow|wholeTable|firstRowStripe ACCENT|white - FillBackgroundColor|FontColor no-tint*/
+    color: #f8c400;/* wholeTable|black - FontColor */
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: Euphemia;
+    font-size: 11pt;
+}
+
+.Exercise Type Lookup_T00__table_view table,
+.Exercise Type Lookup_T00__table_view col,
+.Exercise Type Lookup_T00__table_view th,
+.Exercise Type Lookup_T00__table_view td {
+    border: 1px solid #c4c4c4;
+    padding: 0 5px 0 5px;
+}
+
+.Exercise Type Lookup_T00__table_view th {
+    color: #f8c400;/* headerRow|black - FontColor */
+    background-color: #ffffff;/* headerRow|wholeTable|white - FillBackgroundColor */
+    /*inner-border: #ffffff;/* headerRow|white - FillBackgroundColor */
+    font-family: Euphemia;
+    font-size: 11pt;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.Exercise Type Lookup_T00__table_view tr:nth-child(odd){
+    background-color: #ffffff;/* firstRowStripe|white - FillBackgroundColor */
+}
+
+.Exercise Type Lookup_T00__table_view tr:nth-child(even){
+    background-color: #ffffff;/* wholeTable|white - FillBackgroundColor */
+}
+

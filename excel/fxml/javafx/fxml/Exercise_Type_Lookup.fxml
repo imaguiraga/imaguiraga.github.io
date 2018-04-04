@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.MapValueFactory?>
+<?import javafx.collections.FXCollections?>
+<?import java.util.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" prefViewportHeight="1219.0" prefViewportWidth="1480.0">  
+  <content> 
+    <Group> 
+      <children> 
+        <GridPane maxHeight="Infinity" maxWidth="Infinity" stylesheets="@Exercise_Type_Lookup-fxml-style.css">  
+          <children> 
+            <Label fx:id="B1" text="Exercise Type Lookup" styleClass="style_C06" prefWidth="192.0" prefHeight="60.0" GridPane.rowIndex="0" GridPane.columnIndex="1" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="B2" text="This sheet should remain hidden." styleClass="style_C04" prefWidth="192.0" prefHeight="24.0" GridPane.rowIndex="1" GridPane.columnIndex="1" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <TableView fx:id="_ExerciseTypes_TableView_B3" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.rowSpan="6" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" styleClass="Exercise Type Lookup_T00__table_view"> 
+              <columns> 
+                <TableColumn minWidth="192.0" prefWidth="192.0" text="EXERCISE TYPE"> 
+                  <cellValueFactory> 
+                    <MapValueFactory key="B3"/> 
+                  </cellValueFactory> 
+                </TableColumn>  
+                <TableColumn minWidth="440.0" prefWidth="440.0" text="DESCRIPTION"> 
+                  <cellValueFactory> 
+                    <MapValueFactory key="C3"/> 
+                  </cellValueFactory> 
+                </TableColumn>  
+                <TableColumn minWidth="108.0" prefWidth="108.0" text="FACTOR"> 
+                  <cellValueFactory> 
+                    <MapValueFactory key="D3"/> 
+                  </cellValueFactory> 
+                </TableColumn> 
+              </columns>  
+              <items> 
+                <FXCollections fx:factory="observableArrayList"> 
+                  <HashMap B3="SEDENTARY" C3="LITTLE TO NO EXERCISE" D3="1.2"/>  
+                  <HashMap B3="LIGHT ACTIVITY" C3="EXERCISE 1-2 DAYS/WEEK" D3="1.375"/>  
+                  <HashMap B3="MODERATE ACTIVITY" C3="EXERCISE 3-5 DAYS/WEEK" D3="1.55"/>  
+                  <HashMap B3="VERY ACTIVE" C3="EXERCISE 6-7 DAYS/WEEK" D3="1.725"/>  
+                  <HashMap B3="EXTRA ACTIVE" C3="EXERCISE 6-7 DAYS/WEEK + PHYSICAL JOB/2X TRAINING" D3="1.9"/> 
+                </FXCollections> 
+              </items> 
+            </TableView> 
+          </children>  
+          <columnConstraints> 
+            <ColumnConstraints prefWidth="20.0"/>  
+            <ColumnConstraints prefWidth="192.0"/>  
+            <ColumnConstraints prefWidth="440.0"/>  
+            <ColumnConstraints prefWidth="108.0"/> 
+          </columnConstraints>  
+          <rowConstraints> 
+            <RowConstraints prefHeight="60.0"/>  
+            <RowConstraints prefHeight="24.0"/>  
+            <RowConstraints prefHeight="28.0"/>  
+            <RowConstraints prefHeight="28.0"/>  
+            <RowConstraints prefHeight="28.0"/>  
+            <RowConstraints prefHeight="28.0"/>  
+            <RowConstraints prefHeight="28.0"/>  
+            <RowConstraints prefHeight="28.0"/> 
+          </rowConstraints> 
+        </GridPane> 
+      </children> 
+    </Group> 
+  </content> 
+</ScrollPane>

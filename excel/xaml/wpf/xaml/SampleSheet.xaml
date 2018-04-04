@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" SizeToContent="WidthAndHeight">  
+  <Window.Resources> 
+    <ResourceDictionary> 
+      <ResourceDictionary.MergedDictionaries> 
+        <ResourceDictionary Source="SampleSheet-style.xaml"/> 
+      </ResourceDictionary.MergedDictionaries> 
+    </ResourceDictionary> 
+  </Window.Resources>  
+  <ScrollViewer> 
+    <Grid> 
+      <Label x:Name="B2" Content="Acronym" Style="{StaticResource style_C01}" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="1"/>  
+      <TextBox x:Name="C2" Text="Acronym" Style="{StaticResource style_C07__text_field}" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="2"/>  
+      <Button x:Name="H2" Content="Cardinality" Style="{StaticResource style_C0b__button}" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="7" Grid.RowSpan="2" Grid.ColumnSpan="3"></Button>  
+      <Label x:Name="M2" Style="{StaticResource style_C0c}" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="12" Grid.RowSpan="5" Grid.ColumnSpan="3"/>  
+      <Label x:Name="B3" Content="Object Class" Style="{StaticResource style_C03}" Width="Auto" Height="Auto" Grid.Row="2" Grid.Column="1"/>  
+      <ComboBox x:Name="C3" Style="{StaticResource style_C0d__combo_box}" Width="Auto" Height="Auto" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4"> 
+        <ComboBoxItem IsSelected="True">Object Class1</ComboBoxItem>  
+        <ComboBoxItem IsSelected="True">Object Class2</ComboBoxItem> 
+      </ComboBox>  
+      <Label x:Name="B4" Content="Property" Style="{StaticResource style_C03}" Width="Auto" Height="Auto" Grid.Row="3" Grid.Column="1"/>  
+      <TextBox x:Name="C4" Text="Property" Style="{StaticResource style_C07__text_field}" Width="Auto" Height="Auto" Grid.Row="3" Grid.Column="2"/>  
+      <Label x:Name="B5" Content="Representation" Style="{StaticResource style_C03}" Width="Auto" Height="Auto" Grid.Row="4" Grid.Column="1"/>  
+      <TextBox x:Name="C5" Text="Representation" Style="{StaticResource style_C0a__text_field}" Width="Auto" Height="Auto" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="4"/>  
+      <Label x:Name="B6" Content="Cardinality" Style="{StaticResource style_C04}" Width="Auto" Height="Auto" Grid.Row="5" Grid.Column="1"/>  
+      <TextBox x:Name="C6" Text="Cardinality" Style="{StaticResource style_C09__text_field}" Width="Auto" Height="Auto" Grid.Row="5" Grid.Column="2"/>  
+      <DataGrid xmlns:c="clr-namespace:System.Collections;assembly=mscorlib" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System.Collections.Specialized;assembly=System" x:Name="_Table24_TableView_B25" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="24" Grid.Column="1" Grid.RowSpan="10" Grid.ColumnSpan="12" Style="{StaticResource TableStyleDark2_T01__table_view}">  
+        <DataGrid.Columns> 
+          <DataGridTextColumn Width="164.0" Header="DATE" Binding="{Binding Path=[B25]}"/>  
+          <DataGridTextColumn Width="72.0" Header="WEEK" Binding="{Binding Path=[C25]}"/>  
+          <DataGridTextColumn Width="68.0" Header="DAY" Binding="{Binding Path=[D25]}"/>  
+          <DataGridTextColumn Width="88.0" Header="WEIGHT" Binding="{Binding Path=[E25]}"/>  
+          <DataGridTextColumn Width="64.0" Header="BMR" Binding="{Binding Path=[F25]}"/>  
+          <DataGridTextColumn Width="136.0" Header="CAL CONSUMED" Binding="{Binding Path=[G25]}"/>  
+          <DataGridTextColumn Width="116.0" Header="CAL BURNED" Binding="{Binding Path=[H25]}"/>  
+          <DataGridTextColumn Width="108.0" Header="CAL DEFICIT" Binding="{Binding Path=[I25]}"/>  
+          <DataGridTextColumn Width="140.0" Header="CAL REMAINING" Binding="{Binding Path=[J25]}"/>  
+          <DataGridTextColumn Width="136.0" Header="LBS REMAINING" Binding="{Binding Path=[K25]}"/>  
+          <DataGridTextColumn Width="68.0" Header="LOSS" Binding="{Binding Path=[L25]}"/>  
+          <DataGridTextColumn Width="104.0" Header="% OF GOAL" Binding="{Binding Path=[M25]}"/> 
+        </DataGrid.Columns>  
+        <DataGrid.ItemsSource> 
+          <c:ArrayList> 
+            <s1:ListDictionary> 
+              <sys:String x:Key="B25">1/18/18</sys:String>  
+              <sys:String x:Key="C25">1</sys:String>  
+              <sys:String x:Key="D25">1</sys:String>  
+              <sys:String x:Key="E25">150.00</sys:String>  
+              <sys:String x:Key="F25">1453.20</sys:String>  
+              <sys:String x:Key="G25">1752.46</sys:String>  
+              <sys:String x:Key="H25">2252.46</sys:String>  
+              <sys:String x:Key="I25">500.00</sys:String>  
+              <sys:String x:Key="J25">52500.00</sys:String>  
+              <sys:String x:Key="K25">15.00</sys:String>  
+              <sys:String x:Key="L25">0.00</sys:String>  
+              <sys:String x:Key="M25">0.00</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B25">1/19/18</sys:String>  
+              <sys:String x:Key="D25">2</sys:String>  
+              <sys:String x:Key="E25">149.86</sys:String>  
+              <sys:String x:Key="F25">1452.58</sys:String>  
+              <sys:String x:Key="G25">1752.46</sys:String>  
+              <sys:String x:Key="H25">2251.50</sys:String>  
+              <sys:String x:Key="I25">499.04</sys:String>  
+              <sys:String x:Key="J25">52000.96</sys:String>  
+              <sys:String x:Key="K25">14.86</sys:String>  
+              <sys:String x:Key="L25">0.14</sys:String>  
+              <sys:String x:Key="M25">0.01</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B25">1/20/18</sys:String>  
+              <sys:String x:Key="D25">3</sys:String>  
+              <sys:String x:Key="E25">149.71</sys:String>  
+              <sys:String x:Key="F25">1451.96</sys:String>  
+              <sys:String x:Key="G25">1751.50</sys:String>  
+              <sys:String x:Key="H25">2250.54</sys:String>  
+              <sys:String x:Key="I25">499.04</sys:String>  
+              <sys:String x:Key="J25">51501.92</sys:String>  
+              <sys:String x:Key="K25">14.71</sys:String>  
+              <sys:String x:Key="L25">0.29</sys:String>  
+              <sys:String x:Key="M25">0.02</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B25">1/21/18</sys:String>  
+              <sys:String x:Key="D25">4</sys:String>  
+              <sys:String x:Key="E25">149.57</sys:String>  
+              <sys:String x:Key="F25">1451.34</sys:String>  
+              <sys:String x:Key="G25">1750.54</sys:String>  
+              <sys:String x:Key="H25">2249.57</sys:String>  
+              <sys:String x:Key="I25">499.04</sys:String>  
+              <sys:String x:Key="J25">51002.89</sys:String>  
+              <sys:String x:Key="K25">14.57</sys:String>  
+              <sys:String x:Key="L25">0.43</sys:String>  
+              <sys:String x:Key="M25">0.03</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B25">1/22/18</sys:String>  
+              <sys:String x:Key="D25">5</sys:String>  
+              <sys:String x:Key="E25">149.43</sys:String>  
+              <sys:String x:Key="F25">1450.72</sys:String>  
+              <sys:String x:Key="G25">1749.57</sys:String>  
+              <sys:String x:Key="H25">2248.61</sys:String>  
+              <sys:String x:Key="I25">499.04</sys:String>  
+              <sys:String x:Key="J25">50503.85</sys:String>  
+              <sys:String x:Key="K25">14.43</sys:String>  
+              <sys:String x:Key="L25">0.57</sys:String>  
+              <sys:String x:Key="M25">0.04</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B25">1/23/18</sys:String>  
+              <sys:String x:Key="D25">6</sys:String>  
+              <sys:String x:Key="E25">149.29</sys:String>  
+              <sys:String x:Key="F25">1450.10</sys:String>  
+              <sys:String x:Key="G25">1748.61</sys:String>  
+              <sys:String x:Key="H25">2247.65</sys:String>  
+              <sys:String x:Key="I25">499.04</sys:String>  
+              <sys:String x:Key="J25">50004.81</sys:String>  
+              <sys:String x:Key="K25">14.29</sys:String>  
+              <sys:String x:Key="L25">0.71</sys:String>  
+              <sys:String x:Key="M25">0.05</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B25">1/24/18</sys:String>  
+              <sys:String x:Key="D25">7</sys:String>  
+              <sys:String x:Key="E25">149.14</sys:String>  
+              <sys:String x:Key="F25">1449.48</sys:String>  
+              <sys:String x:Key="G25">1747.65</sys:String>  
+              <sys:String x:Key="H25">2246.69</sys:String>  
+              <sys:String x:Key="I25">499.04</sys:String>  
+              <sys:String x:Key="J25">49505.77</sys:String>  
+              <sys:String x:Key="K25">14.14</sys:String>  
+              <sys:String x:Key="L25">0.86</sys:String>  
+              <sys:String x:Key="M25">0.06</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B25">1/25/18</sys:String>  
+              <sys:String x:Key="C25">2</sys:String>  
+              <sys:String x:Key="D25">8</sys:String>  
+              <sys:String x:Key="E25">149.00</sys:String>  
+              <sys:String x:Key="F25">1448.86</sys:String>  
+              <sys:String x:Key="G25">1746.69</sys:String>  
+              <sys:String x:Key="H25">2245.73</sys:String>  
+              <sys:String x:Key="I25">499.04</sys:String>  
+              <sys:String x:Key="J25">49006.73</sys:String>  
+              <sys:String x:Key="K25">14.00</sys:String>  
+              <sys:String x:Key="L25">1.00</sys:String>  
+              <sys:String x:Key="M25">0.07</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B25">1/26/18</sys:String>  
+              <sys:String x:Key="D25">9</sys:String>  
+              <sys:String x:Key="E25">148.86</sys:String>  
+              <sys:String x:Key="F25">1448.24</sys:String>  
+              <sys:String x:Key="G25">1745.73</sys:String>  
+              <sys:String x:Key="H25">2244.77</sys:String>  
+              <sys:String x:Key="I25">499.04</sys:String>  
+              <sys:String x:Key="J25">48507.69</sys:String>  
+              <sys:String x:Key="K25">13.86</sys:String>  
+              <sys:String x:Key="L25">1.14</sys:String>  
+              <sys:String x:Key="M25">0.08</sys:String> 
+            </s1:ListDictionary> 
+          </c:ArrayList> 
+        </DataGrid.ItemsSource> 
+      </DataGrid>  
+      <DataGrid xmlns:c="clr-namespace:System.Collections;assembly=mscorlib" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System.Collections.Specialized;assembly=System" x:Name="_Table245_TableView_B37" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="36" Grid.Column="1" Grid.RowSpan="10" Grid.ColumnSpan="12" Style="{StaticResource TableStyleLight17_T1b__table_view}">  
+        <DataGrid.Columns> 
+          <DataGridTextColumn Width="164.0" Header="DATE" Binding="{Binding Path=[B37]}"/>  
+          <DataGridTextColumn Width="72.0" Header="WEEK" Binding="{Binding Path=[C37]}"/>  
+          <DataGridTextColumn Width="68.0" Header="DAY" Binding="{Binding Path=[D37]}"/>  
+          <DataGridTextColumn Width="88.0" Header="WEIGHT" Binding="{Binding Path=[E37]}"/>  
+          <DataGridTextColumn Width="64.0" Header="BMR" Binding="{Binding Path=[F37]}"/>  
+          <DataGridTextColumn Width="136.0" Header="CAL CONSUMED" Binding="{Binding Path=[G37]}"/>  
+          <DataGridTextColumn Width="116.0" Header="CAL BURNED" Binding="{Binding Path=[H37]}"/>  
+          <DataGridTextColumn Width="108.0" Header="CAL DEFICIT" Binding="{Binding Path=[I37]}"/>  
+          <DataGridTextColumn Width="140.0" Header="CAL REMAINING" Binding="{Binding Path=[J37]}"/>  
+          <DataGridTextColumn Width="136.0" Header="LBS REMAINING" Binding="{Binding Path=[K37]}"/>  
+          <DataGridTextColumn Width="68.0" Header="LOSS" Binding="{Binding Path=[L37]}"/>  
+          <DataGridTextColumn Width="104.0" Header="% OF GOAL" Binding="{Binding Path=[M37]}"/> 
+        </DataGrid.Columns>  
+        <DataGrid.ItemsSource> 
+          <c:ArrayList> 
+            <s1:ListDictionary> 
+              <sys:String x:Key="B37">1/18/18</sys:String>  
+              <sys:String x:Key="C37">1</sys:String>  
+              <sys:String x:Key="D37">1</sys:String>  
+              <sys:String x:Key="E37">150.00</sys:String>  
+              <sys:String x:Key="F37">1453.20</sys:String>  
+              <sys:String x:Key="G37">1752.46</sys:String>  
+              <sys:String x:Key="H37">2252.46</sys:String>  
+              <sys:String x:Key="I37">500.00</sys:String>  
+              <sys:String x:Key="J37">52500.00</sys:String>  
+              <sys:String x:Key="K37">15.00</sys:String>  
+              <sys:String x:Key="L37">0.00</sys:String>  
+              <sys:String x:Key="M37">0.00</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B37">1/19/18</sys:String>  
+              <sys:String x:Key="D37">2</sys:String>  
+              <sys:String x:Key="E37">149.86</sys:String>  
+              <sys:String x:Key="F37">1452.58</sys:String>  
+              <sys:String x:Key="G37">1752.46</sys:String>  
+              <sys:String x:Key="H37">2251.50</sys:String>  
+              <sys:String x:Key="I37">499.04</sys:String>  
+              <sys:String x:Key="J37">52000.96</sys:String>  
+              <sys:String x:Key="K37">14.86</sys:String>  
+              <sys:String x:Key="L37">0.14</sys:String>  
+              <sys:String x:Key="M37">0.01</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B37">1/20/18</sys:String>  
+              <sys:String x:Key="D37">3</sys:String>  
+              <sys:String x:Key="E37">149.71</sys:String>  
+              <sys:String x:Key="F37">1451.96</sys:String>  
+              <sys:String x:Key="G37">1751.50</sys:String>  
+              <sys:String x:Key="H37">2250.54</sys:String>  
+              <sys:String x:Key="I37">499.04</sys:String>  
+              <sys:String x:Key="J37">51501.92</sys:String>  
+              <sys:String x:Key="K37">14.71</sys:String>  
+              <sys:String x:Key="L37">0.29</sys:String>  
+              <sys:String x:Key="M37">0.02</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B37">1/21/18</sys:String>  
+              <sys:String x:Key="D37">4</sys:String>  
+              <sys:String x:Key="E37">149.57</sys:String>  
+              <sys:String x:Key="F37">1451.34</sys:String>  
+              <sys:String x:Key="G37">1750.54</sys:String>  
+              <sys:String x:Key="H37">2249.57</sys:String>  
+              <sys:String x:Key="I37">499.04</sys:String>  
+              <sys:String x:Key="J37">51002.89</sys:String>  
+              <sys:String x:Key="K37">14.57</sys:String>  
+              <sys:String x:Key="L37">0.43</sys:String>  
+              <sys:String x:Key="M37">0.03</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B37">1/22/18</sys:String>  
+              <sys:String x:Key="D37">5</sys:String>  
+              <sys:String x:Key="E37">149.43</sys:String>  
+              <sys:String x:Key="F37">1450.72</sys:String>  
+              <sys:String x:Key="G37">1749.57</sys:String>  
+              <sys:String x:Key="H37">2248.61</sys:String>  
+              <sys:String x:Key="I37">499.04</sys:String>  
+              <sys:String x:Key="J37">50503.85</sys:String>  
+              <sys:String x:Key="K37">14.43</sys:String>  
+              <sys:String x:Key="L37">0.57</sys:String>  
+              <sys:String x:Key="M37">0.04</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B37">1/23/18</sys:String>  
+              <sys:String x:Key="D37">6</sys:String>  
+              <sys:String x:Key="E37">149.29</sys:String>  
+              <sys:String x:Key="F37">1450.10</sys:String>  
+              <sys:String x:Key="G37">1748.61</sys:String>  
+              <sys:String x:Key="H37">2247.65</sys:String>  
+              <sys:String x:Key="I37">499.04</sys:String>  
+              <sys:String x:Key="J37">50004.81</sys:String>  
+              <sys:String x:Key="K37">14.29</sys:String>  
+              <sys:String x:Key="L37">0.71</sys:String>  
+              <sys:String x:Key="M37">0.05</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B37">1/24/18</sys:String>  
+              <sys:String x:Key="D37">7</sys:String>  
+              <sys:String x:Key="E37">149.14</sys:String>  
+              <sys:String x:Key="F37">1449.48</sys:String>  
+              <sys:String x:Key="G37">1747.65</sys:String>  
+              <sys:String x:Key="H37">2246.69</sys:String>  
+              <sys:String x:Key="I37">499.04</sys:String>  
+              <sys:String x:Key="J37">49505.77</sys:String>  
+              <sys:String x:Key="K37">14.14</sys:String>  
+              <sys:String x:Key="L37">0.86</sys:String>  
+              <sys:String x:Key="M37">0.06</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B37">1/25/18</sys:String>  
+              <sys:String x:Key="C37">2</sys:String>  
+              <sys:String x:Key="D37">8</sys:String>  
+              <sys:String x:Key="E37">149.00</sys:String>  
+              <sys:String x:Key="F37">1448.86</sys:String>  
+              <sys:String x:Key="G37">1746.69</sys:String>  
+              <sys:String x:Key="H37">2245.73</sys:String>  
+              <sys:String x:Key="I37">499.04</sys:String>  
+              <sys:String x:Key="J37">49006.73</sys:String>  
+              <sys:String x:Key="K37">14.00</sys:String>  
+              <sys:String x:Key="L37">1.00</sys:String>  
+              <sys:String x:Key="M37">0.07</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B37">1/26/18</sys:String>  
+              <sys:String x:Key="D37">9</sys:String>  
+              <sys:String x:Key="E37">148.86</sys:String>  
+              <sys:String x:Key="F37">1448.24</sys:String>  
+              <sys:String x:Key="G37">1745.73</sys:String>  
+              <sys:String x:Key="H37">2244.77</sys:String>  
+              <sys:String x:Key="I37">499.04</sys:String>  
+              <sys:String x:Key="J37">48507.69</sys:String>  
+              <sys:String x:Key="K37">13.86</sys:String>  
+              <sys:String x:Key="L37">1.14</sys:String>  
+              <sys:String x:Key="M37">0.08</sys:String> 
+            </s1:ListDictionary> 
+          </c:ArrayList> 
+        </DataGrid.ItemsSource> 
+      </DataGrid>  
+      <DataGrid xmlns:c="clr-namespace:System.Collections;assembly=mscorlib" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System.Collections.Specialized;assembly=System" x:Name="_Table2456_TableView_B49" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="48" Grid.Column="1" Grid.RowSpan="10" Grid.ColumnSpan="12" Style="{StaticResource TableStyleLight14_T18__table_view}">  
+        <DataGrid.Columns> 
+          <DataGridTextColumn Width="164.0" Header="DATE" Binding="{Binding Path=[B49]}"/>  
+          <DataGridTextColumn Width="72.0" Header="WEEK" Binding="{Binding Path=[C49]}"/>  
+          <DataGridTextColumn Width="68.0" Header="DAY" Binding="{Binding Path=[D49]}"/>  
+          <DataGridTextColumn Width="88.0" Header="WEIGHT" Binding="{Binding Path=[E49]}"/>  
+          <DataGridTextColumn Width="64.0" Header="BMR" Binding="{Binding Path=[F49]}"/>  
+          <DataGridTextColumn Width="136.0" Header="CAL CONSUMED" Binding="{Binding Path=[G49]}"/>  
+          <DataGridTextColumn Width="116.0" Header="CAL BURNED" Binding="{Binding Path=[H49]}"/>  
+          <DataGridTextColumn Width="108.0" Header="CAL DEFICIT" Binding="{Binding Path=[I49]}"/>  
+          <DataGridTextColumn Width="140.0" Header="CAL REMAINING" Binding="{Binding Path=[J49]}"/>  
+          <DataGridTextColumn Width="136.0" Header="LBS REMAINING" Binding="{Binding Path=[K49]}"/>  
+          <DataGridTextColumn Width="68.0" Header="LOSS" Binding="{Binding Path=[L49]}"/>  
+          <DataGridTextColumn Width="104.0" Header="% OF GOAL" Binding="{Binding Path=[M49]}"/> 
+        </DataGrid.Columns>  
+        <DataGrid.ItemsSource> 
+          <c:ArrayList> 
+            <s1:ListDictionary> 
+              <sys:String x:Key="B49">1/18/18</sys:String>  
+              <sys:String x:Key="C49">1</sys:String>  
+              <sys:String x:Key="D49">1</sys:String>  
+              <sys:String x:Key="E49">150.00</sys:String>  
+              <sys:String x:Key="F49">1453.20</sys:String>  
+              <sys:String x:Key="G49">1752.46</sys:String>  
+              <sys:String x:Key="H49">2252.46</sys:String>  
+              <sys:String x:Key="I49">500.00</sys:String>  
+              <sys:String x:Key="J49">52500.00</sys:String>  
+              <sys:String x:Key="K49">15.00</sys:String>  
+              <sys:String x:Key="L49">0.00</sys:String>  
+              <sys:String x:Key="M49">0.00</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B49">1/19/18</sys:String>  
+              <sys:String x:Key="D49">2</sys:String>  
+              <sys:String x:Key="E49">149.86</sys:String>  
+              <sys:String x:Key="F49">1452.58</sys:String>  
+              <sys:String x:Key="G49">1752.46</sys:String>  
+              <sys:String x:Key="H49">2251.50</sys:String>  
+              <sys:String x:Key="I49">499.04</sys:String>  
+              <sys:String x:Key="J49">52000.96</sys:String>  
+              <sys:String x:Key="K49">14.86</sys:String>  
+              <sys:String x:Key="L49">0.14</sys:String>  
+              <sys:String x:Key="M49">0.01</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B49">1/20/18</sys:String>  
+              <sys:String x:Key="D49">3</sys:String>  
+              <sys:String x:Key="E49">149.71</sys:String>  
+              <sys:String x:Key="F49">1451.96</sys:String>  
+              <sys:String x:Key="G49">1751.50</sys:String>  
+              <sys:String x:Key="H49">2250.54</sys:String>  
+              <sys:String x:Key="I49">499.04</sys:String>  
+              <sys:String x:Key="J49">51501.92</sys:String>  
+              <sys:String x:Key="K49">14.71</sys:String>  
+              <sys:String x:Key="L49">0.29</sys:String>  
+              <sys:String x:Key="M49">0.02</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B49">1/21/18</sys:String>  
+              <sys:String x:Key="D49">4</sys:String>  
+              <sys:String x:Key="E49">149.57</sys:String>  
+              <sys:String x:Key="F49">1451.34</sys:String>  
+              <sys:String x:Key="G49">1750.54</sys:String>  
+              <sys:String x:Key="H49">2249.57</sys:String>  
+              <sys:String x:Key="I49">499.04</sys:String>  
+              <sys:String x:Key="J49">51002.89</sys:String>  
+              <sys:String x:Key="K49">14.57</sys:String>  
+              <sys:String x:Key="L49">0.43</sys:String>  
+              <sys:String x:Key="M49">0.03</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B49">1/22/18</sys:String>  
+              <sys:String x:Key="D49">5</sys:String>  
+              <sys:String x:Key="E49">149.43</sys:String>  
+              <sys:String x:Key="F49">1450.72</sys:String>  
+              <sys:String x:Key="G49">1749.57</sys:String>  
+              <sys:String x:Key="H49">2248.61</sys:String>  
+              <sys:String x:Key="I49">499.04</sys:String>  
+              <sys:String x:Key="J49">50503.85</sys:String>  
+              <sys:String x:Key="K49">14.43</sys:String>  
+              <sys:String x:Key="L49">0.57</sys:String>  
+              <sys:String x:Key="M49">0.04</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B49">1/23/18</sys:String>  
+              <sys:String x:Key="D49">6</sys:String>  
+              <sys:String x:Key="E49">149.29</sys:String>  
+              <sys:String x:Key="F49">1450.10</sys:String>  
+              <sys:String x:Key="G49">1748.61</sys:String>  
+              <sys:String x:Key="H49">2247.65</sys:String>  
+              <sys:String x:Key="I49">499.04</sys:String>  
+              <sys:String x:Key="J49">50004.81</sys:String>  
+              <sys:String x:Key="K49">14.29</sys:String>  
+              <sys:String x:Key="L49">0.71</sys:String>  
+              <sys:String x:Key="M49">0.05</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B49">1/24/18</sys:String>  
+              <sys:String x:Key="D49">7</sys:String>  
+              <sys:String x:Key="E49">149.14</sys:String>  
+              <sys:String x:Key="F49">1449.48</sys:String>  
+              <sys:String x:Key="G49">1747.65</sys:String>  
+              <sys:String x:Key="H49">2246.69</sys:String>  
+              <sys:String x:Key="I49">499.04</sys:String>  
+              <sys:String x:Key="J49">49505.77</sys:String>  
+              <sys:String x:Key="K49">14.14</sys:String>  
+              <sys:String x:Key="L49">0.86</sys:String>  
+              <sys:String x:Key="M49">0.06</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B49">1/25/18</sys:String>  
+              <sys:String x:Key="C49">2</sys:String>  
+              <sys:String x:Key="D49">8</sys:String>  
+              <sys:String x:Key="E49">149.00</sys:String>  
+              <sys:String x:Key="F49">1448.86</sys:String>  
+              <sys:String x:Key="G49">1746.69</sys:String>  
+              <sys:String x:Key="H49">2245.73</sys:String>  
+              <sys:String x:Key="I49">499.04</sys:String>  
+              <sys:String x:Key="J49">49006.73</sys:String>  
+              <sys:String x:Key="K49">14.00</sys:String>  
+              <sys:String x:Key="L49">1.00</sys:String>  
+              <sys:String x:Key="M49">0.07</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B49">1/26/18</sys:String>  
+              <sys:String x:Key="D49">9</sys:String>  
+              <sys:String x:Key="E49">148.86</sys:String>  
+              <sys:String x:Key="F49">1448.24</sys:String>  
+              <sys:String x:Key="G49">1745.73</sys:String>  
+              <sys:String x:Key="H49">2244.77</sys:String>  
+              <sys:String x:Key="I49">499.04</sys:String>  
+              <sys:String x:Key="J49">48507.69</sys:String>  
+              <sys:String x:Key="K49">13.86</sys:String>  
+              <sys:String x:Key="L49">1.14</sys:String>  
+              <sys:String x:Key="M49">0.08</sys:String> 
+            </s1:ListDictionary> 
+          </c:ArrayList> 
+        </DataGrid.ItemsSource> 
+      </DataGrid>  
+      <Image x:Name="_imageView_B9" Grid.Row="8" Grid.Column="1" Grid.RowSpan="10" Grid.ColumnSpan="3" Source="Logo1.png" Width="244.0" Height="180.0" Margin="2,2,0,0"/>  
+      <Image x:Name="_imageView_E10" Grid.Row="9" Grid.Column="4" Grid.RowSpan="9" Grid.ColumnSpan="3" Source="Hierarchy.png" Width="160.0" Height="160.0" Margin="0,0,0,0"/>  
+      <Image x:Name="_imageView_H9" Grid.Row="8" Grid.Column="7" Grid.RowSpan="12" Grid.ColumnSpan="2" Source="Backbone.png" Width="188.0" Height="232.0" Margin="8,8,0,0"/>  
+      <Grid.ColumnDefinitions> 
+        <ColumnDefinition Width="112.0"/>  
+        <ColumnDefinition Width="164.0"/>  
+        <ColumnDefinition Width="72.0"/>  
+        <ColumnDefinition Width="68.0"/>  
+        <ColumnDefinition Width="88.0"/>  
+        <ColumnDefinition Width="64.0"/>  
+        <ColumnDefinition Width="136.0"/>  
+        <ColumnDefinition Width="116.0"/>  
+        <ColumnDefinition Width="108.0"/>  
+        <ColumnDefinition Width="140.0"/>  
+        <ColumnDefinition Width="136.0"/>  
+        <ColumnDefinition Width="68.0"/>  
+        <ColumnDefinition Width="104.0"/>  
+        <ColumnDefinition Width="68.0"/>  
+        <ColumnDefinition Width="68.0"/> 
+      </Grid.ColumnDefinitions>  
+      <Grid.RowDefinitions> 
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="28.0"/>  
+        <RowDefinition Height="28.0"/>  
+        <RowDefinition Height="28.0"/>  
+        <RowDefinition Height="48.0"/>  
+        <RowDefinition Height="28.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/> 
+      </Grid.RowDefinitions> 
+    </Grid> 
+  </ScrollViewer> 
+</Window>

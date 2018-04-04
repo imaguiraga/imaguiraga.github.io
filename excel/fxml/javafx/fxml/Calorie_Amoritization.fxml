@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.MapValueFactory?>
+<?import javafx.collections.FXCollections?>
+<?import java.util.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" prefViewportHeight="1219.0" prefViewportWidth="1480.0">  
+  <content> 
+    <Group> 
+      <children> 
+        <GridPane maxHeight="Infinity" maxWidth="Infinity" stylesheets="@Calorie_Amoritization-fxml-style.css">  
+          <children> 
+            <Label fx:id="B1" text="CALORIE AMORTIZATION SCHEDULE" styleClass="style_C37" prefWidth="1352.0" prefHeight="88.0" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="12" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="B2" text="ONLY 0 MONTHS AND 8 DAYS" styleClass="style_C25" prefWidth="588.0" prefHeight="48.0" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H2" text="It's not recommended that you decrease your calorie intake by more than 1000 calories below your daily calorie needs or consume less than 1200 calories per day." styleClass="style_C21" prefWidth="764.0" prefHeight="48.0" GridPane.rowIndex="1" GridPane.columnIndex="7" GridPane.columnSpan="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="B3" text="UNTIL YOU REACH YOUR GOAL!" styleClass="style_C26" prefWidth="588.0" prefHeight="40.0" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H3" text="Goal target date is based on the recommended average weight loss of 1 lb per week." styleClass="style_C21" prefWidth="764.0" prefHeight="40.0" GridPane.rowIndex="2" GridPane.columnIndex="7" GridPane.columnSpan="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="_ColumnTitleRegion1_B5_1_B4" text="ACTIVITY LEVEL" styleClass="style_C3d" prefWidth="276.0" prefHeight="36.0" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="E4" styleClass="style_C42" prefWidth="312.0" prefHeight="36.0" GridPane.rowIndex="3" GridPane.columnIndex="4" GridPane.columnSpan="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="_ColumnTitleRegion2_L5_1_H4" text="MEASUREMENT SYSTEM" styleClass="style_C38" prefWidth="264.0" prefHeight="36.0" GridPane.rowIndex="3" GridPane.columnIndex="7" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="J4" text="CURRENT WEIGHT" styleClass="style_C38" prefWidth="264.0" prefHeight="36.0" GridPane.rowIndex="3" GridPane.columnIndex="9" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="L4" text="AGE" styleClass="style_C38" prefWidth="236.0" prefHeight="36.0" GridPane.rowIndex="3" GridPane.columnIndex="11" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <ComboBox fx:id="_Level_B5" value="SEDENTARY " promptText="SEDENTARY " styleClass="style_C2c__combo_box" prefWidth="276.0" prefHeight="40.0" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.columnSpan="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"> 
+              <items> 
+                <FXCollections fx:factory="observableArrayList"> 
+                  <String fx:value="SEDENTARY "/>  
+                  <String fx:value="LIGHT ACTIVITY "/>  
+                  <String fx:value="MODERATE ACTIVITY "/>  
+                  <String fx:value="VERY ACTIVE "/>  
+                  <String fx:value="EXTRA ACTIVE "/> 
+                </FXCollections> 
+              </items> 
+            </ComboBox>  
+            <Label fx:id="E5" text="EXERCISE 3-5 DAYS/WEEK" styleClass="style_C22" prefWidth="312.0" prefHeight="40.0" GridPane.rowIndex="4" GridPane.columnIndex="4" GridPane.columnSpan="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <ComboBox fx:id="_UnitOfMeasure_H5" value="IMPERIAL" promptText="IMPERIAL" styleClass="style_C33__combo_box" prefWidth="264.0" prefHeight="40.0" GridPane.rowIndex="4" GridPane.columnIndex="7" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"> 
+              <items> 
+                <FXCollections fx:factory="observableArrayList"> 
+                  <String fx:value="IMPERIAL"/>  
+                  <String fx:value="METRIC"/> 
+                </FXCollections> 
+              </items> 
+            </ComboBox>  
+            <Label fx:id="_Weight_J5" text="150.0" styleClass="style_C30" prefWidth="264.0" prefHeight="40.0" GridPane.rowIndex="4" GridPane.columnIndex="9" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="_Age_L5" text="34" styleClass="style_C33" prefWidth="236.0" prefHeight="40.0" GridPane.rowIndex="4" GridPane.columnIndex="11" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="_ColumnTitleRegion3_L7_1_B6" text="I WANT MY WEIGHT TO" styleClass="style_C3f" prefWidth="588.0" prefHeight="36.0" GridPane.rowIndex="5" GridPane.columnIndex="1" GridPane.columnSpan="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H6" text="HEIGHT IN FT" styleClass="style_C11" prefWidth="132.0" prefHeight="36.0" GridPane.rowIndex="5" GridPane.columnIndex="7" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="I6" text="INCHES" styleClass="style_C20" prefWidth="132.0" prefHeight="36.0" GridPane.rowIndex="5" GridPane.columnIndex="8" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="J6" text="GOAL WEIGHT" styleClass="style_C35" prefWidth="264.0" prefHeight="36.0" GridPane.rowIndex="5" GridPane.columnIndex="9" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="L6" text="GENDER" styleClass="style_C35" prefWidth="236.0" prefHeight="36.0" GridPane.rowIndex="5" GridPane.columnIndex="11" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <ComboBox fx:id="_WeightGoal_B7" value="DECREASE" promptText="DECREASE" styleClass="style_C27__combo_box" prefWidth="588.0" prefHeight="40.0" GridPane.rowIndex="6" GridPane.columnIndex="1" GridPane.columnSpan="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"> 
+              <items> 
+                <FXCollections fx:factory="observableArrayList"> 
+                  <String fx:value="DECREASE"/>  
+                  <String fx:value=" INCREASE"/>  
+                  <String fx:value="MAINTAIN"/> 
+                </FXCollections> 
+              </items> 
+            </ComboBox>  
+            <Label fx:id="H7" text="5" styleClass="style_C0e" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="6" GridPane.columnIndex="7" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="I7" text="5.0" styleClass="style_C12" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="6" GridPane.columnIndex="8" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="_TargetWeight_J7" text="135.0" styleClass="style_C32" prefWidth="264.0" prefHeight="40.0" GridPane.rowIndex="6" GridPane.columnIndex="9" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <ComboBox fx:id="_Gender_L7" value="FEMALE" promptText="FEMALE" styleClass="style_C23__combo_box" prefWidth="236.0" prefHeight="40.0" GridPane.rowIndex="6" GridPane.columnIndex="11" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"> 
+              <items> 
+                <FXCollections fx:factory="observableArrayList"> 
+                  <String fx:value="FEMALE"/>  
+                  <String fx:value="MALE"/> 
+                </FXCollections> 
+              </items> 
+            </ComboBox>  
+            <Label fx:id="B8" text="GOAL START DATE" styleClass="style_C44" prefWidth="276.0" prefHeight="48.0" GridPane.rowIndex="7" GridPane.columnIndex="1" GridPane.columnSpan="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="E8" text="GOAL TARGET DATE" styleClass="style_C2a" prefWidth="312.0" prefHeight="48.0" GridPane.rowIndex="7" GridPane.columnIndex="4" GridPane.columnSpan="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H8" text="INITIAL DAILY CALORIE NEEDS" styleClass="style_C2a" prefWidth="264.0" prefHeight="48.0" GridPane.rowIndex="7" GridPane.columnIndex="7" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="J8" text="INITIAL DAILY CALORIE INTAKE" styleClass="style_C2a" prefWidth="264.0" prefHeight="48.0" GridPane.rowIndex="7" GridPane.columnIndex="9" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="L8" text="CALORIES TO BURN" styleClass="style_C2a" prefWidth="236.0" prefHeight="48.0" GridPane.rowIndex="7" GridPane.columnIndex="11" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="_StartDate_B9" text="3/22/18" styleClass="style_C3b" prefWidth="276.0" prefHeight="60.0" GridPane.rowIndex="8" GridPane.columnIndex="1" GridPane.columnSpan="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="_TargetDate_E9" text="3/30/18" styleClass="style_C3c" prefWidth="312.0" prefHeight="60.0" GridPane.rowIndex="8" GridPane.columnIndex="4" GridPane.columnSpan="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="_InitCal_H9" text="2252" styleClass="style_C2e" prefWidth="264.0" prefHeight="60.0" GridPane.rowIndex="8" GridPane.columnIndex="7" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="_InitCalIntake_J9" text="1752" styleClass="style_C2e" prefWidth="264.0" prefHeight="60.0" GridPane.rowIndex="8" GridPane.columnIndex="9" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="L9" text="52500" styleClass="style_C2e" prefWidth="236.0" prefHeight="60.0" GridPane.rowIndex="8" GridPane.columnIndex="11" GridPane.columnSpan="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="_ColumnTitleRegion5_M998_1_B10" text="DATE" styleClass="style_C13" prefWidth="124.0" prefHeight="40.0" GridPane.rowIndex="9" GridPane.columnIndex="1" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="C10" text="WEEK" styleClass="style_C02" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="9" GridPane.columnIndex="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="D10" text="DAY" styleClass="style_C02" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="9" GridPane.columnIndex="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="E10" text="WEIGHT" styleClass="style_C02" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="9" GridPane.columnIndex="4" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="F10" text="BMR" styleClass="style_C02" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="9" GridPane.columnIndex="5" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="G10" text="CAL CONSUMED" styleClass="style_C02" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="9" GridPane.columnIndex="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H10" text="CAL BURNED" styleClass="style_C02" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="9" GridPane.columnIndex="7" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="I10" text="CAL DEFICIT" styleClass="style_C02" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="9" GridPane.columnIndex="8" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="J10" text="CAL REMAINING" styleClass="style_C02" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="9" GridPane.columnIndex="9" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="K10" text="LBS REMAINING" styleClass="style_C02" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="9" GridPane.columnIndex="10" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="L10" text="LOSS" styleClass="style_C02" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="9" GridPane.columnIndex="11" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="M10" text="% OF GOAL" styleClass="style_C14" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="9" GridPane.columnIndex="12" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="B11" text="3/22/18" styleClass="style_C15" prefWidth="124.0" prefHeight="40.0" GridPane.rowIndex="10" GridPane.columnIndex="1" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="C11" text="1" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="10" GridPane.columnIndex="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="D11" text="1" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="10" GridPane.columnIndex="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="E11" text="150.0" styleClass="style_C10" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="10" GridPane.columnIndex="4" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="F11" text="1671" styleClass="style_C0b" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="10" GridPane.columnIndex="5" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="G11" text="1752" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="10" GridPane.columnIndex="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H11" text="2590" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="10" GridPane.columnIndex="7" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="I11" text="837" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="10" GridPane.columnIndex="8" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="J11" text="52500" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="10" GridPane.columnIndex="9" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="K11" text="15.0" styleClass="style_C0d" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="10" GridPane.columnIndex="10" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="L11" text="0.00" styleClass="style_C0f" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="10" GridPane.columnIndex="11" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="M11" text="0%" styleClass="style_C16" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="10" GridPane.columnIndex="12" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="B12" text="3/23/18" styleClass="style_C15" prefWidth="124.0" prefHeight="40.0" GridPane.rowIndex="11" GridPane.columnIndex="1" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="C12" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="11" GridPane.columnIndex="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="D12" text="2" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="11" GridPane.columnIndex="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="E12" text="149.8" styleClass="style_C0a" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="11" GridPane.columnIndex="4" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="F12" text="1671" styleClass="style_C0b" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="11" GridPane.columnIndex="5" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="G12" text="2090" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="11" GridPane.columnIndex="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H12" text="2590" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="11" GridPane.columnIndex="7" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="I12" text="500" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="11" GridPane.columnIndex="8" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="J12" text="52000" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="11" GridPane.columnIndex="9" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="K12" text="14.9" styleClass="style_C0d" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="11" GridPane.columnIndex="10" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="L12" text="0.14" styleClass="style_C0f" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="11" GridPane.columnIndex="11" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="M12" text="1%" styleClass="style_C16" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="11" GridPane.columnIndex="12" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="B13" text="3/24/18" styleClass="style_C15" prefWidth="124.0" prefHeight="40.0" GridPane.rowIndex="12" GridPane.columnIndex="1" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="C13" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="12" GridPane.columnIndex="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="D13" text="3" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="12" GridPane.columnIndex="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="E13" text="149.6" styleClass="style_C0a" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="12" GridPane.columnIndex="4" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="F13" text="1671" styleClass="style_C0b" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="12" GridPane.columnIndex="5" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="G13" text="2090" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="12" GridPane.columnIndex="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H13" text="2590" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="12" GridPane.columnIndex="7" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="I13" text="500" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="12" GridPane.columnIndex="8" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="J13" text="51500" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="12" GridPane.columnIndex="9" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="K13" text="14.7" styleClass="style_C0d" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="12" GridPane.columnIndex="10" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="L13" text="0.29" styleClass="style_C0f" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="12" GridPane.columnIndex="11" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="M13" text="2%" styleClass="style_C16" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="12" GridPane.columnIndex="12" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="B14" text="3/25/18" styleClass="style_C15" prefWidth="124.0" prefHeight="40.0" GridPane.rowIndex="13" GridPane.columnIndex="1" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="C14" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="13" GridPane.columnIndex="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="D14" text="4" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="13" GridPane.columnIndex="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="E14" text="149.5" styleClass="style_C0a" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="13" GridPane.columnIndex="4" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="F14" text="1671" styleClass="style_C0b" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="13" GridPane.columnIndex="5" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="G14" text="2090" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="13" GridPane.columnIndex="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H14" text="2590" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="13" GridPane.columnIndex="7" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="I14" text="500" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="13" GridPane.columnIndex="8" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="J14" text="51000" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="13" GridPane.columnIndex="9" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="K14" text="14.6" styleClass="style_C0d" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="13" GridPane.columnIndex="10" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="L14" text="0.43" styleClass="style_C0f" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="13" GridPane.columnIndex="11" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="M14" text="3%" styleClass="style_C16" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="13" GridPane.columnIndex="12" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="B15" text="3/26/18" styleClass="style_C15" prefWidth="124.0" prefHeight="40.0" GridPane.rowIndex="14" GridPane.columnIndex="1" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="C15" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="14" GridPane.columnIndex="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="D15" text="5" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="14" GridPane.columnIndex="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="E15" text="149.3" styleClass="style_C0a" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="14" GridPane.columnIndex="4" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="F15" text="1671" styleClass="style_C0b" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="14" GridPane.columnIndex="5" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="G15" text="2090" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="14" GridPane.columnIndex="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H15" text="2590" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="14" GridPane.columnIndex="7" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="I15" text="500" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="14" GridPane.columnIndex="8" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="J15" text="50500" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="14" GridPane.columnIndex="9" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="K15" text="14.4" styleClass="style_C0d" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="14" GridPane.columnIndex="10" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="L15" text="0.57" styleClass="style_C0f" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="14" GridPane.columnIndex="11" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="M15" text="4%" styleClass="style_C16" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="14" GridPane.columnIndex="12" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="B16" text="3/27/18" styleClass="style_C15" prefWidth="124.0" prefHeight="40.0" GridPane.rowIndex="15" GridPane.columnIndex="1" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="C16" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="15" GridPane.columnIndex="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="D16" text="6" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="15" GridPane.columnIndex="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="E16" text="149.2" styleClass="style_C0a" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="15" GridPane.columnIndex="4" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="F16" text="1671" styleClass="style_C0b" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="15" GridPane.columnIndex="5" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="G16" text="2090" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="15" GridPane.columnIndex="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H16" text="2590" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="15" GridPane.columnIndex="7" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="I16" text="500" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="15" GridPane.columnIndex="8" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="J16" text="50000" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="15" GridPane.columnIndex="9" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="K16" text="14.3" styleClass="style_C0d" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="15" GridPane.columnIndex="10" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="L16" text="0.71" styleClass="style_C0f" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="15" GridPane.columnIndex="11" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="M16" text="5%" styleClass="style_C16" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="15" GridPane.columnIndex="12" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="B17" text="3/28/18" styleClass="style_C15" prefWidth="124.0" prefHeight="40.0" GridPane.rowIndex="16" GridPane.columnIndex="1" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="C17" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="16" GridPane.columnIndex="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="D17" text="7" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="16" GridPane.columnIndex="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="E17" text="149.0" styleClass="style_C0a" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="16" GridPane.columnIndex="4" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="F17" text="1671" styleClass="style_C0b" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="16" GridPane.columnIndex="5" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="G17" text="2090" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="16" GridPane.columnIndex="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H17" text="2590" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="16" GridPane.columnIndex="7" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="I17" text="500" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="16" GridPane.columnIndex="8" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="J17" text="49500" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="16" GridPane.columnIndex="9" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="K17" text="14.1" styleClass="style_C0d" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="16" GridPane.columnIndex="10" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="L17" text="0.86" styleClass="style_C0f" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="16" GridPane.columnIndex="11" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="M17" text="6%" styleClass="style_C16" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="16" GridPane.columnIndex="12" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="B18" text="3/29/18" styleClass="style_C15" prefWidth="124.0" prefHeight="40.0" GridPane.rowIndex="17" GridPane.columnIndex="1" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="C18" text="2" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="17" GridPane.columnIndex="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="D18" text="8" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="17" GridPane.columnIndex="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="E18" text="148.9" styleClass="style_C0a" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="17" GridPane.columnIndex="4" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="F18" text="1671" styleClass="style_C0b" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="17" GridPane.columnIndex="5" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="G18" text="2090" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="17" GridPane.columnIndex="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H18" text="2590" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="17" GridPane.columnIndex="7" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="I18" text="500" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="17" GridPane.columnIndex="8" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="J18" text="49000" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="17" GridPane.columnIndex="9" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="K18" text="14.0" styleClass="style_C0d" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="17" GridPane.columnIndex="10" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="L18" text="1.00" styleClass="style_C0f" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="17" GridPane.columnIndex="11" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="M18" text="7%" styleClass="style_C16" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="17" GridPane.columnIndex="12" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="B19" text="3/30/18" styleClass="style_C15" prefWidth="124.0" prefHeight="40.0" GridPane.rowIndex="18" GridPane.columnIndex="1" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="C19" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="18" GridPane.columnIndex="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="D19" text="9" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="18" GridPane.columnIndex="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="E19" text="148.8" styleClass="style_C0a" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="18" GridPane.columnIndex="4" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="F19" text="1671" styleClass="style_C0b" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="18" GridPane.columnIndex="5" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="G19" text="2090" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="18" GridPane.columnIndex="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H19" text="2590" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="18" GridPane.columnIndex="7" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="I19" text="500" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="18" GridPane.columnIndex="8" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="J19" text="48500" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="18" GridPane.columnIndex="9" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="K19" text="13.9" styleClass="style_C0d" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="18" GridPane.columnIndex="10" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="L19" text="1.14" styleClass="style_C0f" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="18" GridPane.columnIndex="11" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="M19" text="8%" styleClass="style_C16" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="18" GridPane.columnIndex="12" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="B20" styleClass="style_C15" prefWidth="124.0" prefHeight="40.0" GridPane.rowIndex="19" GridPane.columnIndex="1" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="C20" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="19" GridPane.columnIndex="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="D20" styleClass="style_C09" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="19" GridPane.columnIndex="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="E20" styleClass="style_C0a" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="19" GridPane.columnIndex="4" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="F20" text="1671" styleClass="style_C0b" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="19" GridPane.columnIndex="5" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="G20" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="19" GridPane.columnIndex="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H20" text="2590" styleClass="style_C0b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="19" GridPane.columnIndex="7" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="I20" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="19" GridPane.columnIndex="8" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="J20" styleClass="style_C0c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="19" GridPane.columnIndex="9" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="K20" styleClass="style_C0d" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="19" GridPane.columnIndex="10" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="L20" styleClass="style_C0f" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="19" GridPane.columnIndex="11" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="M20" styleClass="style_C17" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="19" GridPane.columnIndex="12" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="B21" styleClass="style_C18" prefWidth="124.0" prefHeight="40.0" GridPane.rowIndex="20" GridPane.columnIndex="1" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="C21" styleClass="style_C19" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="20" GridPane.columnIndex="2" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="D21" styleClass="style_C19" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="20" GridPane.columnIndex="3" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="E21" styleClass="style_C1a" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="20" GridPane.columnIndex="4" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="F21" text="1671" styleClass="style_C1b" prefWidth="76.0" prefHeight="40.0" GridPane.rowIndex="20" GridPane.columnIndex="5" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="G21" text="2090" styleClass="style_C1b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="20" GridPane.columnIndex="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="H21" text="2590" styleClass="style_C1b" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="20" GridPane.columnIndex="7" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Label fx:id="I21" text="500" styleClass="style_C1c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="20" GridPane.columnIndex="8" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="J21" styleClass="style_C1c" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="20" GridPane.columnIndex="9" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="K21" styleClass="style_C1d" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="20" GridPane.columnIndex="10" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="L21" styleClass="style_C1e" prefWidth="104.0" prefHeight="40.0" GridPane.rowIndex="20" GridPane.columnIndex="11" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
+            <Region fx:id="M21" styleClass="style_C1f" prefWidth="132.0" prefHeight="40.0" GridPane.rowIndex="20" GridPane.columnIndex="12" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/> 
+          </children>  
+          <columnConstraints> 
+            <ColumnConstraints prefWidth="32.0"/>  
+            <ColumnConstraints prefWidth="124.0"/>  
+            <ColumnConstraints prefWidth="76.0"/>  
+            <ColumnConstraints prefWidth="76.0"/>  
+            <ColumnConstraints prefWidth="104.0"/>  
+            <ColumnConstraints prefWidth="76.0"/>  
+            <ColumnConstraints prefWidth="132.0"/>  
+            <ColumnConstraints prefWidth="132.0"/>  
+            <ColumnConstraints prefWidth="132.0"/>  
+            <ColumnConstraints prefWidth="132.0"/>  
+            <ColumnConstraints prefWidth="132.0"/>  
+            <ColumnConstraints prefWidth="104.0"/>  
+            <ColumnConstraints prefWidth="132.0"/> 
+          </columnConstraints>  
+          <rowConstraints> 
+            <RowConstraints prefHeight="88.0"/>  
+            <RowConstraints prefHeight="48.0"/>  
+            <RowConstraints prefHeight="40.0"/>  
+            <RowConstraints prefHeight="36.0"/>  
+            <RowConstraints prefHeight="40.0"/>  
+            <RowConstraints prefHeight="36.0"/>  
+            <RowConstraints prefHeight="40.0"/>  
+            <RowConstraints prefHeight="48.0"/>  
+            <RowConstraints prefHeight="60.0"/>  
+            <RowConstraints prefHeight="40.0"/>  
+            <RowConstraints prefHeight="40.0"/>  
+            <RowConstraints prefHeight="40.0"/>  
+            <RowConstraints prefHeight="40.0"/>  
+            <RowConstraints prefHeight="40.0"/>  
+            <RowConstraints prefHeight="40.0"/>  
+            <RowConstraints prefHeight="40.0"/>  
+            <RowConstraints prefHeight="40.0"/>  
+            <RowConstraints prefHeight="40.0"/>  
+            <RowConstraints prefHeight="40.0"/>  
+            <RowConstraints prefHeight="40.0"/>  
+            <RowConstraints prefHeight="40.0"/> 
+          </rowConstraints> 
+        </GridPane> 
+      </children> 
+    </Group> 
+  </content> 
+</ScrollPane>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">  
+  <ResourceDictionary.MergedDictionaries>
+    <!--/* _CCTSLiteType_TableView_B3 [B3:C5] - TableStyleLight14 */-->  
+    <ResourceDictionary Source="CCTSMedium_Type_TableStyleLight14_T18-style.xaml"/> 
+  </ResourceDictionary.MergedDictionaries>  
+  <!--/* B3 */-->  
+  <Style TargetType="{x:Type ContentControl}" x:Key="style_C00"> 
+    <Setter Property="FontFamily" Value="Calibri"/>  
+    <Setter Property="FontSize" Value="11pt"/>  
+    <Setter Property="Padding" Value="5,0,5,0"/>  
+    <Setter Property="VerticalContentAlignment" Value="Bottom"/> 
+  </Style>  
+  <!--/* B5 */-->  
+  <Style TargetType="{x:Type ContentControl}" x:Key="style_C03"> 
+    <Setter Property="FontFamily" Value="Calibri"/>  
+    <Setter Property="FontSize" Value="11pt"/>  
+    <Setter Property="Padding" Value="5,0,5,0"/>  
+    <Setter Property="VerticalContentAlignment" Value="Bottom"/> 
+  </Style> 
+</ResourceDictionary>

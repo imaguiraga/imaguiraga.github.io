@@ -1,0 +1,295 @@
+* {
+	border-radius:0 0 0 0;
+	box-sizing: border-box;
+}
+/* B2 */
+.style_C00 {
+    display:table;
+    word-wrap: break-word;
+    font-family: Calibri;
+    font-size: 11pt;
+
+}
+
+.style_C00 > span {
+    display:table-cell;
+    vertical-align: bottom;
+    padding: 0 5px 0 5px;
+}
+/* B3 */
+.style_C02 {
+    display:table;
+    word-wrap: break-word;
+    font-family: Calibri;
+    font-size: 11pt;
+
+}
+
+.style_C02 > span {
+    display:table-cell;
+    vertical-align: bottom;
+    padding: 0 5px 0 5px;
+}
+/* E3 */
+.style_C04 {
+    display:table;
+    word-wrap: break-word;
+    font-family: Calibri;
+    font-size: 11pt;
+
+}
+
+.style_C04 > span {
+    display:table-cell;
+    vertical-align: bottom;
+    padding: 0 5px 0 5px;
+}
+/* B16 */
+.style_C01 {
+    display:table;
+    word-wrap: break-word;
+    font-family: Calibri;
+    font-size: 11pt;
+
+}
+
+.style_C01 > span {
+    display:table-cell;
+    vertical-align: bottom;
+    padding: 0 5px 0 5px;
+}
+
+/* _Table2_TableView_B2 [B2:M11] - TableStyleDark2 */
+/*TableStyleDark2.colors {
+	LT1: #ffffff;
+	DK1: #000000;
+	LT2: #e7e6e6;
+	DK2: #44546a;
+	ACCENT1: #4472c4;
+	ACCENT2: #ed7d31;
+	ACCENT3: #a5a5a5;
+	ACCENT4: #ffc000;
+	ACCENT5: #5b9bd5;
+	ACCENT6: #70ad47;
+	HLINK: #0563c1;
+	FOLHLINK: #954f72;
+}
+*/TableStyleDark2.wholeTable {
+	color: #ffffff;
+	background-color: #4472c4;
+}
+TableStyleDark2.firstColumnStripe {
+	background-color: #335593;
+}
+TableStyleDark2.firstRowStripe {
+	background-color: #335593;
+}
+TableStyleDark2.lastColumn {
+	color: #ffffff;
+	background-color: #335593;
+}
+TableStyleDark2.firstColumn {
+	color: #ffffff;
+	background-color: #335593;
+}
+TableStyleDark2.headerRow {
+	color: #ffffff;
+	background-color: #000000;
+}
+TableStyleDark2.totalRow {
+	color: #ffffff;
+	background-color: #223962;
+}
+/* ------------ TableStyleDark2_T01__table_view -------------------*/
+.TableStyleDark2_T01__table_view {
+    background-color: #000000;/*headerRow|wholeTable|firstRowStripe ACCENT|white - FillBackgroundColor|FontColor no-tint*/
+    color: #ffffff;/* wholeTable|black - FontColor */
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: Calibri;
+    font-size: 11pt;
+    text-align: right;
+}
+
+.TableStyleDark2_T01__table_view table,
+.TableStyleDark2_T01__table_view col,
+.TableStyleDark2_T01__table_view th,
+.TableStyleDark2_T01__table_view td {
+    border: 1px solid #000000;
+    padding: 0 5px 0 5px;
+}
+
+.TableStyleDark2_T01__table_view th {
+    color: #ffffff;/* headerRow|black - FontColor */
+    background-color: #000000;/* headerRow|wholeTable|white - FillBackgroundColor */
+    /*inner-border: #000000;/* headerRow|white - FillBackgroundColor */
+    font-family: Calibri;
+    font-size: 11pt;
+    font-weight: bold;
+    vertical-align: bottom;
+    text-align: left;
+}
+
+.TableStyleDark2_T01__table_view tr:nth-child(odd){
+    background-color: #335593;/* firstRowStripe|white - FillBackgroundColor */
+}
+
+.TableStyleDark2_T01__table_view tr:nth-child(even){
+    background-color: #4472c4;/* wholeTable|white - FillBackgroundColor */
+}
+
+
+/* _Table24_TableView_B15 [B15:M24] - TableStyleDark2 */
+
+/* _Table245_TableView_B27 [B27:M36] - TableStyleLight17 */
+/*TableStyleLight17.colors {
+	LT1: #ffffff;
+	DK1: #000000;
+	LT2: #e7e6e6;
+	DK2: #44546a;
+	ACCENT1: #4472c4;
+	ACCENT2: #ed7d31;
+	ACCENT3: #a5a5a5;
+	ACCENT4: #ffc000;
+	ACCENT5: #5b9bd5;
+	ACCENT6: #70ad47;
+	HLINK: #0563c1;
+	FOLHLINK: #954f72;
+}
+*/TableStyleLight17.wholeTable {
+	color: #000000;
+}
+TableStyleLight17.firstColumnStripe {
+	background-color: #fbe4d5;
+}
+TableStyleLight17.firstRowStripe {
+	background-color: #fbe4d5;
+}
+TableStyleLight17.lastColumn {
+	color: #000000;
+}
+TableStyleLight17.firstColumn {
+	color: #000000;
+}
+TableStyleLight17.headerRow {
+	color: #000000;
+}
+TableStyleLight17.totalRow {
+	color: #000000;
+}
+/* ------------ TableStyleLight17_T1b__table_view -------------------*/
+.TableStyleLight17_T1b__table_view {
+    background-color: #ed7d31;/*headerRow|wholeTable|firstRowStripe ACCENT|white - FillBackgroundColor|FontColor no-tint*/
+    color: #000000;/* wholeTable|black - FontColor */
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: Calibri;
+    font-size: 11pt;
+    text-align: right;
+}
+
+.TableStyleLight17_T1b__table_view table,
+.TableStyleLight17_T1b__table_view col,
+.TableStyleLight17_T1b__table_view th,
+.TableStyleLight17_T1b__table_view td {
+    border: 1px solid #b65f25;
+    padding: 0 5px 0 5px;
+}
+
+.TableStyleLight17_T1b__table_view th {
+    color: #000000;/* headerRow|black - FontColor */
+    background-color: #ffffff;/* headerRow|wholeTable|white - FillBackgroundColor */
+    /*inner-border: #ffffff;/* headerRow|white - FillBackgroundColor */
+    font-family: Calibri;
+    font-size: 11pt;
+    font-weight: bold;
+    vertical-align: bottom;
+    text-align: left;
+}
+
+.TableStyleLight17_T1b__table_view tr:nth-child(odd){
+    background-color: #fbe4d5;/* firstRowStripe|white - FillBackgroundColor */
+}
+
+.TableStyleLight17_T1b__table_view tr:nth-child(even){
+    background-color: #ffffff;/* wholeTable|white - FillBackgroundColor */
+}
+
+
+/* _Table2456_TableView_B39 [B39:M48] - TableStyleLight14 */
+/*TableStyleLight14.colors {
+	LT1: #ffffff;
+	DK1: #000000;
+	LT2: #e7e6e6;
+	DK2: #44546a;
+	ACCENT1: #4472c4;
+	ACCENT2: #ed7d31;
+	ACCENT3: #a5a5a5;
+	ACCENT4: #ffc000;
+	ACCENT5: #5b9bd5;
+	ACCENT6: #70ad47;
+	HLINK: #0563c1;
+	FOLHLINK: #954f72;
+}
+*/TableStyleLight14.wholeTable {
+	color: #000000;
+}
+TableStyleLight14.firstColumnStripe {
+}
+TableStyleLight14.secondColumnStripe {
+}
+TableStyleLight14.firstRowStripe {
+}
+TableStyleLight14.secondRowStripe {
+}
+TableStyleLight14.lastColumn {
+	color: #000000;
+}
+TableStyleLight14.firstColumn {
+	color: #000000;
+}
+TableStyleLight14.headerRow {
+	color: #ffffff;
+	background-color: #70ad47;
+}
+TableStyleLight14.totalRow {
+	color: #000000;
+}
+/* ------------ TableStyleLight14_T18__table_view -------------------*/
+.TableStyleLight14_T18__table_view {
+    background-color: #70ad47;/*headerRow|wholeTable|firstRowStripe ACCENT|white - FillBackgroundColor|FontColor no-tint*/
+    color: #000000;/* wholeTable|black - FontColor */
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: Calibri;
+    font-size: 11pt;
+    text-align: right;
+}
+
+.TableStyleLight14_T18__table_view table,
+.TableStyleLight14_T18__table_view col,
+.TableStyleLight14_T18__table_view th,
+.TableStyleLight14_T18__table_view td {
+    border: 1px solid #578536;
+    padding: 0 5px 0 5px;
+}
+
+.TableStyleLight14_T18__table_view th {
+    color: #ffffff;/* headerRow|black - FontColor */
+    background-color: #70ad47;/* headerRow|wholeTable|white - FillBackgroundColor */
+    /*inner-border: #70ad47;/* headerRow|white - FillBackgroundColor */
+    font-family: Calibri;
+    font-size: 11pt;
+    font-weight: bold;
+    vertical-align: bottom;
+    text-align: left;
+}
+
+.TableStyleLight14_T18__table_view tr:nth-child(odd){
+    background-color: #ffffff;/* firstRowStripe|white - FillBackgroundColor */
+}
+
+.TableStyleLight14_T18__table_view tr:nth-child(even){
+    background-color: #ffffff;/* wholeTable|white - FillBackgroundColor */
+}
+

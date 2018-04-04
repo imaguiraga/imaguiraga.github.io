@@ -1,0 +1,107 @@
+.root {
+	-fx-background-color: white;
+}
+* {
+	-fx-border-radius:0 0 0 0;
+	-fx-background-radius:0 0 0 0;
+}
+/* B3 */
+.style_C00 {
+    -fx-wrap-text: false;
+    -fx-font-family: Calibri;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 11pt;
+
+}
+/* B5 */
+.style_C03 {
+    -fx-wrap-text: false;
+    -fx-font-family: Calibri;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 11pt;
+
+}
+
+/* _CCTSLiteType_TableView_B3 [B3:C5] - TableStyleLight14 */
+/*TableStyleLight14.colors {
+	LT1: #ffffff;
+	DK1: #000000;
+	LT2: #e7e6e6;
+	DK2: #44546a;
+	ACCENT1: #4472c4;
+	ACCENT2: #ed7d31;
+	ACCENT3: #a5a5a5;
+	ACCENT4: #ffc000;
+	ACCENT5: #5b9bd5;
+	ACCENT6: #70ad47;
+	HLINK: #0563c1;
+	FOLHLINK: #954f72;
+}
+*/TableStyleLight14.wholeTable {
+	-fx-text-fill: #000000;
+}
+TableStyleLight14.firstColumnStripe {
+}
+TableStyleLight14.secondColumnStripe {
+}
+TableStyleLight14.firstRowStripe {
+}
+TableStyleLight14.secondRowStripe {
+}
+TableStyleLight14.lastColumn {
+	-fx-text-fill: #000000;
+}
+TableStyleLight14.firstColumn {
+	-fx-text-fill: #000000;
+}
+TableStyleLight14.headerRow {
+	-fx-text-fill: #ffffff;
+	-fx-background-color: #70ad47;
+}
+TableStyleLight14.totalRow {
+	-fx-text-fill: #000000;
+}
+/* ------------ TableStyleLight14_T18__table_view -------------------*/
+.TableStyleLight14_T18__table_view * {
+    /* Reset radius */
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.TableStyleLight14_T18__table_view {
+    -fx-base: #70ad47;/*headerRow|wholeTable|firstRowStripe ACCENT|white - FillBackgroundColor|FontColor no-tint*/
+    -fx-body-color: -fx-color;
+    -fx-control-inner-background: #ffffff;/* firstRowStripe|white - FillBackgroundColor */
+    -fx-control-inner-background-alt: #ffffff;/* wholeTable|white - FillBackgroundColor */
+    -fx-text-fill: #000000;/* wholeTable|black - FontColor */
+    -fx-font-family: Calibri;
+    -fx-font-size: 11pt;
+}
+
+.TableStyleLight14_T18__table_view .table-row-cell {
+    /*-fx-text-fill: #000000;/* wholeTable|black - FontColor */
+	-fx-text-base-color: #000000;/* wholeTable|black - FontColor */
+	/*-fx-table-cell-border-color: lightgray;/*Removes all borders*/
+}
+
+.TableStyleLight14_T18__table_view .table-row-cell > .table-cell {
+	/*-fx-table-cell-border-color: lightgray;/*Removes left-right borders*/
+	-fx-padding: 0 5px 0 5px;
+	-fx-alignment: center-right;
+}
+
+.TableStyleLight14_T18__table_view .column-header-background * {
+    -fx-text-fill: #ffffff;/* headerRow|black - FontColor */
+    -fx-body-color: #70ad47;/* headerRow|wholeTable|white - FillBackgroundColor */
+    /*-fx-inner-border: #70ad47;/* headerRow|white - FillBackgroundColor */
+    -fx-text-base-color: #ffffff;/* headerRow|black - FontColor */
+    -fx-alignment: center-left;
+}
+
+.TableStyleLight14_T18__table_view .column-header {
+	-fx-padding: 0 5px 0 5px;
+    -fx-font-family: Calibri;
+    -fx-font-size: 11pt;
+    -fx-font-weight: bold;
+}
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">  
+  <ResourceDictionary.MergedDictionaries>
+    <!--/* _Table2_TableView_B2 [B2:M11] - TableStyleDark2 */-->  
+    <ResourceDictionary Source="TableSheet1_TableStyleDark2_T01-style.xaml"/>  
+    <!--/* _Table24_TableView_B15 [B15:M24] - TableStyleDark2 */-->  
+    <ResourceDictionary Source="TableSheet1_TableStyleDark2_T01-style.xaml"/>  
+    <!--/* _Table245_TableView_B27 [B27:M36] - TableStyleLight17 */-->  
+    <ResourceDictionary Source="TableSheet1_TableStyleLight17_T1b-style.xaml"/>  
+    <!--/* _Table2456_TableView_B39 [B39:M48] - TableStyleLight14 */-->  
+    <ResourceDictionary Source="TableSheet1_TableStyleLight14_T18-style.xaml"/> 
+  </ResourceDictionary.MergedDictionaries>  
+  <!--/* B2 */-->  
+  <Style TargetType="{x:Type ContentControl}" x:Key="style_C00"> 
+    <Setter Property="FontFamily" Value="Calibri"/>  
+    <Setter Property="FontSize" Value="11pt"/>  
+    <Setter Property="Padding" Value="5,0,5,0"/>  
+    <Setter Property="VerticalContentAlignment" Value="Bottom"/> 
+  </Style>  
+  <!--/* B3 */-->  
+  <Style TargetType="{x:Type ContentControl}" x:Key="style_C02"> 
+    <Setter Property="FontFamily" Value="Calibri"/>  
+    <Setter Property="FontSize" Value="11pt"/>  
+    <Setter Property="Padding" Value="5,0,5,0"/>  
+    <Setter Property="VerticalContentAlignment" Value="Bottom"/> 
+  </Style>  
+  <!--/* E3 */-->  
+  <Style TargetType="{x:Type ContentControl}" x:Key="style_C04"> 
+    <Setter Property="FontFamily" Value="Calibri"/>  
+    <Setter Property="FontSize" Value="11pt"/>  
+    <Setter Property="Padding" Value="5,0,5,0"/>  
+    <Setter Property="VerticalContentAlignment" Value="Bottom"/> 
+  </Style>  
+  <!--/* B16 */-->  
+  <Style TargetType="{x:Type ContentControl}" x:Key="style_C01"> 
+    <Setter Property="FontFamily" Value="Calibri"/>  
+    <Setter Property="FontSize" Value="11pt"/>  
+    <Setter Property="Padding" Value="5,0,5,0"/>  
+    <Setter Property="VerticalContentAlignment" Value="Bottom"/> 
+  </Style> 
+</ResourceDictionary>

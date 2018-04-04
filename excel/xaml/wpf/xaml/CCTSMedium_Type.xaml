@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" SizeToContent="WidthAndHeight">  
+  <Window.Resources> 
+    <ResourceDictionary> 
+      <ResourceDictionary.MergedDictionaries> 
+        <ResourceDictionary Source="CCTSMedium_Type-style.xaml"/> 
+      </ResourceDictionary.MergedDictionaries> 
+    </ResourceDictionary> 
+  </Window.Resources>  
+  <ScrollViewer> 
+    <Grid> 
+      <DataGrid xmlns:c="clr-namespace:System.Collections;assembly=mscorlib" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System.Collections.Specialized;assembly=System" x:Name="_CCTSLiteType_TableView_B3" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="2" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="2" Style="{StaticResource TableStyleLight14_T18__table_view}">  
+        <DataGrid.Columns> 
+          <DataGridTextColumn Width="144.0" Header="Acronym" Binding="{Binding Path=[B3]}"/>  
+          <DataGridTextColumn Width="164.0" Header="Object Class" Binding="{Binding Path=[C3]}"/> 
+        </DataGrid.Columns>  
+        <DataGrid.ItemsSource> 
+          <c:ArrayList> 
+            <s1:ListDictionary> 
+              <sys:String x:Key="B3">ACC</sys:String>  
+              <sys:String x:Key="C3">CCTSLite Type</sys:String> 
+            </s1:ListDictionary>  
+            <s1:ListDictionary> 
+              <sys:String x:Key="B3">BCC</sys:String>  
+              <sys:String x:Key="C3">CCTSLite Type</sys:String> 
+            </s1:ListDictionary> 
+          </c:ArrayList> 
+        </DataGrid.ItemsSource> 
+      </DataGrid>  
+      <Grid.ColumnDefinitions> 
+        <ColumnDefinition Width="68.0"/>  
+        <ColumnDefinition Width="144.0"/>  
+        <ColumnDefinition Width="164.0"/> 
+      </Grid.ColumnDefinitions>  
+      <Grid.RowDefinitions> 
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/>  
+        <RowDefinition Height="20.0"/> 
+      </Grid.RowDefinitions> 
+    </Grid> 
+  </ScrollViewer> 
+</Window>

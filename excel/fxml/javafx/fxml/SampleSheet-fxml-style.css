@@ -1,0 +1,418 @@
+.root {
+	-fx-background-color: white;
+}
+* {
+	-fx-border-radius:0 0 0 0;
+	-fx-background-radius:0 0 0 0;
+}
+/* B2 */
+.style_C01 {
+    -fx-wrap-text: false;
+    -fx-font-family: Calibri;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 16pt;
+    -fx-font-weight: bold;
+
+    -fx-base: #000000;
+    -fx-body-color: -fx-color;
+    -fx-background-color: -fx-body-color;
+    -fx-text-fill: #ffffff;
+}
+/* C2 */
+.style_C07__text_field {
+    -fx-wrap-text: false;
+    -fx-font-family: Calibri;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 16pt;
+    -fx-font-weight: bold;
+
+}
+
+/* D2 */
+.style_C02 {
+    -fx-wrap-text: false;
+    -fx-font-family: Calibri;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 16pt;
+
+}
+/* H2 */
+.style_C0b__button {
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-wrap-text: false;
+    -fx-font-family: Consolas;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 16pt;
+    -fx-font-style: italic;
+    -fx-base: #44749f;
+    -fx-body-color: -fx-color;
+    -fx-text-background-color: -fx-text-base-color;
+}
+/* M2 */
+.style_C0c {
+    -fx-text-alignment: center;
+    -fx-alignment: bottom-center;
+    -fx-wrap-text: false;
+    -fx-font-family: Calibri;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 11pt;
+
+    -fx-base: #ffc000;
+    -fx-body-color: -fx-color;
+    -fx-background-color: -fx-body-color;
+    -fx-text-fill: #ffffff;
+}
+/* B3 */
+.style_C03 {
+    -fx-wrap-text: false;
+    -fx-font-family: Calibri;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 16pt;
+    -fx-font-weight: bold;
+
+    -fx-base: #000000;
+    -fx-body-color: -fx-color;
+    -fx-background-color: -fx-body-color;
+    -fx-text-fill: #ffffff;
+}
+/* C3 */
+.style_C0d__combo_box {
+    -fx-wrap-text: false;
+    -fx-font-family: Calibri;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 16pt;
+    -fx-font-weight: bold;
+
+    -fx-base: #a9cd90;
+    -fx-body-color: -fx-color;
+    -fx-text-background-color: -fx-text-base-color;
+}
+.style_C0d__combo_box > * {
+	-fx-padding: 0 5px 0 0;
+	-fx-border-style:none;
+}
+
+/* D4 */
+.style_C08 {
+    -fx-wrap-text: false;
+    -fx-font-family: Calibri;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 16pt;
+
+}
+/* C5 */
+.style_C0a__text_field {
+    -fx-text-alignment: right;
+    -fx-alignment: bottom-right;
+    -fx-wrap-text: false;
+    -fx-font-family: Calibri;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 16pt;
+    -fx-font-weight: bold;
+
+    -fx-base: rgba(255, 255 ,0, 1.000);
+    -fx-body-color: -fx-color;
+    -fx-background-color: -fx-inner-border, -fx-body-color;
+    -fx-text-background-color: -fx-text-base-color;
+}
+.style_C0a__text_field:focused {
+    -fx-background-color: -fx-focus-color, -fx-body-color;
+}
+
+/* B6 */
+.style_C04 {
+    -fx-wrap-text: false;
+    -fx-font-family: Consolas;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 16pt;
+    -fx-font-style: italic;
+    -fx-base: #000000;
+    -fx-body-color: -fx-color;
+    -fx-background-color: -fx-body-color;
+    -fx-text-fill: #ffffff;
+}
+/* C6 */
+.style_C09__text_field {
+    -fx-wrap-text: false;
+    -fx-font-family: Consolas;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 16pt;
+    -fx-font-style: italic;
+}
+
+/* B25 */
+.style_C00 {
+    -fx-wrap-text: false;
+    -fx-font-family: Calibri;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 11pt;
+
+}
+/* B26 */
+.style_C05 {
+    -fx-wrap-text: false;
+    -fx-font-family: Calibri;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 11pt;
+
+}
+/* E26 */
+.style_C06 {
+    -fx-wrap-text: false;
+    -fx-font-family: Calibri;
+    -fx-padding: 0 5px 0 5px;
+    -fx-font-size: 11pt;
+
+}
+
+/* _Table24_TableView_B25 [B25:M34] - TableStyleDark2 */
+/*TableStyleDark2.colors {
+	LT1: #ffffff;
+	DK1: #000000;
+	LT2: #e7e6e6;
+	DK2: #44546a;
+	ACCENT1: #4472c4;
+	ACCENT2: #ed7d31;
+	ACCENT3: #a5a5a5;
+	ACCENT4: #ffc000;
+	ACCENT5: #5b9bd5;
+	ACCENT6: #70ad47;
+	HLINK: #0563c1;
+	FOLHLINK: #954f72;
+}
+*/TableStyleDark2.wholeTable {
+	-fx-text-fill: #ffffff;
+	-fx-background-color: #4472c4;
+}
+TableStyleDark2.firstColumnStripe {
+	-fx-background-color: #335593;
+}
+TableStyleDark2.firstRowStripe {
+	-fx-background-color: #335593;
+}
+TableStyleDark2.lastColumn {
+	-fx-text-fill: #ffffff;
+	-fx-background-color: #335593;
+}
+TableStyleDark2.firstColumn {
+	-fx-text-fill: #ffffff;
+	-fx-background-color: #335593;
+}
+TableStyleDark2.headerRow {
+	-fx-text-fill: #ffffff;
+	-fx-background-color: #000000;
+}
+TableStyleDark2.totalRow {
+	-fx-text-fill: #ffffff;
+	-fx-background-color: #223962;
+}
+/* ------------ TableStyleDark2_T01__table_view -------------------*/
+.TableStyleDark2_T01__table_view * {
+    /* Reset radius */
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.TableStyleDark2_T01__table_view {
+    -fx-base: #000000;/*headerRow|wholeTable|firstRowStripe ACCENT|white - FillBackgroundColor|FontColor no-tint*/
+    -fx-body-color: -fx-color;
+    -fx-control-inner-background: #335593;/* firstRowStripe|white - FillBackgroundColor */
+    -fx-control-inner-background-alt: #4472c4;/* wholeTable|white - FillBackgroundColor */
+    -fx-text-fill: #ffffff;/* wholeTable|black - FontColor */
+    -fx-font-family: Calibri;
+    -fx-font-size: 11pt;
+}
+
+.TableStyleDark2_T01__table_view .table-row-cell {
+    /*-fx-text-fill: #ffffff;/* wholeTable|black - FontColor */
+	-fx-text-base-color: #ffffff;/* wholeTable|black - FontColor */
+	/*-fx-table-cell-border-color: lightgray;/*Removes all borders*/
+}
+
+.TableStyleDark2_T01__table_view .table-row-cell > .table-cell {
+	/*-fx-table-cell-border-color: lightgray;/*Removes left-right borders*/
+	-fx-padding: 0 5px 0 5px;
+	-fx-alignment: center-right;
+}
+
+.TableStyleDark2_T01__table_view .column-header-background * {
+    -fx-text-fill: #ffffff;/* headerRow|black - FontColor */
+    -fx-body-color: #000000;/* headerRow|wholeTable|white - FillBackgroundColor */
+    /*-fx-inner-border: #000000;/* headerRow|white - FillBackgroundColor */
+    -fx-text-base-color: #ffffff;/* headerRow|black - FontColor */
+    -fx-alignment: center-left;
+}
+
+.TableStyleDark2_T01__table_view .column-header {
+	-fx-padding: 0 5px 0 5px;
+    -fx-font-family: Calibri;
+    -fx-font-size: 11pt;
+    -fx-font-weight: bold;
+}
+
+
+/* _Table245_TableView_B37 [B37:M46] - TableStyleLight17 */
+/*TableStyleLight17.colors {
+	LT1: #ffffff;
+	DK1: #000000;
+	LT2: #e7e6e6;
+	DK2: #44546a;
+	ACCENT1: #4472c4;
+	ACCENT2: #ed7d31;
+	ACCENT3: #a5a5a5;
+	ACCENT4: #ffc000;
+	ACCENT5: #5b9bd5;
+	ACCENT6: #70ad47;
+	HLINK: #0563c1;
+	FOLHLINK: #954f72;
+}
+*/TableStyleLight17.wholeTable {
+	-fx-text-fill: #000000;
+}
+TableStyleLight17.firstColumnStripe {
+	-fx-background-color: #fbe4d5;
+}
+TableStyleLight17.firstRowStripe {
+	-fx-background-color: #fbe4d5;
+}
+TableStyleLight17.lastColumn {
+	-fx-text-fill: #000000;
+}
+TableStyleLight17.firstColumn {
+	-fx-text-fill: #000000;
+}
+TableStyleLight17.headerRow {
+	-fx-text-fill: #000000;
+}
+TableStyleLight17.totalRow {
+	-fx-text-fill: #000000;
+}
+/* ------------ TableStyleLight17_T1b__table_view -------------------*/
+.TableStyleLight17_T1b__table_view * {
+    /* Reset radius */
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.TableStyleLight17_T1b__table_view {
+    -fx-base: #ed7d31;/*headerRow|wholeTable|firstRowStripe ACCENT|white - FillBackgroundColor|FontColor no-tint*/
+    -fx-body-color: -fx-color;
+    -fx-control-inner-background: #fbe4d5;/* firstRowStripe|white - FillBackgroundColor */
+    -fx-control-inner-background-alt: #ffffff;/* wholeTable|white - FillBackgroundColor */
+    -fx-text-fill: #000000;/* wholeTable|black - FontColor */
+    -fx-font-family: Calibri;
+    -fx-font-size: 11pt;
+}
+
+.TableStyleLight17_T1b__table_view .table-row-cell {
+    /*-fx-text-fill: #000000;/* wholeTable|black - FontColor */
+	-fx-text-base-color: #000000;/* wholeTable|black - FontColor */
+	/*-fx-table-cell-border-color: lightgray;/*Removes all borders*/
+}
+
+.TableStyleLight17_T1b__table_view .table-row-cell > .table-cell {
+	/*-fx-table-cell-border-color: lightgray;/*Removes left-right borders*/
+	-fx-padding: 0 5px 0 5px;
+	-fx-alignment: center-right;
+}
+
+.TableStyleLight17_T1b__table_view .column-header-background * {
+    -fx-text-fill: #000000;/* headerRow|black - FontColor */
+    -fx-body-color: #ffffff;/* headerRow|wholeTable|white - FillBackgroundColor */
+    /*-fx-inner-border: #ffffff;/* headerRow|white - FillBackgroundColor */
+    -fx-text-base-color: #000000;/* headerRow|black - FontColor */
+    -fx-alignment: center-left;
+}
+
+.TableStyleLight17_T1b__table_view .column-header {
+	-fx-padding: 0 5px 0 5px;
+    -fx-font-family: Calibri;
+    -fx-font-size: 11pt;
+    -fx-font-weight: bold;
+}
+
+
+/* _Table2456_TableView_B49 [B49:M58] - TableStyleLight14 */
+/*TableStyleLight14.colors {
+	LT1: #ffffff;
+	DK1: #000000;
+	LT2: #e7e6e6;
+	DK2: #44546a;
+	ACCENT1: #4472c4;
+	ACCENT2: #ed7d31;
+	ACCENT3: #a5a5a5;
+	ACCENT4: #ffc000;
+	ACCENT5: #5b9bd5;
+	ACCENT6: #70ad47;
+	HLINK: #0563c1;
+	FOLHLINK: #954f72;
+}
+*/TableStyleLight14.wholeTable {
+	-fx-text-fill: #000000;
+}
+TableStyleLight14.firstColumnStripe {
+}
+TableStyleLight14.secondColumnStripe {
+}
+TableStyleLight14.firstRowStripe {
+}
+TableStyleLight14.secondRowStripe {
+}
+TableStyleLight14.lastColumn {
+	-fx-text-fill: #000000;
+}
+TableStyleLight14.firstColumn {
+	-fx-text-fill: #000000;
+}
+TableStyleLight14.headerRow {
+	-fx-text-fill: #ffffff;
+	-fx-background-color: #70ad47;
+}
+TableStyleLight14.totalRow {
+	-fx-text-fill: #000000;
+}
+/* ------------ TableStyleLight14_T18__table_view -------------------*/
+.TableStyleLight14_T18__table_view * {
+    /* Reset radius */
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.TableStyleLight14_T18__table_view {
+    -fx-base: #70ad47;/*headerRow|wholeTable|firstRowStripe ACCENT|white - FillBackgroundColor|FontColor no-tint*/
+    -fx-body-color: -fx-color;
+    -fx-control-inner-background: #ffffff;/* firstRowStripe|white - FillBackgroundColor */
+    -fx-control-inner-background-alt: #ffffff;/* wholeTable|white - FillBackgroundColor */
+    -fx-text-fill: #000000;/* wholeTable|black - FontColor */
+    -fx-font-family: Calibri;
+    -fx-font-size: 11pt;
+}
+
+.TableStyleLight14_T18__table_view .table-row-cell {
+    /*-fx-text-fill: #000000;/* wholeTable|black - FontColor */
+	-fx-text-base-color: #000000;/* wholeTable|black - FontColor */
+	/*-fx-table-cell-border-color: lightgray;/*Removes all borders*/
+}
+
+.TableStyleLight14_T18__table_view .table-row-cell > .table-cell {
+	/*-fx-table-cell-border-color: lightgray;/*Removes left-right borders*/
+	-fx-padding: 0 5px 0 5px;
+	-fx-alignment: center-right;
+}
+
+.TableStyleLight14_T18__table_view .column-header-background * {
+    -fx-text-fill: #ffffff;/* headerRow|black - FontColor */
+    -fx-body-color: #70ad47;/* headerRow|wholeTable|white - FillBackgroundColor */
+    /*-fx-inner-border: #70ad47;/* headerRow|white - FillBackgroundColor */
+    -fx-text-base-color: #ffffff;/* headerRow|black - FontColor */
+    -fx-alignment: center-left;
+}
+
+.TableStyleLight14_T18__table_view .column-header {
+	-fx-padding: 0 5px 0 5px;
+    -fx-font-family: Calibri;
+    -fx-font-size: 11pt;
+    -fx-font-weight: bold;
+}
+

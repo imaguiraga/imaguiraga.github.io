@@ -1,0 +1,110 @@
+* {
+	border-radius:0 0 0 0;
+	box-sizing: border-box;
+}
+/* B3 */
+.style_C00 {
+    display:table;
+    word-wrap: break-word;
+    font-family: Calibri;
+    font-size: 11pt;
+
+}
+
+.style_C00 > span {
+    display:table-cell;
+    vertical-align: bottom;
+    padding: 0 5px 0 5px;
+}
+/* B5 */
+.style_C03 {
+    display:table;
+    word-wrap: break-word;
+    font-family: Calibri;
+    font-size: 11pt;
+
+}
+
+.style_C03 > span {
+    display:table-cell;
+    vertical-align: bottom;
+    padding: 0 5px 0 5px;
+}
+
+/* _CCTSLiteType_TableView_B3 [B3:C5] - TableStyleLight14 */
+/*TableStyleLight14.colors {
+	LT1: #ffffff;
+	DK1: #000000;
+	LT2: #e7e6e6;
+	DK2: #44546a;
+	ACCENT1: #4472c4;
+	ACCENT2: #ed7d31;
+	ACCENT3: #a5a5a5;
+	ACCENT4: #ffc000;
+	ACCENT5: #5b9bd5;
+	ACCENT6: #70ad47;
+	HLINK: #0563c1;
+	FOLHLINK: #954f72;
+}
+*/TableStyleLight14.wholeTable {
+	color: #000000;
+}
+TableStyleLight14.firstColumnStripe {
+}
+TableStyleLight14.secondColumnStripe {
+}
+TableStyleLight14.firstRowStripe {
+}
+TableStyleLight14.secondRowStripe {
+}
+TableStyleLight14.lastColumn {
+	color: #000000;
+}
+TableStyleLight14.firstColumn {
+	color: #000000;
+}
+TableStyleLight14.headerRow {
+	color: #ffffff;
+	background-color: #70ad47;
+}
+TableStyleLight14.totalRow {
+	color: #000000;
+}
+/* ------------ TableStyleLight14_T18__table_view -------------------*/
+.TableStyleLight14_T18__table_view {
+    background-color: #70ad47;/*headerRow|wholeTable|firstRowStripe ACCENT|white - FillBackgroundColor|FontColor no-tint*/
+    color: #000000;/* wholeTable|black - FontColor */
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: Calibri;
+    font-size: 11pt;
+    text-align: right;
+}
+
+.TableStyleLight14_T18__table_view table,
+.TableStyleLight14_T18__table_view col,
+.TableStyleLight14_T18__table_view th,
+.TableStyleLight14_T18__table_view td {
+    border: 1px solid #578536;
+    padding: 0 5px 0 5px;
+}
+
+.TableStyleLight14_T18__table_view th {
+    color: #ffffff;/* headerRow|black - FontColor */
+    background-color: #70ad47;/* headerRow|wholeTable|white - FillBackgroundColor */
+    /*inner-border: #70ad47;/* headerRow|white - FillBackgroundColor */
+    font-family: Calibri;
+    font-size: 11pt;
+    font-weight: bold;
+    vertical-align: bottom;
+    text-align: left;
+}
+
+.TableStyleLight14_T18__table_view tr:nth-child(odd){
+    background-color: #ffffff;/* firstRowStripe|white - FillBackgroundColor */
+}
+
+.TableStyleLight14_T18__table_view tr:nth-child(even){
+    background-color: #ffffff;/* wholeTable|white - FillBackgroundColor */
+}
+
