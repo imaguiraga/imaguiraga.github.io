@@ -14,7 +14,7 @@
   <content> 
     <Group> 
       <children> 
-        <GridPane maxHeight="Infinity" maxWidth="Infinity" stylesheets="@Calorie_Amoritization-fxml-style.css">  
+        <GridPane maxHeight="Infinity" maxWidth="Infinity" stylesheets="@Calorie_Amortization-fxml-style.css">  
           <children> 
             <Label fx:id="B1" text="CALORIE AMORTIZATION SCHEDULE" styleClass="style_C37" prefWidth="1352.0" prefHeight="88.0" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="12" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
             <Label fx:id="B2" text="ONLY 0 MONTHS AND 8 DAYS" styleClass="style_C25" prefWidth="588.0" prefHeight="48.0" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="6" maxWidth="Infinity" GridPane.hgrow="ALWAYS"/>  
