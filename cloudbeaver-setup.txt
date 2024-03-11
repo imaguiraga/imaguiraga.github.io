@@ -1,0 +1,133 @@
+-v //c/Users/ibrahim/workspace/cloudbeaver/workspace:/opt/cloudbeaver/workspace
+
+
+docker run --restart unless-stopped -d --name cloudbeaver -p 8080:8978 -v //c/Users/ibrahim/workspace/cloudbeaver/workspace:/opt/cloudbeaver/workspace dbeaver/cloudbeaver 
+docker run -d --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password mysql
+
+
+Connection failed:
+Public Key Retrieval is not allowed
+allowPublicKeyRetrieval=true&useSSL=false
+https://stackoverflow.com/questions/50379839/connection-java-mysql-public-key-retrieval-is-not-allowed
+
+Error connecting to database:
+Connection failed:
+Access denied for user 'root'@'172.17.0.1' (using password: YES)
+
+
+sql tools 
+SQLTools MySQL/MariaDB/TiDB
+-------
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>aws-advanced-jdbc-wrapper</artifactId>
+    <version>1.0.0</version>
+    <parent>
+        <groupId>io.cloudbeaver</groupId>
+        <artifactId>drivers</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../</relativePath>
+    </parent>
+    <properties>
+        <deps.output.dir>aws-advanced-jdbc-wrapper</deps.output.dir>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>2.21.20</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>software.amazon.jdbc</groupId>
+            <artifactId>aws-advanced-jdbc-wrapper</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>rds</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>sts</artifactId>
+        </dependency>
+    </dependencies>
+</project>
+---------
+plugin.xmln
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <!-- Resource mappings -->
+    <extension point="org.jkiss.dbeaver.resources">
+        <resource name="drivers/db2"/>
+        <resource name="drivers/db2-jt400"/>
+        <resource name="drivers/duckdb"/>
+        <resource name="drivers/mysql/mysql8"/>
+        <resource name="drivers/mariadb"/>
+        <resource name="drivers/oracle"/>
+        <resource name="drivers/postgresql"/>
+        <resource name="drivers/clickhouse"/>
+        <resource name="drivers/clickhouse_com"/>
+        <resource name="drivers/jaybird"/>
+        <resource name="drivers/h2"/>
+        <resource name="drivers/h2_v2"/>
+        <resource name="drivers/sqlite/xerial"/>
+        <resource name="drivers/mssql/new"/>
+        <resource name="drivers/trino"/>
+        <resource name="drivers/aws-advanced-jdbc-wrapper"/>
+    </extension>
+
+    <!-- Bundles  -->
+    <extension point="org.jkiss.dbeaver.product.bundles">
+        <bundle id="drivers.db2" label="DB2 drivers"/>
+        <bundle id="drivers.duckdb" label="DuckDB drivers"/>
+        <bundle id="drivers.jt400" label="DB2 iSeries drivers"/>
+        <bundle id="drivers.mysql" label="MySQL drivers"/>
+        <bundle id="drivers.mariadb" label="MariaDB drivers"/>
+        <bundle id="drivers.oracle" label="Oracle drivers"/>
+        <bundle id="drivers.postgresql" label="PostgreSQL drivers"/>
+        <bundle id="drivers.clickhouse" label="Clickhouse (legacy) drivers"/>
+        <bundle id="drivers.clickhouse_com" label="Clickhouse drivers"/>
+        <bundle id="drivers.firebird" label="Firebird drivers"/>
+        <bundle id="drivers.h2" label="H2 drivers"/>
+        <bundle id="drivers.h2_v2" label="H2 v2 drivers"/>
+        <bundle id="drivers.sqlite.xerial" label="SQLite drivers"/>
+        <bundle id="drivers.mssql.new" label="SQL Server drivers"/>
+        <bundle id="drivers.trino" label="Trino drivers"/>
+        <bundle id="drivers.aws-advanced-jdbc-wrapper" label="aws-advanced-jdbc-wrapper"/>
+    </extension>
+
+    <!-- Enabled drivers -->
+    <extension point="io.cloudbeaver.driver">
+        <driver id="db2:db2"/>
+        <driver id="db2_i:db2_iseries"/>
+        <driver id="mysql:mysql8"/>
+        <driver id="mysql:mariaDB"/>
+        <driver id="oracle:oracle_thin"/>
+        <driver id="postgresql:postgres-jdbc"/>
+        <driver id="jaybird:jaybird"/>
+        <driver id="clickhouse:yandex_clickhouse"/>
+        <driver id="clickhouse:com_clickhouse"/>
+        <driver id="h2:h2_embedded"/>
+        <driver id="h2:h2_embedded_v2"/>
+        <driver id="sqlite:sqlite_jdbc"/>
+        <driver id="sqlserver:microsoft"/>
+        <driver id="generic:trino_jdbc"/>
+        <driver id="generic:duckdb_jdbc"/>
+        <driver id="generic:aws-advanced-jdbc-wrapper"/>
+    </extension>
+
+
+</plugin>
